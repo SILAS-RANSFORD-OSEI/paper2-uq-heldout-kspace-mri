@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Colab temporary files
+/content/
+*.log
+
+# MRI data and large arrays
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.mat
+*.nii
+*.nii.gz
+*.mha
+*.mhd
+*.dcm
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+
+# Private data and caches
+data/raw/
+data/private/
+cache/
+caches/
+
+# Generated results
+results/**
+!results/.gitkeep
+
+# Generated manuscript files
+manuscript/figures/**
+!manuscript/figures/.gitkeep
+
+manuscript/tables/**
+!manuscript/tables/.gitkeep
+
+manuscript/supplement/**
+!manuscript/supplement/.gitkeep
+
+# Secrets
+.env
+*.key
+credentials.json
+token.json

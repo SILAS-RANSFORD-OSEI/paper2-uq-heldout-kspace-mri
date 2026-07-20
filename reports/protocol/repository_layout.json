@@ -1,0 +1,10 @@
+{
+  "project_name": "Paper2_UQ_Heldout_KSpace_MRI",
+  "repository_name": "paper2-uq-heldout-kspace-mri",
+  "protocol_version": "v1.1",
+  "runtime_stage": "repository_initialization",
+  "runtime_device": "CPU",
+  "local_repository_root": "/content/paper2-uq-heldout-kspace-mri",
+  "persistent_drive_root": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI",
+  "directory_count": 19
+}

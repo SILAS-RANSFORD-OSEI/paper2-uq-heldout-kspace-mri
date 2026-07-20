@@ -1,0 +1,43 @@
+registry:
+  title: "Paper 2 endpoint registry"
+  version: "1.0"
+  status: "frozen-before-implementation"
+
+tasks:
+  P:
+    name: "Direct residual-risk prediction"
+    target_symbol: "u_hold_v"
+    prediction_symbol: "mu_j_v"
+    primary_metric: "mae"
+    secondary_metrics:
+      - "spearman"
+      - "pearson"
+      - "calibration_slope"
+      - "calibration_intercept"
+
+  R:
+    name: "Uncertainty-to-residual-risk alignment"
+    target_symbol: "u_hold_v"
+    binary_indicator_symbol: "h_v"
+    threshold_symbol: "tau_hold"
+    threshold_source: "D_cal"
+    threshold_quantile: 0.90
+    primary_metric: "auprc"
+    higher_is_better: true
+    secondary_metrics:
+      - "auroc"
+      - "regional_spearman"
+      - "top_decile_enrichment"
+      - "top_k_overlap"
+      - "volume_win_rate"
+
+  E:
+    name: "Uncertainty-to-prediction-deviation awareness"
+    target_symbol: "d_j_v"
+    primary_metric: "ause"
+    higher_is_better: false
+    ause_max_removal_fraction: 0.95
+    secondary_metrics:
+      - "risk_coverage_curve"
+      - "regional_spearman"
+      - "high_deviation_auprc"

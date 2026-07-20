@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript and software release."
+title: "Paper 2: Uncertainty versus Held-Out K-Space Residual Risk"
+type: software
+authors:
+  - family-names: "Osei"
+    given-names: "Silas Ransford"
+version: "0.1.0"
+date-released: "2026-07-20"
+repository-code: "https://github.com/PLACEHOLDER/paper2-uq-heldout-kspace-mri"
+license: "Proprietary-development"
+keywords:
+  - MRI reconstruction
+  - uncertainty quantification
+  - self-supervised learning
+  - k-space
+  - residual risk
+  - deep ensembles
+  - MC Dropout

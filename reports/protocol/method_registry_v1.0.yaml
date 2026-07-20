@@ -1,0 +1,102 @@
+registry:
+  title: "Paper 2 method registry"
+  version: "1.0"
+  status: "frozen-before-implementation"
+
+methods:
+  C0:
+    method_id: "C0"
+    symbol_suffix: "C0"
+    family: "deterministic_predictor"
+    name: "Deterministic A4 control"
+    mean_prediction_symbol: "mu_C0_v"
+    uncertainty_symbol: null
+    training_loss: "masked_huber"
+    primary_role: "Task P control"
+
+  U1:
+    method_id: "U1"
+    symbol_suffix: "MC"
+    family: "stochastic_single_model"
+    name: "MC-dropout predictive dispersion"
+    mean_prediction_symbol: "mu_MC_v"
+    uncertainty_symbol: "sigma_MC_v"
+    evaluation_score_symbol: "U_MC_v"
+    training_loss: "masked_huber"
+    primary_role: "Task R and Task E"
+
+  U2a:
+    method_id: "U2a"
+    symbol_suffix: "PE"
+    family: "point_predictor_ensemble"
+    name: "Point-predictor ensemble disagreement"
+    mean_prediction_symbol: "mu_PE_v"
+    uncertainty_symbol: "sigma_PE_v"
+    evaluation_score_symbol: "U_PE_v"
+    training_loss: "masked_huber"
+    primary_role: "Task R and Task E"
+
+  U2b:
+    method_id: "U2b"
+    symbol_suffix: "DE"
+    family: "probabilistic_deep_ensemble"
+    name: "Probabilistic deep ensemble"
+    mean_prediction_symbol: "mu_DE_v"
+    uncertainty_components:
+      within_variance_symbol: "sigma_within_sq_v"
+      between_variance_symbol: "sigma_between_sq_v"
+      total_variance_symbol: "sigma_total_sq_v"
+    evaluation_score_symbols:
+      - "U_DE_within_v"
+      - "U_DE_between_v"
+      - "U_DE_total_v"
+    training_loss: "masked_gaussian_nll"
+    primary_role: "Task R, Task E, and variance decomposition"
+
+  B1:
+    method_id: "B1"
+    symbol_suffix: "B1"
+    family: "deterministic_descriptor"
+    name: "Reconstruction magnitude"
+    map_definition: "abs(x_hat_v)"
+    training_loss: null
+
+  B2:
+    method_id: "B2"
+    symbol_suffix: "B2"
+    family: "deterministic_descriptor"
+    name: "Zero-filled magnitude"
+    map_definition: "abs(x_0_v)"
+    training_loss: null
+
+  B3:
+    method_id: "B3"
+    symbol_suffix: "B3"
+    family: "deterministic_descriptor"
+    name: "Reconstruction intervention magnitude"
+    map_definition: "abs(x_hat_v - x_0_v)"
+    training_loss: null
+
+  B4:
+    method_id: "B4"
+    symbol_suffix: "B4"
+    family: "deterministic_descriptor"
+    name: "Image-gradient magnitude"
+    map_definition: "abs(gradient(abs(x_hat_v)))"
+    training_loss: null
+
+  B5:
+    method_id: "B5"
+    symbol_suffix: "B5"
+    family: "acquisition_geometry_descriptor"
+    name: "Analytical PSF descriptor"
+    map_definition: "analytical_psf"
+    training_loss: null
+
+  B6:
+    method_id: "B6"
+    symbol_suffix: "B6"
+    family: "acquisition_geometry_descriptor"
+    name: "PSF gain-envelope descriptor"
+    map_definition: "q_PSF"
+    training_loss: null

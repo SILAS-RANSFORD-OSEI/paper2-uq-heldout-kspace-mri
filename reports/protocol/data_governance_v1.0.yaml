@@ -1,0 +1,55 @@
+governance:
+  version: "1.0"
+  status: "frozen-before-split-construction"
+
+  total_volumes: 281
+
+  paper2_sets:
+    D_fit:
+      planned_volumes: 181
+      permitted_uses:
+        - "gradient_based_training"
+
+    D_dev:
+      planned_volumes: 20
+      permitted_uses:
+        - "early_stopping"
+        - "hyperparameter_selection"
+        - "mc_sample_convergence"
+        - "numerical_debugging"
+
+    D_cal:
+      planned_volumes: 40
+      permitted_uses:
+        - "tau_hold_estimation"
+        - "tau_d_estimation"
+        - "uncertainty_decile_boundaries"
+        - "conformal_calibration"
+      prohibited_uses:
+        - "checkpoint_selection"
+        - "method_family_selection"
+
+    D_test:
+      planned_volumes: 40
+      permitted_uses:
+        - "final_independent_internal_testing"
+      prohibited_uses:
+        - "debugging"
+        - "hyperparameter_selection"
+        - "threshold_estimation"
+        - "qualitative_case_selection_before_freeze"
+        - "method_addition"
+
+  splitting_unit: "volume"
+  patient_leakage_check_required: true
+  outcome_based_stratification_prohibited: true
+
+  final_test_barrier:
+    opened: false
+    prerequisites:
+      - "all_method_configs_frozen"
+      - "all_random_seeds_frozen"
+      - "tau_hold_frozen"
+      - "all_metric_implementations_tested"
+      - "calibration_manifest_hashed"
+      - "git_worktree_clean"

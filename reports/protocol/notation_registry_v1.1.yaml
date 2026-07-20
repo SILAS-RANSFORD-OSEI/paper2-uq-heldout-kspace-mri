@@ -1,0 +1,351 @@
+registry:
+  title: "Paper 2 canonical notation registry"
+  version: "1.1"
+  status: "frozen-before-implementation"
+  governing_rule: >
+    One scientific concept has one canonical symbol, and one symbol
+    has one scientific meaning across equations, prose, tables,
+    figures, source code, configurations, and saved result columns.
+
+indices:
+  v:
+    meaning: "volume index"
+    code_name: "volume_index"
+
+  p:
+    meaning: "spatial pixel or pooled-region index"
+    code_name: "spatial_index"
+
+  m:
+    meaning: "ensemble-member index"
+    code_name: "member_index"
+
+  t:
+    meaning: "MC-dropout stochastic-pass index"
+    code_name: "stochastic_pass_index"
+
+  j:
+    meaning: "method index"
+    code_name: "method_index"
+
+  s:
+    meaning: "measurement-subset role"
+    allowed_values:
+      - "risk"
+      - "hold"
+    code_name: "subset_role"
+
+data_sets:
+  D_fit:
+    symbol: "D_fit"
+    meaning: "Paper 2 model-fitting volume set"
+    code_name: "fit_volume_ids"
+
+  D_dev:
+    symbol: "D_dev"
+    meaning: "Paper 2 model-development and checkpoint-selection set"
+    code_name: "development_volume_ids"
+
+  D_cal:
+    symbol: "D_cal"
+    meaning: "Paper 2 calibration set"
+    code_name: "calibration_volume_ids"
+
+  D_test:
+    symbol: "D_test"
+    meaning: "Paper 2 final independent internal test set"
+    code_name: "test_volume_ids"
+
+measurement_sets:
+  Omega_acq:
+    symbol: "Omega_acq_v"
+    latex: "\\Omega^{\\mathrm{acq}}_v"
+    meaning: "retrospectively defined acquired k-space set"
+    code_name: "omega_acquired"
+
+  Theta:
+    symbol: "Theta_v"
+    latex: "\\Theta_v"
+    meaning: "reconstruction-input k-space subset"
+    code_name: "theta_input"
+
+  Lambda_rec:
+    symbol: "Lambda_rec_v"
+    latex: "\\Lambda_{\\mathrm{rec},v}"
+    meaning: "self-supervised reconstruction-loss k-space subset"
+    code_name: "lambda_reconstruction"
+
+  Lambda_risk:
+    symbol: "Lambda_risk_v"
+    latex: "\\Lambda_{\\mathrm{risk},v}"
+    meaning: "residual-risk learning k-space subset"
+    code_name: "lambda_risk"
+
+  Lambda_hold:
+    symbol: "Lambda_hold_v"
+    latex: "\\Lambda_{\\mathrm{hold},v}"
+    meaning: "independent held-out verification k-space subset"
+    code_name: "lambda_holdout"
+
+measurements_and_images:
+  y:
+    symbol: "y"
+    latex: "y"
+    meaning: "measured multicoil k-space data only"
+    code_name: "kspace_measured"
+    prohibited_aliases:
+      - "binary_label"
+      - "class_label"
+      - "target_label"
+
+  x:
+    symbol: "x"
+    latex: "x"
+    meaning: "underlying image object in the forward model"
+    code_name: "image_object"
+
+  x_hat:
+    symbol: "x_hat_v"
+    latex: "\\widehat{x}_v"
+    meaning: "reconstructed image for volume v"
+    code_name: "image_reconstruction"
+
+  x_zero:
+    symbol: "x_0_v"
+    latex: "x_{0,v}"
+    meaning: "zero-filled image constructed from Theta_v"
+    code_name: "image_zero_filled"
+
+  C:
+    symbol: "C_v"
+    latex: "C_v"
+    meaning: "residual-risk predictor input tensor"
+    code_name: "predictor_input"
+
+target_construction:
+  r:
+    symbol: "r_s_v"
+    latex: "r_{s,v}"
+    meaning: "held-out k-space residual for subset role s"
+    code_name: "kspace_residual"
+
+  e:
+    symbol: "e_s_v"
+    latex: "e_{s,v}"
+    meaning: "backprojected measurement-residual energy only"
+    code_name: "residual_energy"
+    prohibited_aliases:
+      - "prediction_error"
+      - "absolute_error"
+
+  g:
+    symbol: "g_s_v"
+    latex: "g_{s,v}"
+    meaning: "probe-derived gain or noise-envelope map"
+    code_name: "gain_envelope"
+
+  z:
+    symbol: "z_s_v"
+    latex: "z_{s,v}"
+    meaning: "normalized measurement-residual energy"
+    code_name: "normalized_residual_energy"
+
+  u_risk:
+    symbol: "u_risk_v"
+    latex: "u_{\\mathrm{risk},v}"
+    meaning: "measurement-derived residual-risk training target"
+    code_name: "risk_target"
+
+  u_hold:
+    symbol: "u_hold_v"
+    latex: "u_{\\mathrm{hold},v}"
+    meaning: "independent measurement-derived verification target"
+    code_name: "holdout_target"
+
+  M_soft:
+    symbol: "M_soft_v"
+    latex: "M_{\\mathrm{soft},v}"
+    meaning: "soft spatial support mask"
+    code_name: "soft_support_mask"
+
+prediction:
+  mu:
+    symbol: "mu_j_v"
+    latex: "\\mu_{j,v}"
+    meaning: "mean residual-risk prediction from method j"
+    code_name: "mean_prediction"
+    prohibited_aliases:
+      - "u_hat"
+      - "u_bar"
+
+  d:
+    symbol: "d_j_v"
+    latex: "d_{j,v}"
+    meaning: "absolute prediction deviation from u_hold_v"
+    definition: "abs(u_hold_v - mu_j_v)"
+    code_name: "absolute_prediction_deviation"
+    prohibited_aliases:
+      - "e_j_v"
+      - "prediction_energy"
+
+uncertainty:
+  U:
+    symbol: "U_j_v"
+    latex: "U_{j,v}"
+    meaning: >
+      nonnegative uncertainty score supplied to Task R or Task E;
+      its exact construction is method-specific
+    code_name: "uncertainty_score"
+
+  sigma_MC:
+    symbol: "sigma_MC_v"
+    latex: "\\sigma_{\\mathrm{MC},v}"
+    meaning: "MC-dropout predictive standard deviation"
+    code_name: "mc_predictive_std"
+
+  sigma_PE:
+    symbol: "sigma_PE_v"
+    latex: "\\sigma_{\\mathrm{PE},v}"
+    meaning: "point-ensemble between-member standard deviation"
+    code_name: "point_ensemble_std"
+
+  sigma_within_sq:
+    symbol: "sigma_within_sq_v"
+    latex: "\\sigma^2_{\\mathrm{within},v}"
+    meaning: "probabilistic-ensemble mean within-member variance"
+    code_name: "within_model_variance"
+
+  sigma_between_sq:
+    symbol: "sigma_between_sq_v"
+    latex: "\\sigma^2_{\\mathrm{between},v}"
+    meaning: "probabilistic-ensemble between-member variance"
+    code_name: "between_model_variance"
+
+  sigma_total_sq:
+    symbol: "sigma_total_sq_v"
+    latex: "\\sigma^2_{\\mathrm{total},v}"
+    meaning: "sum of within-model and between-model variance"
+    code_name: "total_predictive_variance"
+
+labels_and_thresholds:
+  tau_hold:
+    symbol: "tau_hold"
+    latex: "\\tau_{\\mathrm{hold}}"
+    meaning: "calibration-fixed threshold applied to u_hold_v"
+    code_name: "holdout_risk_threshold"
+    prohibited_aliases:
+      - "tau_R"
+      - "test_quantile_threshold"
+
+  h:
+    symbol: "h_v"
+    latex: "h_v"
+    meaning: "binary indicator that u_hold_v is at least tau_hold"
+    code_name: "high_risk_indicator"
+    prohibited_aliases:
+      - "y_R"
+      - "risk_label_y"
+
+  tau_d:
+    symbol: "tau_d_j"
+    latex: "\\tau_{d,j}"
+    meaning: "calibration-fixed high-deviation threshold for method j"
+    code_name: "deviation_threshold"
+
+  a:
+    symbol: "a_j_v"
+    latex: "a_{j,v}"
+    meaning: "binary indicator that d_j_v is at least tau_d_j"
+    code_name: "high_deviation_indicator"
+
+constants:
+  epsilon_num:
+    symbol: "epsilon_num"
+    latex: "\\epsilon_{\\mathrm{num}}"
+    meaning: "small numerical-stability constant"
+    code_name: "epsilon_numerical"
+
+  alpha_log:
+    symbol: "alpha_log"
+    latex: "\\alpha_{\\log}"
+    meaning: "log-target dynamic-range scaling constant"
+    code_name: "log_scale_alpha"
+
+  delta_H:
+    symbol: "delta_H"
+    latex: "\\delta_H"
+    meaning: "Huber-loss transition parameter"
+    code_name: "huber_delta"
+
+  gamma:
+    symbol: "gamma"
+    latex: "\\gamma"
+    meaning: "conformal miscoverage level"
+    code_name: "conformal_miscoverage"
+
+  q_PSF:
+    symbol: "q_PSF"
+    latex: "q_{\\mathrm{PSF}}"
+    meaning: "Paper 1 gain-envelope descriptor"
+    code_name: "psf_gain_descriptor"
+    reserved: true
+
+conformal:
+  c:
+    symbol: "c_j_i"
+    latex: "c_{j,i}"
+    meaning: "normalized conformal score"
+    code_name: "conformal_score"
+
+  c_hat:
+    symbol: "c_hat_1_minus_gamma"
+    latex: "\\widehat{c}_{1-\\gamma}"
+    meaning: "calibration quantile of conformal scores"
+    code_name: "conformal_quantile"
+    note: >
+      The symbol q is not used for the conformal quantile because
+      q_PSF is already reserved.
+
+method_suffixes:
+  C0:
+    experiment_id: "C0"
+    suffix: "C0"
+    meaning: "deterministic control"
+
+  U1:
+    experiment_id: "U1"
+    suffix: "MC"
+    meaning: "MC-dropout method"
+
+  U2a:
+    experiment_id: "U2a"
+    suffix: "PE"
+    meaning: "point-predictor ensemble"
+
+  U2b:
+    experiment_id: "U2b"
+    suffix: "DE"
+    meaning: "probabilistic deep ensemble"
+
+prohibited_global_symbols:
+  y_R:
+    reason: "y is reserved for measured k-space"
+
+  e_j:
+    reason: "e is reserved for measurement-residual energy"
+
+  u_bar:
+    reason: "mean prediction is represented by mu"
+
+  tau_R:
+    reason: "use tau_hold because the threshold acts on u_hold"
+
+  U_between:
+    reason: >
+      use sigma_between_sq for variance and U_j only for the
+      evaluation score
+
+  q_hat:
+    reason: >
+      q is reserved by q_PSF; use c_hat_1_minus_gamma for
+      conformal calibration

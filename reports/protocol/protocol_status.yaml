@@ -1,0 +1,24 @@
+protocol:
+  version: "1.1"
+  status: "frozen-before-implementation"
+  freeze_date: "2026-07-20"
+  governing_notation_registry: "notation_registry_v1.1.yaml"
+
+  primary_question: >
+    Do practical model-derived uncertainty scores identify spatial
+    regions with elevated independent held-out k-space residual risk
+    in self-supervised accelerated brain MRI?
+
+  final_test_opened: false
+  calibration_frozen: false
+  paper2_models_trained: false
+
+  governing_reporting_guideline:
+    name: "CLAIM"
+    version: "2024"
+
+  supplementary_reporting_principles:
+    - "TRIPOD+AI"
+
+  non_applicable_primary_guidelines:
+    - "STARD-AI"

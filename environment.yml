@@ -1,0 +1,21 @@
+name: paper2-uq-mri
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy>=1.26
+  - pandas>=2.0
+  - scipy>=1.11
+  - scikit-learn>=1.4
+  - pyyaml>=6.0
+  - h5py>=3.10
+  - matplotlib>=3.8
+  - tqdm>=4.66
+  - pytest>=8.0
+  - pip
+  - pip:
+      - torch>=2.3
+      - pytest-cov>=5.0
+      - ruff>=0.5

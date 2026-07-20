@@ -1,0 +1,27 @@
+# Normalize text files across Colab, Linux, and Windows
+* text=auto
+
+*.py   text eol=lf
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.toml text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.csv  text eol=lf
+*.json text eol=lf
+*.cff  text eol=lf
+
+# Treat future scientific binary artifacts as binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.tif  binary
+*.tiff binary
+*.pdf  binary
+*.docx binary
+*.pt   binary
+*.pth  binary
+*.npz  binary
+*.npy  binary
+*.h5   binary
+*.hdf5 binary

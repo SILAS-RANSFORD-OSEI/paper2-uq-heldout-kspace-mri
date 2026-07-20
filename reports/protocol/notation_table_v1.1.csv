@@ -1,0 +1,42 @@
+symbol,latex,meaning,code_name,path
+a_j_v,"a_{j,v}",binary indicator that d_j_v is at least tau_d_j,high_deviation_indicator,labels_and_thresholds.a
+alpha_log,\alpha_{\log},log-target dynamic-range scaling constant,log_scale_alpha,constants.alpha_log
+c_hat_1_minus_gamma,\widehat{c}_{1-\gamma},calibration quantile of conformal scores,conformal_quantile,conformal.c_hat
+c_j_i,"c_{j,i}",normalized conformal score,conformal_score,conformal.c
+C_v,C_v,residual-risk predictor input tensor,predictor_input,measurements_and_images.C
+D_cal,,Paper 2 calibration set,calibration_volume_ids,data_sets.D_cal
+D_dev,,Paper 2 model-development and checkpoint-selection set,development_volume_ids,data_sets.D_dev
+D_fit,,Paper 2 model-fitting volume set,fit_volume_ids,data_sets.D_fit
+d_j_v,"d_{j,v}",absolute prediction deviation from u_hold_v,absolute_prediction_deviation,prediction.d
+D_test,,Paper 2 final independent internal test set,test_volume_ids,data_sets.D_test
+delta_H,\delta_H,Huber-loss transition parameter,huber_delta,constants.delta_H
+e_s_v,"e_{s,v}",backprojected measurement-residual energy only,residual_energy,target_construction.e
+epsilon_num,\epsilon_{\mathrm{num}},small numerical-stability constant,epsilon_numerical,constants.epsilon_num
+g_s_v,"g_{s,v}",probe-derived gain or noise-envelope map,gain_envelope,target_construction.g
+gamma,\gamma,conformal miscoverage level,conformal_miscoverage,constants.gamma
+h_v,h_v,binary indicator that u_hold_v is at least tau_hold,high_risk_indicator,labels_and_thresholds.h
+Lambda_hold_v,"\Lambda_{\mathrm{hold},v}",independent held-out verification k-space subset,lambda_holdout,measurement_sets.Lambda_hold
+Lambda_rec_v,"\Lambda_{\mathrm{rec},v}",self-supervised reconstruction-loss k-space subset,lambda_reconstruction,measurement_sets.Lambda_rec
+Lambda_risk_v,"\Lambda_{\mathrm{risk},v}",residual-risk learning k-space subset,lambda_risk,measurement_sets.Lambda_risk
+M_soft_v,"M_{\mathrm{soft},v}",soft spatial support mask,soft_support_mask,target_construction.M_soft
+mu_j_v,"\mu_{j,v}",mean residual-risk prediction from method j,mean_prediction,prediction.mu
+Omega_acq_v,\Omega^{\mathrm{acq}}_v,retrospectively defined acquired k-space set,omega_acquired,measurement_sets.Omega_acq
+q_PSF,q_{\mathrm{PSF}},Paper 1 gain-envelope descriptor,psf_gain_descriptor,constants.q_PSF
+r_s_v,"r_{s,v}",held-out k-space residual for subset role s,kspace_residual,target_construction.r
+sigma_between_sq_v,"\sigma^2_{\mathrm{between},v}",probabilistic-ensemble between-member variance,between_model_variance,uncertainty.sigma_between_sq
+sigma_MC_v,"\sigma_{\mathrm{MC},v}",MC-dropout predictive standard deviation,mc_predictive_std,uncertainty.sigma_MC
+sigma_PE_v,"\sigma_{\mathrm{PE},v}",point-ensemble between-member standard deviation,point_ensemble_std,uncertainty.sigma_PE
+sigma_total_sq_v,"\sigma^2_{\mathrm{total},v}",sum of within-model and between-model variance,total_predictive_variance,uncertainty.sigma_total_sq
+sigma_within_sq_v,"\sigma^2_{\mathrm{within},v}",probabilistic-ensemble mean within-member variance,within_model_variance,uncertainty.sigma_within_sq
+tau_d_j,"\tau_{d,j}",calibration-fixed high-deviation threshold for method j,deviation_threshold,labels_and_thresholds.tau_d
+tau_hold,\tau_{\mathrm{hold}},calibration-fixed threshold applied to u_hold_v,holdout_risk_threshold,labels_and_thresholds.tau_hold
+Theta_v,\Theta_v,reconstruction-input k-space subset,theta_input,measurement_sets.Theta
+u_hold_v,"u_{\mathrm{hold},v}",independent measurement-derived verification target,holdout_target,target_construction.u_hold
+U_j_v,"U_{j,v}","nonnegative uncertainty score supplied to Task R or Task E; its exact construction is method-specific
+",uncertainty_score,uncertainty.U
+u_risk_v,"u_{\mathrm{risk},v}",measurement-derived residual-risk training target,risk_target,target_construction.u_risk
+x,x,underlying image object in the forward model,image_object,measurements_and_images.x
+x_0_v,"x_{0,v}",zero-filled image constructed from Theta_v,image_zero_filled,measurements_and_images.x_zero
+x_hat_v,\widehat{x}_v,reconstructed image for volume v,image_reconstruction,measurements_and_images.x_hat
+y,y,measured multicoil k-space data only,kspace_measured,measurements_and_images.y
+z_s_v,"z_{s,v}",normalized measurement-residual energy,normalized_residual_energy,target_construction.z

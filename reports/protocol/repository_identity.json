@@ -1,0 +1,11 @@
+{
+  "repository_name": "paper2-uq-heldout-kspace-mri",
+  "package_name": "paper2-uq-mri",
+  "package_version": "0.1.0",
+  "protocol_version": "v1.1",
+  "notation_registry": "reports/protocol/notation_registry_v1.1.yaml",
+  "created_date": "2026-07-20",
+  "runtime_required": "CPU",
+  "license_status": "private-development",
+  "current_stage": "repository foundation"
+}

@@ -27,3 +27,26 @@ experiments:
     files_failed: 0
     full_cache_audit_passed: true
     final_test_opened: false
+  P2-Exp001A:
+    name: Split feasibility and prior-exposure audit
+    status: completed
+    result: PASS
+    split_created: false
+    final_test_opened: false
+  P2-Exp001B:
+    name: Split-policy freeze
+    status: completed
+    result: PASS
+    selected_strategy: S1_preserve_paper1_calibration_and_test
+    policy_version: '1.0'
+    volume_ids_assigned: false
+    final_test_opened: false
+split_governance:
+  policy_version: '1.0'
+  D_fit: 181
+  D_dev: 20
+  D_cal: 40
+  D_test: 40
+  D_test_designation: locked_reused_evaluation_cohort
+  fresh_test_claim_permitted: false
+  test_barrier: CLOSED

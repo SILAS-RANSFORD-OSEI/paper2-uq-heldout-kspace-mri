@@ -1,2 +1,27 @@
-experiment_id: P2-Exp001
-status: placeholder
+experiment:
+  id: P2-Exp001
+  name: Paper 2 volume-level split construction
+  status: policy_frozen_split_not_created
+  runtime_device: CPU
+policy:
+  file: reports/protocol/split_policy_v1.0.yaml
+  version: '1.0'
+  strategy: S1_preserve_paper1_calibration_and_test
+counts:
+  D_fit: 181
+  D_dev: 20
+  D_cal: 40
+  D_test: 40
+  total: 281
+source_roles:
+  D_fit: Paper 1 train
+  D_dev: Paper 1 train
+  D_cal: Paper 1 calibration
+  D_test: Paper 1 test
+fit_dev_assignment:
+  seed: 20260720
+  status: pending_metadata_stratification_audit
+  outcome_blind: true
+test_barrier:
+  status: CLOSED
+  test_predictions_generated: false

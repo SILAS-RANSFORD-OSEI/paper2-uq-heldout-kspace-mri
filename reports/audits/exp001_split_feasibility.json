@@ -1,0 +1,135 @@
+{
+  "experiment_id": "P2-Exp001A",
+  "stage": "split_feasibility_and_prior_exposure_audit",
+  "status": "PASS",
+  "runtime_device": "CPU",
+  "population_checks": {
+    "dataset_has_281_unique_volumes": true,
+    "split_has_281_unique_volumes": true,
+    "cache_has_281_unique_volumes": true,
+    "dataset_equals_split_population": true,
+    "split_equals_cache_population": true,
+    "split_volume_ids_unique": true
+  },
+  "paper1_population": {
+    "volume_counts": {
+      "train": 201,
+      "calibration": 40,
+      "test": 40
+    },
+    "slice_counts": {
+      "train": 3190,
+      "calibration": 636,
+      "test": 636
+    }
+  },
+  "prior_exposure_matrix": {
+    "train": {
+      "volume_count": 201,
+      "ssdu_gradient_fit": true,
+      "ssdu_model_selection": false,
+      "a4_gradient_fit": true,
+      "a4_model_selection": false,
+      "paper1_calibration": false,
+      "paper1_reported_evaluation": false,
+      "paper2_design_informed_by_reported_results": false
+    },
+    "calibration": {
+      "volume_count": 40,
+      "ssdu_gradient_fit": false,
+      "ssdu_model_selection": true,
+      "a4_gradient_fit": false,
+      "a4_model_selection": true,
+      "paper1_calibration": true,
+      "paper1_reported_evaluation": false,
+      "paper2_design_informed_by_reported_results": false
+    },
+    "test": {
+      "volume_count": 40,
+      "ssdu_gradient_fit": false,
+      "ssdu_model_selection": false,
+      "a4_gradient_fit": false,
+      "a4_model_selection": false,
+      "paper1_calibration": false,
+      "paper1_reported_evaluation": true,
+      "paper2_design_informed_by_reported_results": true
+    }
+  },
+  "candidate_strategies": [
+    {
+      "strategy_id": "S1_preserve_paper1_calibration_and_test",
+      "mapping": {
+        "D_fit": "181 volumes sampled from Paper 1 train",
+        "D_dev": "20 remaining Paper 1 train volumes",
+        "D_cal": "all 40 Paper 1 calibration volumes",
+        "D_test": "all 40 Paper 1 test volumes"
+      },
+      "count_feasible": true,
+      "reuses_existing_cache": true,
+      "requires_ssdu_retraining": false,
+      "requires_cache_regeneration": false,
+      "test_gradient_exposure": false,
+      "test_model_selection_exposure": false,
+      "test_previously_reported": true,
+      "pristine_for_paper2_design": false,
+      "interpretation": "Strongest upstream model independence, but the same Paper 1 test cohort already informed the Paper 2 study design. It is not a pristine new Paper 2 final test cohort."
+    },
+    {
+      "strategy_id": "S2_new_test_from_paper1_train",
+      "mapping": {
+        "D_test": "40 volumes selected from Paper 1 train",
+        "D_fit_D_dev_D_cal": "remaining 241 volumes"
+      },
+      "count_feasible": true,
+      "reuses_existing_cache": false,
+      "requires_ssdu_retraining": true,
+      "requires_cache_regeneration": true,
+      "test_gradient_exposure": true,
+      "test_model_selection_exposure": false,
+      "test_previously_reported": false,
+      "pristine_for_paper2_design": true,
+      "interpretation": "Provides a new Paper 2 test cohort, but those volumes were used for Paper 1 SSDU and A4 gradient fitting. Existing reconstructions and cache entries cannot support leakage-safe final evaluation."
+    },
+    {
+      "strategy_id": "S3_new_test_from_paper1_calibration",
+      "mapping": {
+        "D_test": "all 40 Paper 1 calibration volumes",
+        "D_fit_D_dev_D_cal": "the other 241 volumes"
+      },
+      "count_feasible": true,
+      "reuses_existing_cache": false,
+      "requires_ssdu_retraining": true,
+      "requires_cache_regeneration": true,
+      "test_gradient_exposure": false,
+      "test_model_selection_exposure": true,
+      "test_previously_reported": false,
+      "pristine_for_paper2_design": true,
+      "interpretation": "Avoids the published Paper 1 test cohort, but the volumes influenced Paper 1 checkpoint selection and calibration. Existing model-derived cache entries are not a pristine final-test substrate."
+    },
+    {
+      "strategy_id": "S4_add_new_unseen_volumes",
+      "mapping": {
+        "D_test": "40 newly audited AXT2 volumes absent from Paper 1",
+        "D_fit_D_dev_D_cal": "selected from the existing 281 volumes"
+      },
+      "count_feasible": false,
+      "reuses_existing_cache": false,
+      "requires_ssdu_retraining": false,
+      "requires_cache_regeneration": true,
+      "test_gradient_exposure": false,
+      "test_model_selection_exposure": false,
+      "test_previously_reported": false,
+      "pristine_for_paper2_design": true,
+      "interpretation": "Scientifically strongest fresh test strategy, but it changes the frozen population size and requires new data plus a protocol amendment."
+    }
+  ],
+  "conclusion": {
+    "status": "DECISION_REQUIRED",
+    "finding": "No mapping of the existing cached 281-volume population simultaneously provides a test cohort that is new to Paper 2 design, unexposed to Paper 1 gradient fitting/model selection, and reusable without regenerating upstream artifacts.",
+    "existing_cache_fresh_test_strategies": [],
+    "split_created": false,
+    "final_test_barrier": "CLOSED"
+  },
+  "created_utc": "2026-07-20T23:07:19.695631+00:00",
+  "report_written_utc": "2026-07-20T23:09:18.521544+00:00"
+}

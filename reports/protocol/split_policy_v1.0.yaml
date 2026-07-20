@@ -1,0 +1,117 @@
+policy:
+  title: Paper 2 volume-level split policy
+  version: '1.0'
+  status: frozen-before-volume-assignment
+  frozen_utc: '2026-07-20T23:12:12.284272+00:00'
+  selected_strategy: S1_preserve_paper1_calibration_and_test
+  source_feasibility_report: reports/audits/exp001_split_feasibility.json
+population:
+  dataset: fastMRI brain multicoil AXT2
+  total_volumes: 281
+  total_cached_slices: 4462
+  unit_of_assignment: volume
+  slice_level_assignment_prohibited: true
+  patient_or_volume_overlap_prohibited: true
+paper2_roles:
+  D_fit:
+    volume_count: 181
+    source_population: Paper 1 train
+    purpose:
+    - gradient fitting of Paper 2 trainable methods
+    - fitting point-predictor ensemble members
+    - fitting probabilistic ensemble members
+    permitted_for_model_selection: false
+    permitted_for_calibration: false
+    permitted_for_final_reporting: false
+  D_dev:
+    volume_count: 20
+    source_population: Paper 1 train
+    purpose:
+    - early stopping
+    - architecture or training diagnostics
+    - selection among protocol-permitted implementations
+    permitted_for_gradient_fitting: false
+    permitted_for_calibration: false
+    permitted_for_final_reporting: false
+  D_cal:
+    volume_count: 40
+    source_population: Paper 1 calibration
+    purpose:
+    - uncertainty calibration
+    - high-risk threshold estimation
+    - Task R operating-rule freezing
+    - Task E normalization freezing
+    permitted_for_gradient_fitting: false
+    permitted_for_model_selection: false
+    permitted_for_final_reporting: false
+  D_test:
+    volume_count: 40
+    source_population: Paper 1 test
+    designation: locked_reused_evaluation_cohort
+    purpose:
+    - single final Paper 2 evaluation
+    - primary and secondary endpoint estimation
+    - volume-level bootstrap confidence intervals
+    permitted_for_gradient_fitting: false
+    permitted_for_model_selection: false
+    permitted_for_calibration: false
+    permitted_for_threshold_selection: false
+    permitted_for_exploratory_method_revision: false
+    previously_reported_in_paper1: true
+    informed_paper2_design: true
+    fresh_pristine_test_claim_permitted: false
+fit_dev_allocation:
+  source_volume_count: 201
+  D_fit_volume_count: 181
+  D_dev_volume_count: 20
+  assignment_seed: 20260720
+  assignment_method_status: to_be_frozen_after_metadata_stratification_audit
+  required_properties:
+  - deterministic
+  - volume-level
+  - reproducible from committed source metadata
+  - balanced across available acquisition heterogeneity
+  - independent of targets, predictions, errors, and outcomes
+  prohibited_assignment_inputs:
+  - u_risk
+  - u_hold
+  - model predictions
+  - prediction deviations
+  - uncertainty scores
+  - performance metrics
+  - reported Paper 1 outcomes
+claim_constraints:
+  permitted:
+  - The evaluation cohort was excluded from Paper 1 SSDU and A4 gradient fitting.
+  - The evaluation cohort was excluded from Paper 1 checkpoint selection and calibration.
+  - The evaluation cohort was excluded from all Paper 2 fitting, selection, thresholding,
+    and calibration.
+  - Paper 2 methods and endpoints were frozen before Paper 2 test predictions were
+    generated.
+  prohibited:
+  - fresh independent Paper 2 test cohort
+  - previously unseen cohort
+  - prospectively untouched test set
+  - external validation cohort
+  - independent of Paper 2 study design
+  required_disclosure: The 40-volume Paper 1 test split was reused as a locked evaluation
+    cohort. It was independent of upstream model fitting and selection, but Paper
+    1 results from this cohort informed the motivation and design of Paper 2.
+test_barrier:
+  status: CLOSED
+  opening_requirements:
+  - D_fit and D_dev volume IDs committed
+  - D_cal and D_test role mappings committed
+  - all trainable Paper 2 methods fitted
+  - model-selection decisions frozen
+  - calibration rules frozen using D_cal only
+  - endpoint implementation tests passed
+  - test-opening authorization recorded
+governance:
+  split_created: false
+  volume_ids_assigned: false
+  paper2_test_predictions_generated: false
+  protocol_amendment_required: true
+  reason_for_amendment: The original phrase 'fresh Paper 2 final test cohort' cannot
+    be satisfied within the audited 281-volume cache without retraining or adding
+    new data.

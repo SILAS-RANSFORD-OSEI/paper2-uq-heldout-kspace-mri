@@ -1,0 +1,64 @@
+{
+  "project": {
+    "working_title": "Benchmarking model-derived uncertainty against held-out k-space residual risk in self-supervised accelerated MRI reconstruction",
+    "repository": "paper2-uq-heldout-kspace-mri",
+    "branch": "main",
+    "handoff_date": "2026-07-20",
+    "handoff_created_utc": "2026-07-20T23:17:02.696559+00:00"
+  },
+  "paper1_source": {
+    "repository": "https://github.com/SILAS-RANSFORD-OSEI/fourway-ssdu-reliability-mri-v2",
+    "commit": "da563ead8fb653539e1eeca29248b31f0121ca12",
+    "canonical_ssdu_checkpoint": "outputs/exp004_train_ssdu_v4_full/best_model.pt",
+    "canonical_a4_checkpoint": "outputs/exp008_reliability_ablation_full/A4_image_only/best_model.pt"
+  },
+  "completed_stages": {
+    "P2-Exp000": "PASS",
+    "P2-Exp001A": "PASS",
+    "P2-Exp001B": "PASS"
+  },
+  "cache_audit": {
+    "volumes": 281,
+    "files": 4462,
+    "successful_files": 4462,
+    "failed_files": 0,
+    "matrix_size_counts": {
+      "640x272": 16,
+      "640x320": 1660,
+      "768x392": 176,
+      "768x396": 2610
+    },
+    "maximum_target_transform_error": 0.0018019676,
+    "minimum_target_transform_correlation": 0.999999424
+  },
+  "frozen_split_policy": {
+    "strategy": "S1_preserve_paper1_calibration_and_test",
+    "D_fit": 181,
+    "D_dev": 20,
+    "D_cal": 40,
+    "D_test": 40,
+    "D_test_designation": "locked_reused_evaluation_cohort",
+    "fresh_test_claim_permitted": false,
+    "volume_ids_assigned": false
+  },
+  "governance": {
+    "paper2_models_trained": false,
+    "calibration_frozen": false,
+    "test_predictions_generated": false,
+    "final_test_barrier": "CLOSED"
+  },
+  "next_stage": {
+    "id": "P2-Exp001C",
+    "name": "Acquisition-metadata stratification audit",
+    "runtime": "CPU",
+    "objective": "Freeze an outcome-blind deterministic rule and assign 20 Paper 1 training volumes to D_dev and 181 to D_fit.",
+    "seed": 20260720
+  },
+  "important_paths": {
+    "paper2_repository": "/content/paper2-uq-heldout-kspace-mri",
+    "paper2_drive_root": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI",
+    "paper1_source_repository": "/content/fourway-ssdu-reliability-mri-v2",
+    "paper1_drive_root": "/content/drive/MyDrive/FOUR WAY MRI RESEARCH",
+    "temporary_local_cache": "/content/paper1_reliability_cache_local"
+  }
+}

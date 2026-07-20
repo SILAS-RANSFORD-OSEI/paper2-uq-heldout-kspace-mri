@@ -50,3 +50,12 @@ split_governance:
   D_test_designation: locked_reused_evaluation_cohort
   fresh_test_claim_permitted: false
   test_barrier: CLOSED
+continuation_handoff:
+  status: created
+  version: '1.0'
+  created_utc: '2026-07-20T23:17:02.696559+00:00'
+  handoff_file: reports/handoffs/PAPER2_HANDOFF_2026-07-20.md
+  resume_file: RESUME_HERE.md
+  state_file: reports/handoffs/current_state_v1.0.json
+  next_experiment: P2-Exp001C
+  final_test_barrier: CLOSED

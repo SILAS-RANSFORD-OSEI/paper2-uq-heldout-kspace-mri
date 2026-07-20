@@ -1,0 +1,50 @@
+{
+  "experiment_id": "P2-Exp000E",
+  "stage": "reliability_cache_manifest_audit",
+  "status": "PASS",
+  "cache_manifest_relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/cache_manifest.csv",
+  "cache_summary_relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/summary.json",
+  "manifest_sha256": "b13f90a7d105f817f8db73a919e907e21abc8668037615dd18ed304cc3018877",
+  "summary_sha256": "77850c001141de7cf4b7ea462a2d0513ed9ecf0edb334918128802158cffd0c5",
+  "manifest_rows": 4462,
+  "npz_files_discovered": 4462,
+  "resolved_manifest_rows": 4462,
+  "unique_volumes": 281,
+  "split_rows": {
+    "train": 3190,
+    "calibration": 636,
+    "test": 636
+  },
+  "split_volumes": {
+    "calibration": 40,
+    "test": 40,
+    "train": 201
+  },
+  "resolved_columns": {
+    "sample_id": "sample_id",
+    "volume_id": "volume_id",
+    "split": "split",
+    "slice_index": null,
+    "cache_path": "npz_path",
+    "height": "height",
+    "width": "width"
+  },
+  "checks": {
+    "required_columns_present": true,
+    "expected_total_rows": true,
+    "expected_train_rows": true,
+    "expected_calibration_rows": true,
+    "expected_test_rows": true,
+    "sample_ids_unique": true,
+    "sample_ids_complete": true,
+    "volume_ids_complete": true,
+    "no_train_calibration_overlap": true,
+    "no_train_test_overlap": true,
+    "no_calibration_test_overlap": true,
+    "all_manifest_rows_resolved": true,
+    "no_duplicate_resolved_paths": true,
+    "npz_count_matches_manifest": true
+  },
+  "failed_checks": [],
+  "created_utc": "2026-07-20T20:11:16.708632+00:00"
+}

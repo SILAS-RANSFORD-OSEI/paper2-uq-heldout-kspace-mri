@@ -1,0 +1,68 @@
+{
+  "experiment_id": "P2-Exp000",
+  "name": "Paper 1 artifact, cache, and provenance audit",
+  "status": "PASS",
+  "completed_utc": "2026-07-20T23:03:02.158048+00:00",
+  "runtime_device": "CPU",
+  "paper1_source": {
+    "repository": "https://github.com/SILAS-RANSFORD-OSEI/fourway-ssdu-reliability-mri-v2",
+    "commit": "da563ead8fb653539e1eeca29248b31f0121ca12"
+  },
+  "canonical_artifacts": {
+    "ssdu_checkpoint": "outputs/exp004_train_ssdu_v4_full/best_model.pt",
+    "a4_checkpoint": "outputs/exp008_reliability_ablation_full/A4_image_only/best_model.pt",
+    "artifact_registry_version": "1.2",
+    "cache_contract_version": "1.0"
+  },
+  "cache": {
+    "manifest_rows": 4462,
+    "successful_files": 4462,
+    "failed_files": 0,
+    "split_rows": {
+      "train": 3190,
+      "calibration": 636,
+      "test": 636
+    },
+    "matrix_sizes": {
+      "640x272": 16,
+      "640x320": 1660,
+      "768x392": 176,
+      "768x396": 2610
+    },
+    "target_transform": {
+      "maximum_absolute_error": 0.0018019676208496094,
+      "maximum_file_p99_absolute_error": 0.0014529228210449219,
+      "maximum_file_mean_absolute_error": 0.00047592190094292164,
+      "minimum_pearson_correlation": 0.9999994244093651
+    }
+  },
+  "required_pass_stages": {
+    "artifact_registry": "PASS",
+    "cache_manifest": "PASS",
+    "full_cache": "PASS",
+    "semantic_contract": "PASS",
+    "semantic_source_trace": "PASS"
+  },
+  "accepted_investigative_warnings": [
+    {
+      "stage": "schema_reconnaissance",
+      "status": "WARN",
+      "accepted_findings": [
+        "single_complete_schema_signature"
+      ],
+      "resolution": "Full fixed shapes were replaced by the validated template (6,H,W)/(H,W), allowing legitimate fastMRI matrix-size heterogeneity."
+    },
+    {
+      "stage": "exact_semantic_trace",
+      "status": "WARN",
+      "accepted_findings": [
+        "scalar_y_from_y_raw_relation_supported"
+      ],
+      "resolution": "The scalar hypothesis was rejected and replaced by the source-confirmed nonlinear quantile normalization and logarithmic transformation."
+    }
+  ],
+  "final_test_barrier": "CLOSED",
+  "paper2_models_trained": false,
+  "paper2_split_constructed": false,
+  "private_result_root": "results/exp000_audit"
+}

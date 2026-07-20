@@ -1,0 +1,111 @@
+{
+  "experiment_id": "P2-Exp000F",
+  "stage": "reliability_cache_npz_schema_reconnaissance",
+  "status": "WARN",
+  "runtime_device": "CPU",
+  "sampling": {
+    "files_per_split": 12,
+    "total_sampled_files": 36,
+    "distinct_sampled_volumes": 36,
+    "split_file_counts": {
+      "train": 12,
+      "calibration": 12,
+      "test": 12
+    }
+  },
+  "checks": {
+    "all_sampled_files_exist": true,
+    "all_sampled_archives_pass_zip_integrity": true,
+    "all_sampled_npz_files_open": true,
+    "no_object_arrays": true,
+    "no_nonfinite_values": true,
+    "single_key_set": true,
+    "single_complete_schema_signature": false,
+    "all_files_have_spatial_arrays": true
+  },
+  "failed_checks": [
+    "single_complete_schema_signature"
+  ],
+  "key_sets": [
+    {
+      "keys": [
+        "x",
+        "y",
+        "y_raw"
+      ],
+      "file_count": 36
+    }
+  ],
+  "schema_signatures": [
+    {
+      "signature": "x:6x768x396:float16|y:768x396:float16|y_raw:768x396:float16",
+      "file_count": 20
+    },
+    {
+      "signature": "x:6x640x320:float16|y:640x320:float16|y_raw:640x320:float16",
+      "file_count": 14
+    },
+    {
+      "signature": "x:6x640x272:float16|y:640x272:float16|y_raw:640x272:float16",
+      "file_count": 1
+    },
+    {
+      "signature": "x:6x768x392:float16|y:768x392:float16|y_raw:768x392:float16",
+      "file_count": 1
+    }
+  ],
+  "per_key_profiles": {
+    "x": {
+      "occurrence_count": 36,
+      "dtypes": {
+        "float16": 36
+      },
+      "ndims": {
+        "3": 36
+      },
+      "shapes": {
+        "(6, 640, 272)": 1,
+        "(6, 640, 320)": 14,
+        "(6, 768, 396)": 20,
+        "(6, 768, 392)": 1
+      },
+      "nonfinite_file_count": 0,
+      "object_file_count": 0
+    },
+    "y": {
+      "occurrence_count": 36,
+      "dtypes": {
+        "float16": 36
+      },
+      "ndims": {
+        "2": 36
+      },
+      "shapes": {
+        "(640, 272)": 1,
+        "(640, 320)": 14,
+        "(768, 396)": 20,
+        "(768, 392)": 1
+      },
+      "nonfinite_file_count": 0,
+      "object_file_count": 0
+    },
+    "y_raw": {
+      "occurrence_count": 36,
+      "dtypes": {
+        "float16": 36
+      },
+      "ndims": {
+        "2": 36
+      },
+      "shapes": {
+        "(640, 272)": 1,
+        "(640, 320)": 14,
+        "(768, 396)": 20,
+        "(768, 392)": 1
+      },
+      "nonfinite_file_count": 0,
+      "object_file_count": 0
+    }
+  },
+  "created_utc": "2026-07-20T20:16:53.907164+00:00"
+}

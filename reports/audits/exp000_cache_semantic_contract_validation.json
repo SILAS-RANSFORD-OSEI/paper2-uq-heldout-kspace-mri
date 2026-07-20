@@ -1,0 +1,198 @@
+{
+  "experiment_id": "P2-Exp000I",
+  "stage": "cache_semantic_contract_and_loader",
+  "status": "PASS",
+  "runtime_device": "CPU",
+  "contract_version": "1.0",
+  "actual_sample_count": 12,
+  "actual_validation_records": [
+    {
+      "sample_id": "file_brain_AXT2_206_2060058_slice000",
+      "split": "train",
+      "shape": [
+        3,
+        640,
+        272
+      ],
+      "maximum_absolute_error": 0.0014700889587402344,
+      "percentile_99_absolute_error": 0.0008561611175537109,
+      "mean_absolute_error": 0.00011853811156470329,
+      "pearson_correlation": 0.9999999603616706,
+      "reconstructed_quantile": 0.0122528076171875,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_208_2080591_slice000",
+      "split": "train",
+      "shape": [
+        3,
+        640,
+        320
+      ],
+      "maximum_absolute_error": 0.0013937950134277344,
+      "percentile_99_absolute_error": 0.0009202957153320312,
+      "mean_absolute_error": 0.00011013365292456001,
+      "pearson_correlation": 0.9999999572483386,
+      "reconstructed_quantile": 0.02679443359375,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_201_2010338_slice000",
+      "split": "train",
+      "shape": [
+        3,
+        768,
+        396
+      ],
+      "maximum_absolute_error": 0.0017313957214355469,
+      "percentile_99_absolute_error": 0.000995635986328125,
+      "mean_absolute_error": 0.00012677712948061526,
+      "pearson_correlation": 0.999999961471754,
+      "reconstructed_quantile": 0.0158538818359375,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_210_6001944_slice000",
+      "split": "train",
+      "shape": [
+        3,
+        768,
+        396
+      ],
+      "maximum_absolute_error": 0.0014183521270751953,
+      "percentile_99_absolute_error": 0.0008893013000488281,
+      "mean_absolute_error": 0.00011325608647894114,
+      "pearson_correlation": 0.9999999597389254,
+      "reconstructed_quantile": 0.007808685302734375,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_202_2020016_slice000",
+      "split": "calibration",
+      "shape": [
+        3,
+        640,
+        320
+      ],
+      "maximum_absolute_error": 0.0016374588012695312,
+      "percentile_99_absolute_error": 0.0009996891021728516,
+      "mean_absolute_error": 0.00013159928494133055,
+      "pearson_correlation": 0.999999958657965,
+      "reconstructed_quantile": 0.0185546875,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_208_2080228_slice000",
+      "split": "calibration",
+      "shape": [
+        3,
+        640,
+        320
+      ],
+      "maximum_absolute_error": 0.0013637542724609375,
+      "percentile_99_absolute_error": 0.0008122920989990234,
+      "mean_absolute_error": 9.669925202615559e-05,
+      "pearson_correlation": 0.9999999590692686,
+      "reconstructed_quantile": 0.036651611328125,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_209_2090077_slice000",
+      "split": "calibration",
+      "shape": [
+        3,
+        768,
+        396
+      ],
+      "maximum_absolute_error": 0.0015723705291748047,
+      "percentile_99_absolute_error": 0.0008156299591064453,
+      "mean_absolute_error": 9.188926196657121e-05,
+      "pearson_correlation": 0.999999963535903,
+      "reconstructed_quantile": 0.02337646484375,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_210_6001909_slice000",
+      "split": "calibration",
+      "shape": [
+        3,
+        768,
+        396
+      ],
+      "maximum_absolute_error": 0.0013835430145263672,
+      "percentile_99_absolute_error": 0.0009315013885498047,
+      "mean_absolute_error": 0.00012132527626818046,
+      "pearson_correlation": 0.9999999575232739,
+      "reconstructed_quantile": 0.01058197021484375,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_202_2020189_slice000",
+      "split": "test",
+      "shape": [
+        3,
+        640,
+        320
+      ],
+      "maximum_absolute_error": 0.0014607906341552734,
+      "percentile_99_absolute_error": 0.000896824523806572,
+      "mean_absolute_error": 0.00010922986984951422,
+      "pearson_correlation": 0.9999999601404485,
+      "reconstructed_quantile": 0.0260467529296875,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_208_2080126_slice000",
+      "split": "test",
+      "shape": [
+        3,
+        640,
+        320
+      ],
+      "maximum_absolute_error": 0.0015316009521484375,
+      "percentile_99_absolute_error": 0.0009799003601074219,
+      "mean_absolute_error": 0.00012543299817480147,
+      "pearson_correlation": 0.9999999555739112,
+      "reconstructed_quantile": 0.034820556640625,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_200_6002242_slice000",
+      "split": "test",
+      "shape": [
+        3,
+        768,
+        396
+      ],
+      "maximum_absolute_error": 0.0013930797576904297,
+      "percentile_99_absolute_error": 0.0008233785629272461,
+      "mean_absolute_error": 0.00010716284305090085,
+      "pearson_correlation": 0.9999999587429808,
+      "reconstructed_quantile": 0.031402587890625,
+      "status": "PASS"
+    },
+    {
+      "sample_id": "file_brain_AXT2_210_6001941_slice000",
+      "split": "test",
+      "shape": [
+        3,
+        768,
+        396
+      ],
+      "maximum_absolute_error": 0.0014941692352294922,
+      "percentile_99_absolute_error": 0.0009441375732421875,
+      "mean_absolute_error": 0.00011960288975387812,
+      "pearson_correlation": 0.9999999596618802,
+      "reconstructed_quantile": 0.01168060302734375,
+      "status": "PASS"
+    }
+  ],
+  "checks": {
+    "cache_contract_valid": true,
+    "all_actual_samples_loaded": true,
+    "all_actual_transforms_verified": true,
+    "repository_tests_passed": true
+  },
+  "failed_checks": [],
+  "created_utc": "2026-07-20T21:27:31.947402+00:00"
+}

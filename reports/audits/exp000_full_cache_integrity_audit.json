@@ -1,0 +1,68 @@
+{
+  "experiment_id": "P2-Exp000J",
+  "stage": "full_reliability_cache_integrity_audit",
+  "status": "PASS",
+  "runtime_device": "CPU",
+  "execution_storage": "Colab local SSD",
+  "cache_contract_version": "1.0",
+  "counts": {
+    "manifest_rows": 4462,
+    "successful_files": 4462,
+    "failed_files": 0,
+    "split_rows": {
+      "train": 3190,
+      "calibration": 636,
+      "test": 636
+    },
+    "matrix_sizes": {
+      "640x272": 16,
+      "640x320": 1660,
+      "768x392": 176,
+      "768x396": 2610
+    }
+  },
+  "numerical_ranges": {
+    "channel_minima": [
+      3.504753112792969e-05,
+      1.7881393432617188e-07,
+      1.0609626770019531e-05,
+      0.076171875,
+      0.0,
+      0.01922607421875
+    ],
+    "channel_maxima": [
+      8.640625,
+      8.71875,
+      12.359375,
+      1.0,
+      1.0,
+      1.3349609375
+    ],
+    "u_risk_minimum": 4.9948692321777344e-05,
+    "u_risk_maximum": 3.974609375,
+    "z_risk_minimum": 1.7881393432617188e-07,
+    "z_risk_maximum": 0.375244140625,
+    "support_mask_minimum": 0.076171875,
+    "support_mask_maximum": 1.0
+  },
+  "target_transform": {
+    "maximum_absolute_error": 0.0018019676208496094,
+    "maximum_file_p99_absolute_error": 0.0014529228210449219,
+    "maximum_file_mean_absolute_error": 0.00047592190094292164,
+    "minimum_pearson_correlation": 0.9999994244093651
+  },
+  "failure_type_counts": {},
+  "checks": {
+    "expected_manifest_rows": true,
+    "all_files_audited": true,
+    "all_files_passed": true,
+    "no_file_failures": true,
+    "expected_split_counts": true,
+    "all_matrix_sizes_permitted": true,
+    "support_mask_within_unit_interval": true,
+    "transform_maximum_error_within_loader_tolerance": true,
+    "transform_p99_error_within_loader_tolerance": true,
+    "transform_correlation_within_loader_tolerance": true
+  },
+  "failed_checks": []
+}

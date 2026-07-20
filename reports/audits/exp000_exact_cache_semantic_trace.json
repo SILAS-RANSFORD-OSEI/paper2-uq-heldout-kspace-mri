@@ -1,0 +1,187 @@
+{
+  "experiment_id": "P2-Exp000H",
+  "stage": "exact_cache_channel_and_target_transformation_trace",
+  "status": "WARN",
+  "runtime_device": "CPU",
+  "checks": {
+    "found_x_np_assignment": true,
+    "found_y_np_assignment": true,
+    "found_y_raw_np_assignment": true,
+    "found_relevant_helper_functions": true,
+    "sampled_files_have_six_channels": true,
+    "sampled_arrays_are_finite": true,
+    "support_channel_within_unit_interval": true,
+    "scalar_y_from_y_raw_relation_supported": false
+  },
+  "failed_checks": [
+    "scalar_y_from_y_raw_relation_supported"
+  ],
+  "assignment_windows": [
+    {
+      "start_line": 174,
+      "end_line": 247,
+      "matched_patterns": [
+        "masked_p99",
+        "masked_target",
+        "residual_target",
+        "savez",
+        "x_np_assignment",
+        "y_np_assignment",
+        "y_raw_np_assignment"
+      ],
+      "text": "   0174: \n   0175:                 support_mask = soft_anatomy_mask_from_magnitude(\n   0176:                     x0_rss,\n   0177:                     threshold=float(cfg[\"support_mask\"][\"threshold\"]),\n   0178:                     softness=float(cfg[\"support_mask\"][\"softness\"]),\n   0179:                     smooth_kernel_size=int(cfg[\"support_mask\"][\"smooth_kernel_size\"]),\n   0180:                     percentile=float(cfg[\"support_mask\"][\"percentile\"]),\n   0181:                     eps=float(cfg[\"normalization\"][\"epsilon\"]),\n   0182:                 )\n   0183: \n>> 0184:                 residual_target = generate_residual_risk_target(\n   0185:                     prediction=x_hat,\n   0186:                     target_kspace=prepared[\"kspace\"],\n   0187:                     sensitivities=prepared[\"sensitivities\"],\n   0188:                     risk_mask=risk_mask,\n>> 0189:                     patch_size=int(cfg[\"residual_target\"][\"patch_size\"]),\n>> 0190:                     dcf_kernel_size=int(cfg[\"residual_target\"][\"dcf_kernel_size\"]),\n>> 0191:                     psf_num_probes=int(cfg[\"residual_target\"][\"psf_num_probes\"]),\n>> 0192:                     psf_seed=int(cfg[\"residual_target\"][\"psf_seed\"]) + slice_idx,\n>> 0193:                     normalize_percentile=float(cfg[\"residual_target\"][\"normalize_percentile\"]),\n>> 0194:                     log_alpha=float(cfg[\"residual_target\"][\"log_alpha\"]),\n   0195:                     eps=float(cfg[\"normalization\"][\"epsilon\"]),\n   0196:                 )\n   0197: \n>> 0198:                 masked_target = apply_support_mask_to_target(\n>> 0199:                     residual_target[\"target\"],\n   0200:                     support_mask,\n   0201:                     power=float(cfg[\"support_mask\"].get(\"power\", 1.0)),\n   0202:                 )\n   0203: \n>> 0204:                 masked_p99 = torch.quantile(\n>> 0205:                     masked_target.detach().flatten(),\n>> 0206:                     float(cfg[\"residual_target\"][\"normalize_percentile\"]) / 100.0,\n   0207:                 )\n   0208: \n>> 0209:                 masked_norm = masked_target / (\n>> 0210:                     masked_p99 + float(cfg[\"normalization\"][\"epsilon\"])\n   0211:                 )\n   0212: \n   0213:                 masked_log = torch.log1p(\n>> 0214:                     float(cfg[\"residual_target\"][\"log_alpha\"]) * masked_norm\n   0215:                 )\n   0216: \n   0217:                 input_dict = build_reliability_input_tensor(\n   0218:                     x_hat=x_hat,\n   0219:                     x0=prepared[\"x0\"],\n   0220:                     support_mask=support_mask,\n   0221:                     risk_mask=risk_mask,\n>> 0222:                     psf_gain=residual_target[\"psf_envelope\"],\n   0223:                     normalize_percentile=float(cfg[\"normalization\"][\"reference_percentile\"]),\n   0224:                     eps=float(cfg[\"normalization\"][\"epsilon\"]),\n   0225:                 )\n   0226: \n>> 0227:                 x_np = input_dict[\"input\"][0].detach().cpu().numpy().astype(save_dtype)\n>> 0228:                 y_np = masked_log[0].detach().cpu().numpy().astype(save_dtype)\n>> 0229:                 y_raw_np = masked_target[0].detach().cpu().numpy().astype(save_dtype)\n   0230: \n   0231:                 split_dir = cache_dir / split\n   0232:                 split_dir.mkdir(parents=True, exist_ok=True)\n   0233: \n   0234:                 sample_id = f\"{volume_id}_slice{slice_idx:03d}\"\n   0235:                 npz_path = split_dir / f\"{sample_id}.npz\"\n   0236: \n>> 0237:                 np.savez_compressed(\n   0238:                     npz_path,\n   0239:                     x=x_np,\n   0240:                     y=y_np,\n   0241:                     y_raw=y_raw_np,\n   0242:                 )\n   0243: \n   0244:                 y_stats = tensor_stats(masked_log)\n   0245:                 mask_stats = tensor_stats(support_mask)\n   0246: \n   0247:                 rows.append("
+    }
+  ],
+  "helper_functions": [
+    {
+      "relative_path": "src/fourway_mri/operators.py",
+      "function_name": "apply_kspace_mask",
+      "start_line": 35,
+      "end_line": 49,
+      "source": "def apply_kspace_mask(kspace: torch.Tensor, mask_1d: torch.Tensor) -> torch.Tensor:\n    \"\"\"\n    Apply phase-encoding mask to batched multicoil k-space.\n\n    kspace:\n        (B, C, H, W) complex\n\n    mask_1d:\n        (W,)\n    \"\"\"\n    if not torch.is_complex(kspace):\n        raise TypeError(\"kspace must be complex.\")\n\n    mask = broadcast_mask(mask_1d, kspace)\n    return kspace * mask"
+    },
+    {
+      "relative_path": "src/fourway_mri/reliability_inputs.py",
+      "function_name": "build_reliability_input_tensor",
+      "start_line": 112,
+      "end_line": 214,
+      "source": "def build_reliability_input_tensor(\n    x_hat: torch.Tensor,\n    x0: torch.Tensor,\n    support_mask: torch.Tensor,\n    risk_mask: torch.Tensor,\n    psf_gain: torch.Tensor,\n    normalize_percentile: float = 99.0,\n    eps: float = 1e-8,\n) -> Dict[str, torch.Tensor]:\n    \"\"\"\n    Build the 6-channel PSF-aware ReliabilityCNN input tensor.\n\n    Channels:\n        0: |x_hat|\n        1: |x0|\n        2: |x_hat - x0|\n        3: M_soft\n        4: analytical PSF from Lambda_risk\n        5: sensitivity-aware PSF/gain map q_psf\n\n    The residual target itself is not included.\n    \"\"\"\n    if not torch.is_complex(x_hat):\n        raise TypeError(\"x_hat must be complex.\")\n\n    if not torch.is_complex(x0):\n        raise TypeError(\"x0 must be complex.\")\n\n    if x_hat.shape != x0.shape:\n        raise ValueError(f\"x_hat and x0 shape mismatch: {x_hat.shape} vs {x0.shape}\")\n\n    if x_hat.ndim != 3:\n        raise ValueError(f\"x_hat must have shape (B,H,W), got {tuple(x_hat.shape)}\")\n\n    if support_mask.shape != x_hat.shape:\n        raise ValueError(\n            f\"support_mask must have shape {tuple(x_hat.shape)}, \"\n            f\"got {tuple(support_mask.shape)}\"\n        )\n\n    if psf_gain.shape != x_hat.shape:\n        raise ValueError(\n            f\"psf_gain must have shape {tuple(x_hat.shape)}, \"\n            f\"got {tuple(psf_gain.shape)}\"\n        )\n\n    b, h, w = x_hat.shape\n\n    if risk_mask.ndim != 1 or risk_mask.shape[0] != w:\n        raise ValueError(\n            f\"risk_mask must have shape ({w},), got {tuple(risk_mask.shape)}\"\n        )\n\n    x_hat_mag = torch.abs(x_hat)\n    x0_mag = torch.abs(x0)\n    intervention_mag = torch.abs(x_hat - x0)\n\n    x_hat_ch = robust_normalize_per_sample(x_hat_mag, normalize_percentile, eps)\n    x0_ch = robust_normalize_per_sample(x0_mag, normalize_percentile, eps)\n    intervention_ch = robust_normalize_per_sample(\n        intervention_mag,\n        normalize_percentile,\n        eps,\n    )\n\n    mask_ch = torch.clamp(support_mask.to(dtype=x_hat_mag.dtype), 0.0, 1.0)\n\n    psf = analytical_cartesian_psf_from_mask(\n        risk_mask=risk_mask.to(device=x_hat.device),\n        height=h,\n        normalize=True,\n        eps=eps,\n    ).to(device=x_hat.device, dtype=x_hat_mag.dtype)\n\n    psf_ch = psf[None, :, :].repeat(b, 1, 1)\n\n    psf_gain_ch = robust_normalize_per_sample(\n        psf_gain.to(dtype=x_hat_mag.dtype),\n        normalize_percentile,\n        eps,\n    )\n\n    input_tensor = torch.stack(\n        [\n            x_hat_ch,\n            x0_ch,\n            intervention_ch,\n            mask_ch,\n            psf_ch,\n            psf_gain_ch,\n        ],\n        dim=1,\n    )\n\n    return {\n        \"input\": input_tensor,\n        \"x_hat_mag\": x_hat_mag,\n        \"x0_mag\": x0_mag,\n        \"intervention_mag\": intervention_mag,\n        \"support_mask\": mask_ch,\n        \"analytical_psf\": psf_ch,\n        \"psf_gain\": psf_gain_ch,\n    }"
+    },
+    {
+      "relative_path": "src/fourway_mri/residuals.py",
+      "function_name": "generate_residual_risk_target",
+      "start_line": 316,
+      "end_line": 406,
+      "source": "def generate_residual_risk_target(\n    prediction: torch.Tensor,\n    target_kspace: torch.Tensor,\n    sensitivities: torch.Tensor,\n    risk_mask: torch.Tensor,\n    patch_size: int = 16,\n    dcf_kernel_size: int = 9,\n    psf_num_probes: int = 4,\n    psf_seed: int = 0,\n    normalize_percentile: float = 99.0,\n    log_alpha: float = 10.0,\n    eps: float = 1e-8,\n) -> Dict[str, torch.Tensor]:\n    \"\"\"\n    Generate a PSF-aware, patch-aggregated residual-risk target.\n\n    Pipeline:\n        1. residual on Lambda_risk,\n        2. density compensation,\n        3. complex adjoint backprojection,\n        4. squared-magnitude residual energy,\n        5. patch-level energy envelope,\n        6. PSF/gain normalization,\n        7. robust normalization and log compression.\n    \"\"\"\n    dcf_weights = cartesian_line_density_compensation(\n        risk_mask,\n        kernel_size=dcf_kernel_size,\n        eps=eps,\n        normalize_mean=True,\n    )\n\n    residual = risk_kspace_residual(\n        prediction=prediction,\n        target_kspace=target_kspace,\n        sensitivities=sensitivities,\n        risk_mask=risk_mask,\n    )\n\n    residual_comp = apply_line_weights_to_kspace(\n        residual,\n        dcf_weights,\n    )\n\n    residual_complex = complex_residual_backprojection(\n        residual_comp,\n        sensitivities,\n    )\n\n    residual_mag = residual_energy(residual_complex)\n\n    residual_envelope = same_avg_pool2d(\n        residual_mag,\n        kernel_size=patch_size,\n    )\n\n    psf_gain = estimate_psf_gain_map(\n        sensitivities=sensitivities,\n        risk_mask=risk_mask,\n        dcf_weights=dcf_weights,\n        num_probes=psf_num_probes,\n        seed=psf_seed,\n    )\n\n    psf_envelope = same_avg_pool2d(\n        psf_gain,\n        kernel_size=patch_size,\n    )\n\n    target_psf_normalized = residual_envelope / (psf_envelope + eps)\n\n    norm = robust_target_normalization(\n        target_psf_normalized,\n        percentile=normalize_percentile,\n        log_alpha=log_alpha,\n        eps=eps,\n    )\n\n    return {\n        \"risk_residual_kspace\": residual,\n        \"dcf_weights\": dcf_weights,\n        \"residual_complex\": residual_complex,\n        \"residual_energy\": residual_mag,\n        \"residual_envelope\": residual_envelope,\n        \"psf_gain\": psf_gain,\n        \"psf_envelope\": psf_envelope,\n        \"target\": target_psf_normalized,\n        \"target_norm\": norm[\"target_norm\"],\n        \"target_log\": norm[\"target_log\"],\n        \"target_p99\": norm[\"target_p99\"],\n    }"
+    },
+    {
+      "relative_path": "src/fourway_mri/residuals.py",
+      "function_name": "soft_anatomy_mask_from_magnitude",
+      "start_line": 410,
+      "end_line": 446,
+      "source": "def soft_anatomy_mask_from_magnitude(\n    magnitude: torch.Tensor,\n    threshold: float = 0.05,\n    softness: float = 0.02,\n    smooth_kernel_size: int = 9,\n    percentile: float = 99.0,\n    eps: float = 1e-8,\n) -> torch.Tensor:\n    \"\"\"\n    Build a soft anatomy/support mask from an image magnitude.\n\n    The mask is derived only from reconstructed/acquired-data images, such as\n    the initial adjoint RSS or the frozen reconstruction magnitude.\n    \"\"\"\n    if not torch.is_floating_point(magnitude):\n        raise TypeError(\"magnitude must be a real floating tensor.\")\n\n    if magnitude.ndim != 3:\n        raise ValueError(f\"magnitude must have shape (B,H,W), got {tuple(magnitude.shape)}\")\n\n    b = magnitude.shape[0]\n    flat = magnitude.reshape(b, -1)\n\n    q = torch.quantile(\n        flat.detach(),\n        float(percentile) / 100.0,\n        dim=1,\n    ).to(device=magnitude.device, dtype=magnitude.dtype)\n\n    mag_norm = magnitude / (q[:, None, None] + eps)\n\n    soft = torch.sigmoid((mag_norm - float(threshold)) / (float(softness) + eps))\n\n    if smooth_kernel_size > 1:\n        soft = same_avg_pool2d(soft, kernel_size=int(smooth_kernel_size))\n\n    return torch.clamp(soft, 0.0, 1.0)"
+    },
+    {
+      "relative_path": "src/fourway_mri/residuals.py",
+      "function_name": "apply_support_mask_to_target",
+      "start_line": 449,
+      "end_line": 468,
+      "source": "def apply_support_mask_to_target(\n    target: torch.Tensor,\n    support_mask: torch.Tensor,\n    power: float = 1.0,\n) -> torch.Tensor:\n    \"\"\"\n    Apply a soft support/anatomy mask to a residual-risk target.\n    \"\"\"\n    if target.shape != support_mask.shape:\n        raise ValueError(\n            f\"target and support_mask must have same shape, got \"\n            f\"{tuple(target.shape)} and {tuple(support_mask.shape)}\"\n        )\n\n    mask = torch.clamp(support_mask, 0.0, 1.0)\n\n    if power != 1.0:\n        mask = mask ** float(power)\n\n    return target * mask"
+    },
+    {
+      "relative_path": "src/fourway_mri/sensitivity.py",
+      "function_name": "indices_to_torch_mask",
+      "start_line": 10,
+      "end_line": 24,
+      "source": "def indices_to_torch_mask(\n    width: int,\n    indices: Iterable[int],\n    device: torch.device | str | None = None,\n    dtype: torch.dtype = torch.float32,\n) -> torch.Tensor:\n    mask = torch.zeros(width, device=device, dtype=dtype)\n    idx = torch.as_tensor(list(indices), device=device, dtype=torch.long)\n\n    if idx.numel() > 0:\n        if torch.any(idx < 0) or torch.any(idx >= width):\n            raise ValueError(\"Mask index out of bounds.\")\n        mask[idx] = 1.0\n\n    return mask"
+    },
+    {
+      "relative_path": "src/fourway_mri/ssdu_dataset.py",
+      "function_name": "load_mask_records",
+      "start_line": 15,
+      "end_line": 18,
+      "source": "def load_mask_records(mask_indices_json: str | Path) -> dict:\n    with open(mask_indices_json, \"r\", encoding=\"utf-8\") as f:\n        obj = json.load(f)\n    return {rec[\"volume_id\"]: rec for rec in obj[\"records\"]}"
+    }
+  ],
+  "target_configuration": {
+    "residual_target": {
+      "patch_size": 16,
+      "dcf_kernel_size": 9,
+      "psf_num_probes": 4,
+      "psf_seed": 20260529,
+      "normalize_percentile": 99.0,
+      "log_alpha": 10.0
+    },
+    "normalization": {
+      "reference_percentile": 99.0,
+      "epsilon": 1e-08
+    },
+    "support_mask": {
+      "source": "x0_rss",
+      "threshold": 0.05,
+      "softness": 0.02,
+      "smooth_kernel_size": 15,
+      "percentile": 99.0,
+      "power": 1.0
+    },
+    "model": {
+      "features": 16,
+      "init_step_size": 0.1
+    }
+  },
+  "target_relationship": {
+    "interpretation_under_test": "legacy_y approximately equals a per-file scalar times legacy_y_raw",
+    "supported": false,
+    "median_relative_fit_error": 0.28131577808688846,
+    "maximum_relative_fit_error": 0.3522853081595661,
+    "scale_minimum": 67.37338760428392,
+    "scale_median": 248.23381771839001,
+    "scale_maximum": 530.5846604557397
+  },
+  "aggregate_channel_profiles": {
+    "0": {
+      "sample_count": 12,
+      "minimum_observed": 0.004150390625,
+      "maximum_observed": 2.7578125,
+      "median_sample_mean": 0.1432795152068138,
+      "median_sample_std": 0.21076445281505585,
+      "all_finite": true
+    },
+    "1": {
+      "sample_count": 12,
+      "minimum_observed": 9.5367431640625e-07,
+      "maximum_observed": 2.53125,
+      "median_sample_mean": 0.10928809270262718,
+      "median_sample_std": 0.23110642284154892,
+      "all_finite": true
+    },
+    "2": {
+      "sample_count": 12,
+      "minimum_observed": 3.904104232788086e-05,
+      "maximum_observed": 4.71875,
+      "median_sample_mean": 0.4050397574901581,
+      "median_sample_std": 0.16546422243118286,
+      "all_finite": true
+    },
+    "3": {
+      "sample_count": 12,
+      "minimum_observed": 0.07635498046875,
+      "maximum_observed": 1.0,
+      "median_sample_mean": 0.2671002447605133,
+      "median_sample_std": 0.3516876846551895,
+      "all_finite": true
+    },
+    "4": {
+      "sample_count": 12,
+      "minimum_observed": 0.0,
+      "maximum_observed": 1.0,
+      "median_sample_mean": 0.0004163873236393556,
+      "median_sample_std": 0.012420672923326492,
+      "all_finite": true
+    },
+    "5": {
+      "sample_count": 12,
+      "minimum_observed": 0.023956298828125,
+      "maximum_observed": 1.1669921875,
+      "median_sample_mean": 0.24969086796045303,
+      "median_sample_std": 0.32513730227947235,
+      "all_finite": true
+    }
+  },
+  "manifest_semantic_columns": [
+    "channels",
+    "target_finite",
+    "target_mean",
+    "target_std",
+    "target_p50",
+    "target_p90",
+    "target_p95",
+    "target_p99",
+    "target_max",
+    "support_mask_mean",
+    "lambda_risk_used",
+    "lambda_hold_used",
+    "_normalized_split"
+  ],
+  "created_utc": "2026-07-20T21:20:06.824622+00:00"
+}

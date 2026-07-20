@@ -1,0 +1,138 @@
+contract:
+  title: "Paper 1 reliability-cache semantic contract"
+  version: "1.0"
+  status: "frozen-after-source-and-numerical-audit"
+
+  source_repository:
+    url: >
+      https://github.com/SILAS-RANSFORD-OSEI/
+      fourway-ssdu-reliability-mri-v2
+    commit: "da563ead8fb653539e1eeca29248b31f0121ca12"
+
+  governing_rule: >
+    Legacy storage keys are translated at the cache boundary.
+    They must not propagate into Paper 2 scientific analysis code.
+
+archive:
+  format: "compressed NumPy NPZ"
+  allow_pickle: false
+
+  required_legacy_keys:
+    - "x"
+    - "y"
+    - "y_raw"
+
+  exact_key_set_required: true
+
+spatial_template:
+  symbol_height: "H"
+  symbol_width: "W"
+  fixed_matrix_size_required: false
+
+  permitted_observed_sizes:
+    - [640, 272]
+    - [640, 320]
+    - [768, 392]
+    - [768, 396]
+
+legacy_input_tensor:
+  storage_key: "x"
+  storage_shape: [6, "H", "W"]
+  storage_dtype: "float16"
+  semantic_code_name: "cache_input_6ch"
+  manuscript_symbol: null
+
+  channels:
+    - index: 0
+      semantic_code_name: "reconstruction_magnitude_normalized"
+      meaning: "Robust-normalized magnitude of the frozen reconstruction."
+      source_quantity: "abs(x_hat_v)"
+      manuscript_role: "First channel of C_v"
+
+    - index: 1
+      semantic_code_name: "zero_filled_magnitude_normalized"
+      meaning: "Robust-normalized zero-filled image magnitude."
+      source_quantity: "abs(x_0_v)"
+      manuscript_role: "Second channel of C_v"
+
+    - index: 2
+      semantic_code_name: "intervention_magnitude_normalized"
+      meaning: "Robust-normalized reconstruction intervention magnitude."
+      source_quantity: "abs(x_hat_v - x_0_v)"
+      manuscript_role: "Third channel of C_v"
+
+    - index: 3
+      semantic_code_name: "support_mask"
+      meaning: "Soft anatomical support mask."
+      manuscript_symbol: "M_soft_v"
+
+    - index: 4
+      semantic_code_name: "analytical_psf"
+      meaning: >
+        Analytical Cartesian PSF constructed from
+        Lambda_risk_v.
+      manuscript_symbol: null
+
+    - index: 5
+      semantic_code_name: "psf_gain_descriptor"
+      meaning: >
+        Sensitivity-aware PSF/gain descriptor constructed
+        from Lambda_risk_v.
+      manuscript_symbol: "q_PSF"
+
+a4_predictor_input:
+  semantic_code_name: "predictor_input"
+  manuscript_symbol: "C_v"
+  channel_indices: [0, 1, 2]
+  shape: [3, "H", "W"]
+
+  prohibited_channels:
+    - 3
+    - 4
+    - 5
+
+  rationale: >
+    The frozen A4 image-only predictor retained only
+    reconstruction magnitude, zero-filled magnitude, and
+    intervention magnitude.
+
+risk_learning_target:
+  storage_key: "y"
+  semantic_code_name: "u_risk"
+  manuscript_symbol: "u_risk_v"
+  subset_role: "Lambda_risk_v"
+  shape: ["H", "W"]
+  storage_dtype: "float16"
+
+  transformation:
+    expression: >
+      log1p(alpha_log * z_risk /
+      (Q_0.99(z_risk) + epsilon_num))
+    alpha_log: 10.0
+    quantile: 0.99
+    epsilon_num: 1.0e-8
+
+pre_log_risk_quantity:
+  storage_key: "y_raw"
+  semantic_code_name: "z_risk"
+  manuscript_symbol: "z_s_v"
+  manuscript_subset_instantiation: "s = risk"
+  subset_role: "Lambda_risk_v"
+  shape: ["H", "W"]
+  storage_dtype: "float16"
+
+  construction: >
+    Soft-support-masked PSF-normalized residual-energy
+    quantity before per-sample Q_0.99 normalization and
+    logarithmic compression.
+
+notation_guards:
+  prohibited_analysis_names:
+    - "y"
+    - "y_raw"
+    - "x"
+
+  permitted_scope_for_legacy_names:
+    - "NPZ boundary loader"
+    - "artifact audit code"
+    - "quoted Paper 1 source evidence"

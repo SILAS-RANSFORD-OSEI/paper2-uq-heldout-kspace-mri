@@ -1,2 +1,53 @@
-experiment_id: P2-Exp000
-status: placeholder
+experiment:
+  id: "P2-Exp000"
+  name: "Paper 1 artifact, cache, and provenance audit"
+  status: "active"
+  runtime_device: "CPU"
+
+paper1_source:
+  repository_url: >
+    https://github.com/SILAS-RANSFORD-OSEI/
+    fourway-ssdu-reliability-mri-v2
+  branch: "main"
+  commit: "da563ead8fb653539e1eeca29248b31f0121ca12"
+  local_root_environment_variable: "PAPER1_SOURCE_ROOT"
+
+paper1_drive:
+  root_environment_variable: "PAPER1_DRIVE_ROOT"
+  artifact_registry: >
+    reports/protocol/paper1_reusable_artifacts_v1.2.json
+
+checks:
+  source_repository:
+    enabled: true
+    require_clean_worktree: true
+    require_exact_commit: true
+
+  artifact_paths:
+    enabled: true
+    prohibit_absolute_paths_in_registry: true
+
+  artifact_checksums:
+    enabled: true
+
+  cache_manifest:
+    enabled: true
+
+  cache_npz:
+    enabled: true
+    sampled_file_count: 200
+    full_audit_required_before_training: true
+
+  checkpoints:
+    enabled: true
+    inspect_state_dictionary: true
+
+  split_alignment:
+    enabled: true
+
+  target_alignment:
+    enabled: true
+
+output:
+  private_drive_directory: "results/exp000_audit"
+  repository_summary_directory: "reports/audits"

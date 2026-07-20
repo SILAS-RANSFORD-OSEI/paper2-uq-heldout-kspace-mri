@@ -1,0 +1,19 @@
+{
+  "registry_version": "1.0",
+  "status": "WARN",
+  "paper1_source_repository": {
+    "url": "https://github.com/SILAS-RANSFORD-OSEI/fourway-ssdu-reliability-mri-v2",
+    "commit": "da563ead8fb653539e1eeca29248b31f0121ca12"
+  },
+  "a4_checkpoint": {
+    "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/best_model.pt",
+    "sha256": "cc1bf4c79522d6a2b9a4406461273252dd3e4621a42be2da0dd13742ce5c5cc1",
+    "size_bytes": 1547833
+  },
+  "ssdu_checkpoint": null,
+  "reliability_cache": {
+    "manifest_relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/cache_manifest.csv",
+    "summary_relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/summary.json"
+  },
+  "created_utc": "2026-07-20T19:57:17.382117+00:00"
+}

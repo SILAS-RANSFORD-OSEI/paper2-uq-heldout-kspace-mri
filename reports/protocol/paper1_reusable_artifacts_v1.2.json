@@ -1,0 +1,114 @@
+{
+  "registry": {
+    "title": "Canonical reusable Paper 1 artifacts",
+    "version": "1.2",
+    "status": "PASS",
+    "created_utc": "2026-07-20T20:07:22.222834+00:00",
+    "path_policy": "All stored paths are relative to either the canonical Paper 1 source repository or the Paper 1 Drive project root."
+  },
+  "paper1_source_repository": {
+    "url": "https://github.com/SILAS-RANSFORD-OSEI/fourway-ssdu-reliability-mri-v2",
+    "branch": "main",
+    "commit": "da563ead8fb653539e1eeca29248b31f0121ca12",
+    "role": "canonical_implementation_source"
+  },
+  "source_artifacts": {
+    "dataset_manifest": {
+      "relative_path": "data/manifests/fastmri_brain_multicoil_axt2_manifest.csv",
+      "size_bytes": 106015,
+      "sha256": "ebe1004e05e6314f5a7c9bd6a18e92398d6ad1a845d20b990c2fa3e7f2e4fba0"
+    },
+    "paper1_split_manifest": {
+      "relative_path": "data/manifests/fastmri_brain_multicoil_axt2_splits.csv",
+      "size_bytes": 107907,
+      "sha256": "3ddcb6fa319b5459408217a65be37cca806d1163bc716c44e17d9e90bb8a34be"
+    },
+    "fourway_mask_config": {
+      "relative_path": "configs/exp002_fourway_masks.yaml",
+      "size_bytes": 807,
+      "sha256": "cff5c0663d432fb1fcc0d7f34c5efb0a0e108c0dfea5a563ff5cb3d190214616"
+    },
+    "mask_generation_script": {
+      "relative_path": "scripts/exp002_generate_fourway_masks.py",
+      "size_bytes": 7359,
+      "sha256": "056f5447e235fdafc354507ff262175890c3e59f27ee3189dc2b37152f54b0ed"
+    },
+    "mask_module": {
+      "relative_path": "src/fourway_mri/masks.py",
+      "size_bytes": 6516,
+      "sha256": "b124276de59b368c324c2c374fe41794790cf9fe324605de04bac425cb7472ea"
+    },
+    "mask_test": {
+      "relative_path": "tests/test_masks.py",
+      "size_bytes": 2052,
+      "sha256": "90e0452f551f6cd6f579638fc28a49d3a60c62b1e3fb827ae0530267467e3c55"
+    },
+    "a4_training_config": {
+      "relative_path": "configs/exp008_reliability_ablation_full.yaml",
+      "size_bytes": 1756,
+      "sha256": "695d19245face6f71020a0bdab0da274a4cd6036768f74bbb8b1caa29db8aeb0"
+    },
+    "holdout_verification_config": {
+      "relative_path": "configs/exp009_holdout_verification_full.yaml",
+      "size_bytes": 1668,
+      "sha256": "9932052ca594f625367cd9b6a496218de804f87809b3a9fe1ea2c45f7e30d2bb"
+    },
+    "conformal_config": {
+      "relative_path": "configs/exp010_conformal_bounds.yaml",
+      "size_bytes": 1787,
+      "sha256": "4f3dc17a5b2c97c72dbccb1f656a5806f401a351cd93fe84ed14bf14e19c9042"
+    }
+  },
+  "drive_artifacts": {
+    "a4_checkpoint": {
+      "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/best_model.pt",
+      "size_bytes": 1547833,
+      "sha256": "cc1bf4c79522d6a2b9a4406461273252dd3e4621a42be2da0dd13742ce5c5cc1"
+    },
+    "a4_summary": {
+      "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/summary.json",
+      "size_bytes": 2294,
+      "sha256": "352f030ecb2f6bafd5e10a66aede9110f292ef1c6548692b94cefbb4b4ad1e4e"
+    },
+    "a4_final_split_metrics": {
+      "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/final_split_metrics.csv",
+      "size_bytes": 551,
+      "sha256": "48ce7cdb6e2e0627afc11595161cf84c8ce4422cb038e831137b1e855aabb653"
+    },
+    "ssdu_checkpoint": {
+      "relative_path": "outputs/exp004_train_ssdu_v4_full/best_model.pt",
+      "size_bytes": 46837,
+      "sha256": "f63931fdd06ce52455c4dc245845ac4fd0bb9b565ae03b8c09f18c90df67fd00"
+    },
+    "reliability_cache_manifest": {
+      "relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/cache_manifest.csv",
+      "size_bytes": 1876443,
+      "sha256": "b13f90a7d105f817f8db73a919e907e21abc8668037615dd18ed304cc3018877"
+    },
+    "reliability_cache_summary": {
+      "relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/summary.json",
+      "size_bytes": 820,
+      "sha256": "77850c001141de7cf4b7ea462a2d0513ed9ecf0edb334918128802158cffd0c5"
+    },
+    "holdout_sample_metrics": {
+      "relative_path": "outputs/exp009_holdout_verification_full/holdout_sample_metrics.csv",
+      "size_bytes": 1678418,
+      "sha256": "e9a92739dcfa89953554ce68c8281c6672761153cceaadbc2385d8018ecfcc66"
+    },
+    "holdout_split_metrics": {
+      "relative_path": "outputs/exp009_holdout_verification_full/holdout_split_metrics.csv",
+      "size_bytes": 3298,
+      "sha256": "2d6012df979812554fc3da6d7b915cdb7e9d18cc5d7b6a70d06c0ba21a430b3d"
+    }
+  },
+  "canonical_decisions": {
+    "a4_checkpoint": {
+      "artifact_key": "a4_checkpoint",
+      "reason": "Exact expected A4_image_only path with companion summary and metrics."
+    },
+    "ssdu_checkpoint": {
+      "artifact_key": "ssdu_checkpoint",
+      "reason": "Unique highest downstream provenance score; exp004_train_ssdu_v4_full."
+    }
+  }
+}

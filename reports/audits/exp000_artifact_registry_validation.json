@@ -1,0 +1,147 @@
+{
+  "experiment_id": "P2-Exp000",
+  "stage": "artifact_registry_validation",
+  "status": "PASS",
+  "registry_version": "1.2",
+  "paper1_source_commit": "da563ead8fb653539e1eeca29248b31f0121ca12",
+  "artifact_count": 17,
+  "checks": [
+    {
+      "group": "source_artifacts",
+      "artifact_key": "dataset_manifest",
+      "relative_path": "data/manifests/fastmri_brain_multicoil_axt2_manifest.csv",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "paper1_split_manifest",
+      "relative_path": "data/manifests/fastmri_brain_multicoil_axt2_splits.csv",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "fourway_mask_config",
+      "relative_path": "configs/exp002_fourway_masks.yaml",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "mask_generation_script",
+      "relative_path": "scripts/exp002_generate_fourway_masks.py",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "mask_module",
+      "relative_path": "src/fourway_mri/masks.py",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "mask_test",
+      "relative_path": "tests/test_masks.py",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "a4_training_config",
+      "relative_path": "configs/exp008_reliability_ablation_full.yaml",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "holdout_verification_config",
+      "relative_path": "configs/exp009_holdout_verification_full.yaml",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "source_artifacts",
+      "artifact_key": "conformal_config",
+      "relative_path": "configs/exp010_conformal_bounds.yaml",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "a4_checkpoint",
+      "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/best_model.pt",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "a4_summary",
+      "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/summary.json",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "a4_final_split_metrics",
+      "relative_path": "outputs/exp008_reliability_ablation_full/A4_image_only/final_split_metrics.csv",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "ssdu_checkpoint",
+      "relative_path": "outputs/exp004_train_ssdu_v4_full/best_model.pt",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "reliability_cache_manifest",
+      "relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/cache_manifest.csv",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "reliability_cache_summary",
+      "relative_path": "outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/summary.json",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "holdout_sample_metrics",
+      "relative_path": "outputs/exp009_holdout_verification_full/holdout_sample_metrics.csv",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    },
+    {
+      "group": "drive_artifacts",
+      "artifact_key": "holdout_split_metrics",
+      "relative_path": "outputs/exp009_holdout_verification_full/holdout_split_metrics.csv",
+      "size_matches": true,
+      "hash_matches": true,
+      "status": "PASS"
+    }
+  ],
+  "created_utc": "2026-07-20T20:07:22.728880+00:00"
+}

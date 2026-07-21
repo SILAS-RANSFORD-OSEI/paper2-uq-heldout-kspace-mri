@@ -1,0 +1,44 @@
+experiment:
+  id: P2-Exp002B
+  name: Role-aware shape-safe minibatch smoke test
+  status: completed
+  result: PASS
+  runtime: CPU
+input_contract:
+  scientific_symbol: C_v
+  source_cache_channels: 6
+  predictor_channels: 3
+  channel_indices:
+  - 0
+  - 1
+  - 2
+  channels:
+  - robust-normalized reconstruction magnitude
+  - robust-normalized zero-filled magnitude
+  - robust-normalized absolute reconstruction minus zero-filled difference
+  prohibited_predictor_channels:
+  - soft support mask
+  - analytical Cartesian PSF
+  - sensitivity-aware PSF/gain descriptor
+target_contract:
+  scientific_symbol: u_risk_v
+  channels: 1
+  spatial_alignment_required: true
+  semantic_loader_attribute: u_risk
+  legacy_cache_key_propagated: false
+  raw_target_used: false
+batching:
+  strategy: homogeneous spatial-shape buckets
+  smoke_batch_size: 2
+  seed: 20260720
+  mixed_spatial_shapes_permitted: false
+  num_workers: 0
+roles_opened:
+  D_fit: true
+  D_dev: true
+  D_cal: false
+  D_test: false
+final_test_barrier:
+  status: CLOSED
+  D_test_arrays_opened: 0
+  D_test_predictions_generated: false

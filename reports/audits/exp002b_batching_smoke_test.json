@@ -1,0 +1,332 @@
+{
+  "experiment_id": "P2-Exp002B",
+  "stage": "role_aware_shape_safe_minibatch_smoke_test",
+  "status": "PASS",
+  "runtime_device": "CPU",
+  "torch_version": "2.11.0+cpu",
+  "split_sha256": "ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a",
+  "semantic_target_resolution": {
+    "semantic_sample_type": "ReliabilityCacheSample",
+    "implemented_target_attribute": "u_risk",
+    "scientific_symbol": "u_risk_v",
+    "translation_boundary": "paper2_uq_mri.batching.tensorize_semantic_sample",
+    "legacy_cache_key_propagated": false,
+    "raw_target_used": false
+  },
+  "input_contract": {
+    "scientific_symbol": "C_v",
+    "source_cache_channels": 6,
+    "predictor_channels": 3,
+    "predictor_channel_indices": [
+      0,
+      1,
+      2
+    ],
+    "exact_match_to_cache_channels_0_2": true,
+    "extra_channels_entered_predictor": false
+  },
+  "target_contract": {
+    "scientific_symbol": "u_risk_v",
+    "semantic_attribute": "u_risk",
+    "target_channels": 1,
+    "spatial_alignment": "PASS",
+    "finite_values": "PASS"
+  },
+  "batching_contract": {
+    "strategy": "homogeneous spatial-shape buckets",
+    "batch_size": 2,
+    "seed": 20260720,
+    "mixed_shapes_in_batch": false,
+    "heterogeneous_shapes_supported": true,
+    "one_smoke_batch_per_observed_shape": true
+  },
+  "D_fit": {
+    "full_shape_counts": {
+      "640x272": 16,
+      "640x320": 1042,
+      "768x392": 96,
+      "768x396": 1718
+    },
+    "paper2_role": "D_fit",
+    "purpose": "gradient_fit",
+    "batch_count": 4,
+    "samples_opened": 8,
+    "observed_shapes": [
+      [
+        640,
+        272
+      ],
+      [
+        640,
+        320
+      ],
+      [
+        768,
+        392
+      ],
+      [
+        768,
+        396
+      ]
+    ],
+    "batches": [
+      {
+        "batch_number": 1,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          640,
+          272
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          640,
+          272
+        ],
+        "spatial_shape": [
+          640,
+          272
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_206_2060058_slice000",
+          "file_brain_AXT2_206_2060058_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_206_2060058",
+          "file_brain_AXT2_206_2060058"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      },
+      {
+        "batch_number": 2,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          640,
+          320
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          640,
+          320
+        ],
+        "spatial_shape": [
+          640,
+          320
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_202_2020022_slice000",
+          "file_brain_AXT2_202_2020022_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_202_2020022",
+          "file_brain_AXT2_202_2020022"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      },
+      {
+        "batch_number": 3,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          768,
+          392
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          768,
+          392
+        ],
+        "spatial_shape": [
+          768,
+          392
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_203_2030092_slice000",
+          "file_brain_AXT2_203_2030092_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_203_2030092",
+          "file_brain_AXT2_203_2030092"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      },
+      {
+        "batch_number": 4,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          768,
+          396
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          768,
+          396
+        ],
+        "spatial_shape": [
+          768,
+          396
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_200_2000020_slice000",
+          "file_brain_AXT2_200_2000020_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_200_2000020",
+          "file_brain_AXT2_200_2000020"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      }
+    ]
+  },
+  "D_dev": {
+    "full_shape_counts": {
+      "640x320": 110,
+      "768x392": 16,
+      "768x396": 192
+    },
+    "paper2_role": "D_dev",
+    "purpose": "model_selection",
+    "batch_count": 3,
+    "samples_opened": 6,
+    "observed_shapes": [
+      [
+        640,
+        320
+      ],
+      [
+        768,
+        392
+      ],
+      [
+        768,
+        396
+      ]
+    ],
+    "batches": [
+      {
+        "batch_number": 1,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          640,
+          320
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          640,
+          320
+        ],
+        "spatial_shape": [
+          640,
+          320
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_202_2020067_slice000",
+          "file_brain_AXT2_202_2020067_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_202_2020067",
+          "file_brain_AXT2_202_2020067"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      },
+      {
+        "batch_number": 2,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          768,
+          392
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          768,
+          392
+        ],
+        "spatial_shape": [
+          768,
+          392
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_203_2030135_slice000",
+          "file_brain_AXT2_203_2030135_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_203_2030135",
+          "file_brain_AXT2_203_2030135"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      },
+      {
+        "batch_number": 3,
+        "batch_size": 2,
+        "C_v_shape": [
+          2,
+          3,
+          768,
+          396
+        ],
+        "u_risk_v_shape": [
+          2,
+          1,
+          768,
+          396
+        ],
+        "spatial_shape": [
+          768,
+          396
+        ],
+        "sample_ids": [
+          "file_brain_AXT2_200_2000092_slice000",
+          "file_brain_AXT2_200_2000092_slice001"
+        ],
+        "volume_ids": [
+          "file_brain_AXT2_200_2000092",
+          "file_brain_AXT2_200_2000092"
+        ],
+        "finite": true,
+        "channel_contract_passed": true,
+        "spatial_alignment_passed": true
+      }
+    ]
+  },
+  "opened_array_counts": {
+    "D_fit": 8,
+    "D_dev": 6,
+    "D_cal": 0,
+    "D_test": 0
+  },
+  "governance": {
+    "D_cal_arrays_opened": 0,
+    "D_test_arrays_opened": 0,
+    "D_test_predictions_generated": false,
+    "final_test_barrier": "CLOSED"
+  },
+  "created_utc": "2026-07-21T09:59:56.041658+00:00"
+}

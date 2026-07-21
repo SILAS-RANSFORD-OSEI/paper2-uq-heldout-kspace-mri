@@ -2,45 +2,44 @@
 
 ## Current state
 
-P2-Exp000, P2-Exp001A-D, and P2-Exp002A are complete.
+P2-Exp000, P2-Exp001A-D, P2-Exp002A, and P2-Exp002B
+are complete and passed.
 
-The frozen split remains:
+## Frozen batching contract
 
-- D_fit: 181 volumes
-- D_dev: 20 volumes
-- D_cal: 40 volumes
-- D_test: 40 volumes
+Predictor input:
 
-Split SHA-256:
+`C_v = cache_input_6ch[0:3]`
 
-`ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a`
+Semantic cache target attribute:
 
-The role-aware access contract is implemented in:
+`u_risk`
 
-`src/paper2_uq_mri/split_access.py`
+Scientific target symbol used downstream:
 
-Access is restricted as follows:
+`u_risk_v`
 
-- gradient fitting: D_fit only
-- model selection: D_dev only
-- calibration: D_cal only
-- final evaluation: D_test only after explicit barrier opening
+Translation occurs at:
 
-All 4,462 cached slices were indexed from the local SSD.
-One D_fit sample was opened for a semantic smoke test.
-No D_test cache array has been opened in Paper 2.
+`paper2_uq_mri.batching.tensorize_semantic_sample`
+
+No raw target or legacy cache key propagates into model code.
+
+D_cal arrays opened in P2-Exp002B: 0
+D_test arrays opened in P2-Exp002B: 0
+D_test predictions generated: No
 
 The final-test barrier remains CLOSED.
 
 ## Next action
 
-Run P2-Exp002B on CPU:
+Run P2-Exp002C on CPU:
 
-1. test role-aware minibatch construction;
-2. confirm the three-channel predictor input contract;
-3. verify target and spatial-shape alignment;
-4. test heterogeneous matrix sizes safely;
-5. use D_fit and D_dev only.
+1. load the canonical frozen A4 checkpoint;
+2. reconstruct its exact architecture;
+3. verify checkpoint-key and tensor-shape compatibility;
+4. run forward smoke tests on D_fit and D_dev only;
+5. do not open D_cal or D_test.
 
 ## Final test barrier
 

@@ -91,3 +91,19 @@ All changes made after protocol freeze must be recorded here.
 - **D_test arrays opened in P2-Exp002A:** Zero.
 - **D_test predictions generated:** No.
 - **Implementation:** `src/paper2_uq_mri/split_access.py`.
+
+## D007 — Freeze the predictor-input and batching contract
+
+- **Date:** 2026-07-21
+- **Decision ID:** D007
+- **Predictor input:** `C_v`, exactly three channels.
+- **Source:** `cache_input_6ch[0:3]`.
+- **Semantic target attribute:** `u_risk`.
+- **Scientific target symbol:** `u_risk_v`.
+- **Raw target used:** No.
+- **Legacy cache key propagated:** No.
+- **Batching:** homogeneous spatial-shape buckets.
+- **Roles opened:** D_fit and D_dev only.
+- **D_cal arrays opened:** Zero.
+- **D_test arrays opened:** Zero.
+- **Final test barrier:** Closed.

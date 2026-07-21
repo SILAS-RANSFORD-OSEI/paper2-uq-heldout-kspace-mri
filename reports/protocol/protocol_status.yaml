@@ -73,6 +73,20 @@ experiments:
     D_test_arrays_opened: false
     D_test_predictions_generated: false
     final_test_opened: false
+  P2-Exp002B:
+    name: Role-aware shape-safe minibatch smoke test
+    status: completed
+    result: PASS
+    semantic_target_attribute: u_risk
+    scientific_target_symbol: u_risk_v
+    predictor_channels: 3
+    source_cache_channels: 6
+    D_fit_shapes_tested: 4
+    D_dev_shapes_tested: 3
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    D_test_predictions_generated: false
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181
@@ -101,4 +115,17 @@ access_governance:
   model_selection: D_dev only
   calibration: D_cal only
   final_evaluation: D_test only after explicit barrier opening
+  final_test_barrier: CLOSED
+input_governance:
+  predictor_symbol: C_v
+  predictor_channels:
+  - 0
+  - 1
+  - 2
+  source_cache_channels: 6
+  channels_3_to_5_enter_predictor: false
+  target_symbol: u_risk_v
+  semantic_target_attribute: u_risk
+  raw_target_used: false
+  shape_safe_batching: true
   final_test_barrier: CLOSED

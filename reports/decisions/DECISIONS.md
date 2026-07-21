@@ -78,3 +78,16 @@ All changes made after protocol freeze must be recorded here.
 - **Split SHA-256:** `ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a`.
 - **D_test designation:** Locked reused evaluation cohort.
 - **Final test barrier:** Closed.
+
+## D006 — Enforce purpose-specific split access
+
+- **Date:** 2026-07-21
+- **Decision ID:** D006
+- **Gradient fitting:** D_fit only.
+- **Model selection:** D_dev only.
+- **Calibration:** D_cal only.
+- **Final evaluation:** D_test only after an explicit test-barrier opening.
+- **Current barrier:** Closed.
+- **D_test arrays opened in P2-Exp002A:** Zero.
+- **D_test predictions generated:** No.
+- **Implementation:** `src/paper2_uq_mri/split_access.py`.

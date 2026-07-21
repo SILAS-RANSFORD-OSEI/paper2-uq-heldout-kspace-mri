@@ -1,0 +1,83 @@
+{
+  "experiment_id": "P2-Exp002A",
+  "stage": "split_aware_dataset_and_leakage_barriers",
+  "status": "PASS",
+  "runtime_device": "CPU",
+  "frozen_split": {
+    "path": "data/splits/paper2_split.csv",
+    "sha256": "ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a",
+    "volume_role_counts": {
+      "D_fit": 181,
+      "D_cal": 40,
+      "D_test": 40,
+      "D_dev": 20
+    },
+    "cache_row_role_counts": {
+      "D_fit": 2872,
+      "D_cal": 636,
+      "D_test": 636,
+      "D_dev": 318
+    }
+  },
+  "cache_index": {
+    "rows": 4462,
+    "unique_samples": 4462,
+    "unique_volumes": 281,
+    "all_paths_exist": true,
+    "all_paths_on_local_ssd": true
+  },
+  "purpose_access": {
+    "gradient_fit": {
+      "role": "D_fit",
+      "rows": 2872,
+      "volumes": 181
+    },
+    "model_selection": {
+      "role": "D_dev",
+      "rows": 318,
+      "volumes": 20
+    },
+    "calibration": {
+      "role": "D_cal",
+      "rows": 636,
+      "volumes": 40
+    },
+    "final_evaluation": {
+      "role": "D_test",
+      "barrier": "CLOSED",
+      "rows_materialized": 0,
+      "arrays_opened": 0
+    }
+  },
+  "blocked_access_checks": {
+    "D_cal_as_gradient_fit": true,
+    "D_test_as_gradient_fit": true,
+    "D_test_as_model_selection": true,
+    "D_test_as_calibration": true,
+    "D_test_final_evaluation_while_closed": true
+  },
+  "semantic_smoke_test": {
+    "opened_role": "D_fit",
+    "opened_sample_id": "file_brain_AXT2_200_2000020_slice000",
+    "opened_volume_id": "file_brain_AXT2_200_2000020",
+    "semantic_sample_type": "ReliabilityCacheSample",
+    "verify_transform": true,
+    "status": "PASS"
+  },
+  "opened_array_counts": {
+    "D_fit": 1,
+    "D_dev": 0,
+    "D_cal": 0,
+    "D_test": 0
+  },
+  "governance": {
+    "D_cal_gradient_exposure": false,
+    "D_test_gradient_exposure": false,
+    "D_test_model_selection_exposure": false,
+    "D_test_calibration_exposure": false,
+    "D_test_arrays_opened": false,
+    "D_test_predictions_generated": false,
+    "final_test_barrier": "CLOSED"
+  },
+  "created_utc": "2026-07-21T09:41:59.880670+00:00"
+}

@@ -64,6 +64,15 @@ experiments:
     volume_ids_assigned: true
     patient_level_independence_claimed: false
     final_test_opened: false
+  P2-Exp002A:
+    name: Split-aware dataset and leakage-barrier implementation
+    status: completed
+    result: PASS
+    cache_rows_indexed: 4462
+    cache_volumes_indexed: 281
+    D_test_arrays_opened: false
+    D_test_predictions_generated: false
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181
@@ -86,4 +95,10 @@ continuation_handoff:
   resume_file: RESUME_HERE.md
   state_file: reports/handoffs/current_state_v1.0.json
   next_experiment: P2-Exp001C
+  final_test_barrier: CLOSED
+access_governance:
+  gradient_fit: D_fit only
+  model_selection: D_dev only
+  calibration: D_cal only
+  final_evaluation: D_test only after explicit barrier opening
   final_test_barrier: CLOSED

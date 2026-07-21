@@ -1,0 +1,29 @@
+experiment:
+  id: P2-Exp002A
+  name: Split-aware dataset and leakage-barrier implementation
+  status: completed
+  result: PASS
+  runtime: CPU
+frozen_split:
+  path: data/splits/paper2_split.csv
+  sha256: ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a
+  expected_roles:
+    D_fit: 181
+    D_dev: 20
+    D_cal: 40
+    D_test: 40
+access_contract:
+  gradient_fit: D_fit
+  model_selection: D_dev
+  calibration: D_cal
+  final_evaluation: D_test
+final_test_barrier:
+  status: CLOSED
+  D_test_materialization_permitted: false
+  D_test_predictions_generated: false
+governance:
+  D_cal_in_gradient_fit: false
+  D_test_in_gradient_fit: false
+  D_test_in_model_selection: false
+  D_test_in_calibration: false
+  test_opening_requires_explicit_barrier_change: true

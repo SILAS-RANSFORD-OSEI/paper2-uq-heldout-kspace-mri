@@ -2,46 +2,45 @@
 
 ## Current state
 
-P2-Exp000 and P2-Exp001A-D are complete and passed.
+P2-Exp000, P2-Exp001A-D, and P2-Exp002A are complete.
 
-The complete 281-volume Paper 2 split is frozen.
+The frozen split remains:
 
 - D_fit: 181 volumes
 - D_dev: 20 volumes
 - D_cal: 40 volumes
 - D_test: 40 volumes
 
-Split file:
-
-`data/splits/paper2_split.csv`
-
-Split algorithm:
-
-`width_coil_ilp_slice_balance_v1.0`
-
 Split SHA-256:
 
 `ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a`
 
-D_test remains a locked reused evaluation cohort, not a fresh
-test cohort.
+The role-aware access contract is implemented in:
 
-Only volume-level separation is claimed. The available
-patient_id was not independently validated as a cross-volume
-clinical identifier.
+`src/paper2_uq_mri/split_access.py`
 
-The final test barrier remains CLOSED.
+Access is restricted as follows:
+
+- gradient fitting: D_fit only
+- model selection: D_dev only
+- calibration: D_cal only
+- final evaluation: D_test only after explicit barrier opening
+
+All 4,462 cached slices were indexed from the local SSD.
+One D_fit sample was opened for a semantic smoke test.
+No D_test cache array has been opened in Paper 2.
+
+The final-test barrier remains CLOSED.
 
 ## Next action
 
-Run P2-Exp002A on CPU:
+Run P2-Exp002B on CPU:
 
-1. implement split-aware dataset and loader interfaces;
-2. enforce role-level access controls;
-3. prevent D_cal and D_test from entering gradient fitting;
-4. prevent D_test from model selection, thresholding, or
-   calibration;
-5. add leakage and manifest-consistency tests.
+1. test role-aware minibatch construction;
+2. confirm the three-channel predictor input contract;
+3. verify target and spatial-shape alignment;
+4. test heterogeneous matrix sizes safely;
+5. use D_fit and D_dev only.
 
 ## Final test barrier
 

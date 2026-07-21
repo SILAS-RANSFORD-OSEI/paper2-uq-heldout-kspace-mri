@@ -1,0 +1,253 @@
+{
+  "experiment_id": "P2-Exp001D",
+  "stage": "deterministic_constrained_split_freeze",
+  "status": "PASS",
+  "runtime_device": "CPU",
+  "algorithm": "width_coil_ilp_slice_balance_v1.0",
+  "seed": 20260720,
+  "solver_status": {
+    "success": true,
+    "status_code": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "objective_value": 5.87076726616933,
+    "repeated_solve_identical": true
+  },
+  "split_sha256": "ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a",
+  "selected_D_dev_id_hash": "e8a09023577346f009b84eab532456de758c2771371291ace9c13e71707b8317",
+  "role_counts": {
+    "D_fit": 181,
+    "D_cal": 40,
+    "D_test": 40,
+    "D_dev": 20
+  },
+  "width": {
+    "population_counts": {
+      "272": 1,
+      "320": 73,
+      "392": 7,
+      "396": 120
+    },
+    "target_quotas": {
+      "272": 0,
+      "320": 7,
+      "392": 1,
+      "396": 12
+    },
+    "observed_quotas": {
+      "272": 0,
+      "320": 7,
+      "392": 1,
+      "396": 12
+    },
+    "balance": {
+      "272": {
+        "D_dev_count": 0,
+        "D_fit_count": 1,
+        "D_dev_proportion": 0.0,
+        "D_fit_proportion": 0.0055248618784530384,
+        "absolute_proportion_difference": 0.0055248618784530384
+      },
+      "320": {
+        "D_dev_count": 7,
+        "D_fit_count": 66,
+        "D_dev_proportion": 0.35,
+        "D_fit_proportion": 0.36464088397790057,
+        "absolute_proportion_difference": 0.014640883977900587
+      },
+      "392": {
+        "D_dev_count": 1,
+        "D_fit_count": 6,
+        "D_dev_proportion": 0.05,
+        "D_fit_proportion": 0.03314917127071823,
+        "absolute_proportion_difference": 0.016850828729281772
+      },
+      "396": {
+        "D_dev_count": 12,
+        "D_fit_count": 108,
+        "D_dev_proportion": 0.6,
+        "D_fit_proportion": 0.5966850828729282,
+        "absolute_proportion_difference": 0.0033149171270717703
+      }
+    },
+    "maximum_absolute_proportion_difference": 0.016850828729281772
+  },
+  "coarse_coil_groups": {
+    "population_counts": {
+      "H": 129,
+      "L": 53,
+      "M": 19
+    },
+    "target_quotas": {
+      "H": 13,
+      "L": 5,
+      "M": 2
+    },
+    "observed_quotas": {
+      "H": 13,
+      "L": 5,
+      "M": 2
+    },
+    "optimization_slacks": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "balance": {
+      "L": {
+        "D_dev_count": 5,
+        "D_fit_count": 48,
+        "D_dev_proportion": 0.25,
+        "D_fit_proportion": 0.26519337016574585,
+        "absolute_proportion_difference": 0.015193370165745845
+      },
+      "M": {
+        "D_dev_count": 2,
+        "D_fit_count": 17,
+        "D_dev_proportion": 0.1,
+        "D_fit_proportion": 0.09392265193370165,
+        "absolute_proportion_difference": 0.006077348066298352
+      },
+      "H": {
+        "D_dev_count": 13,
+        "D_fit_count": 116,
+        "D_dev_proportion": 0.65,
+        "D_fit_proportion": 0.6408839779005525,
+        "absolute_proportion_difference": 0.009116022099447507
+      }
+    },
+    "maximum_absolute_proportion_difference": 0.015193370165745845
+  },
+  "height": {
+    "balance": {
+      "640": {
+        "D_dev_count": 7,
+        "D_fit_count": 67,
+        "D_dev_proportion": 0.35,
+        "D_fit_proportion": 0.3701657458563536,
+        "absolute_proportion_difference": 0.020165745856353612
+      },
+      "768": {
+        "D_dev_count": 13,
+        "D_fit_count": 114,
+        "D_dev_proportion": 0.65,
+        "D_fit_proportion": 0.6298342541436464,
+        "absolute_proportion_difference": 0.020165745856353667
+      }
+    },
+    "maximum_absolute_proportion_difference": 0.020165745856353667
+  },
+  "slice_count": {
+    "population_counts": {
+      "14": 13,
+      "16": 188
+    },
+    "target_quotas": {
+      "14": 1,
+      "16": 19
+    },
+    "observed_D_dev_counts": {
+      "14": 1,
+      "16": 19
+    },
+    "category_balance": {
+      "14": {
+        "D_dev_count": 1,
+        "D_fit_count": 12,
+        "D_dev_proportion": 0.05,
+        "D_fit_proportion": 0.06629834254143646,
+        "absolute_proportion_difference": 0.01629834254143646
+      },
+      "16": {
+        "D_dev_count": 19,
+        "D_fit_count": 169,
+        "D_dev_proportion": 0.95,
+        "D_fit_proportion": 0.9337016574585635,
+        "absolute_proportion_difference": 0.016298342541436472
+      }
+    },
+    "maximum_category_absolute_proportion_difference": 0.016298342541436472,
+    "D_dev_mean": 15.9,
+    "D_fit_mean": 15.867403314917127,
+    "D_dev_standard_deviation": 0.44721359549995787,
+    "D_fit_standard_deviation": 0.4989860806231136,
+    "standardized_mean_difference": 0.06879731653668447
+  },
+  "descriptive_tests": {
+    "width_chi_square": {
+      "available": true,
+      "statistic": 0.26830134823928814,
+      "p_value": 0.9658755580714259,
+      "degrees_of_freedom": 3,
+      "minimum_expected_count": 0.09950248756218906,
+      "interpretation": "Descriptive only. The p-value is not used as a split acceptance criterion."
+    },
+    "height_chi_square": {
+      "available": true,
+      "statistic": 0.03148457000960593,
+      "p_value": 0.8591636392828261,
+      "degrees_of_freedom": 1,
+      "minimum_expected_count": 7.36318407960199,
+      "interpretation": "Descriptive only. The p-value is not used as a split acceptance criterion."
+    },
+    "coarse_coil_chi_square": {
+      "available": true,
+      "statistic": 0.025135639882252994,
+      "p_value": 0.9875108252967467,
+      "degrees_of_freedom": 2,
+      "minimum_expected_count": 1.890547263681592,
+      "interpretation": "Descriptive only. The p-value is not used as a split acceptance criterion."
+    },
+    "slice_category_chi_square": {
+      "available": true,
+      "statistic": 0.07908430613702754,
+      "p_value": 0.778542186877256,
+      "degrees_of_freedom": 1,
+      "minimum_expected_count": 1.2935323383084578,
+      "interpretation": "Descriptive only. The p-value is not used as a split acceptance criterion."
+    },
+    "slice_count_KS": {
+      "available": true,
+      "statistic": 0.016298342541436465,
+      "p_value": 1.0,
+      "interpretation": "Descriptive only. The p-value is not used as a split acceptance criterion."
+    }
+  },
+  "balance_checks": {
+    "exact_D_dev_count": true,
+    "exact_D_fit_count": true,
+    "zero_volume_overlap": true,
+    "all_201_training_volumes_assigned": true,
+    "exact_width_quotas": true,
+    "exact_coarse_coil_quotas": true,
+    "maximum_width_difference_at_most_0_05": true,
+    "maximum_height_difference_at_most_0_05": true,
+    "maximum_coarse_coil_difference_at_most_0_10": true,
+    "absolute_slice_count_SMD_at_most_0_25": true,
+    "repeated_solve_identical": true,
+    "patient_identifier_not_used_for_assignment": true,
+    "outcome_variables_not_used": true
+  },
+  "failed_checks": [],
+  "target_blindness": {
+    "risk_targets_loaded": false,
+    "cache_npz_arrays_opened": false,
+    "predictions_loaded": false,
+    "uncertainty_loaded": false,
+    "performance_metrics_loaded": false
+  },
+  "patient_identifier": {
+    "available": true,
+    "unique_per_volume": true,
+    "validated_cross_volume_identifier": false,
+    "used_in_assignment": false,
+    "claim": "volume-level separation only"
+  },
+  "governance": {
+    "split_created": true,
+    "volume_ids_assigned": true,
+    "split_locked": true,
+    "final_test_barrier": "CLOSED",
+    "test_predictions_generated": false
+  },
+  "created_utc": "2026-07-21T09:19:21.222059+00:00"
+}

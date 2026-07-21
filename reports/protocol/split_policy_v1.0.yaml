@@ -1,7 +1,7 @@
 policy:
   title: Paper 2 volume-level split policy
   version: '1.0'
-  status: frozen-before-volume-assignment
+  status: frozen_with_volume_assignment
   frozen_utc: '2026-07-20T23:12:12.284272+00:00'
   selected_strategy: S1_preserve_paper1_calibration_and_test
   source_feasibility_report: reports/audits/exp001_split_feasibility.json
@@ -65,7 +65,7 @@ fit_dev_allocation:
   D_fit_volume_count: 181
   D_dev_volume_count: 20
   assignment_seed: 20260720
-  assignment_method_status: to_be_frozen_after_metadata_stratification_audit
+  assignment_method_status: frozen
   required_properties:
   - deterministic
   - volume-level
@@ -80,6 +80,9 @@ fit_dev_allocation:
   - uncertainty scores
   - performance metrics
   - reported Paper 1 outcomes
+  assignment_algorithm: width_coil_ilp_slice_balance_v1.0
+  split_file: data/splits/paper2_split.csv
+  split_sha256: ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a
 claim_constraints:
   permitted:
   - The evaluation cohort was excluded from Paper 1 SSDU and A4 gradient fitting.
@@ -108,8 +111,8 @@ test_barrier:
   - endpoint implementation tests passed
   - test-opening authorization recorded
 governance:
-  split_created: false
-  volume_ids_assigned: false
+  split_created: true
+  volume_ids_assigned: true
   paper2_test_predictions_generated: false
   protocol_amendment_required: true
   reason_for_amendment: The original phrase 'fresh Paper 2 final test cohort' cannot

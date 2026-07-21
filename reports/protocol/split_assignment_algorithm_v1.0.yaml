@@ -1,0 +1,112 @@
+algorithm:
+  title: Outcome-blind Paper 2 fit-development assignment
+  name: width_coil_ilp_slice_balance_v1.0
+  version: '1.0'
+  status: FROZEN
+  frozen_utc: '2026-07-21T09:19:21.222059+00:00'
+  seed: 20260720
+  solver: scipy.optimize.milp using HiGHS
+  scipy_version: 1.16.3
+  unit_of_assignment: volume
+population:
+  source: 201 Paper 1 training volumes
+  D_fit: 181
+  D_dev: 20
+matrix_width:
+  population_counts:
+    '272': 1
+    '320': 73
+    '392': 7
+    '396': 120
+  D_dev_quotas:
+    '272': 0
+    '320': 7
+    '392': 1
+    '396': 12
+  constraint: exact
+  singleton_width_272_policy: The single width-272 volume remains in D_fit because
+    its largest-remainder D_dev quota is zero.
+coarse_coil_groups:
+  definitions:
+    L: coil count <= 8
+    M: coil count 12-14
+    H: coil count >= 16
+  population_counts:
+    H: 129
+    L: 53
+    M: 19
+  D_dev_quotas:
+    H: 13
+    L: 5
+    M: 2
+  constraint: Minimum absolute quota deviation with dominant objective weight; exact
+    quotas were feasible.
+  observed_D_dev_quotas:
+    H: 13
+    L: 5
+    M: 2
+slice_count_balance:
+  population_counts:
+    '14': 13
+    '16': 188
+  proportional_D_dev_targets:
+    '14': 1
+    '16': 19
+  observed_D_dev_counts:
+    '14': 1
+    '16': 19
+  objective: Minimize absolute slice-category quota deviation, then total slice-count
+    deviation.
+  observed_SMD: 0.06879731653668447
+objective_priority:
+- coarse coil-group quota deviation
+- slice-category quota deviation
+- total slice-count deviation
+- seeded deterministic volume-level tie-break
+acceptance_rules:
+  exact_width_quotas: true
+  exact_coarse_coil_quotas: true
+  maximum_width_absolute_proportion_difference: 0.05
+  maximum_height_absolute_proportion_difference: 0.05
+  maximum_coarse_coil_absolute_proportion_difference: 0.1
+  maximum_absolute_slice_count_SMD: 0.25
+  p_values_used_for_acceptance: false
+descriptive_tests:
+  KS: slice count only
+  chi_square:
+  - matrix width
+  - matrix height
+  - coarse coil group
+  - slice-count category
+  governance: All p-values are descriptive and do not determine split acceptance.
+patient_identifier:
+  available_field: patient_id
+  unique_values: 201
+  clinically_validated_cross_volume_identifier: false
+  used_in_assignment: false
+  permitted_claim: volume-level separation only
+  prohibited_claim: confirmed patient-level independence
+prohibited_inputs:
+- u_risk
+- u_hold
+- risk targets
+- cache NPZ arrays
+- model predictions
+- uncertainty estimates
+- prediction deviations
+- reconstruction metrics
+- Paper 1 performance outcomes
+output:
+  path: data/splits/paper2_split.csv
+  sha256: ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a
+  volume_count: 281
+  role_counts:
+    D_fit: 181
+    D_cal: 40
+    D_test: 40
+    D_dev: 20
+governance:
+  volume_ids_assigned: true
+  split_locked: true
+  final_test_barrier: CLOSED
+  paper2_test_predictions_generated: false

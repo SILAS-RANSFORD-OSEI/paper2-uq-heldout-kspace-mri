@@ -1,0 +1,58 @@
+candidate:
+  title: Outcome-blind D_fit/D_dev stratification candidate
+  version: '0.1'
+  status: SUPERSEDED_BY_FROZEN_V1.0
+  source_audit: reports/audits/exp001c_acquisition_metadata_audit.json
+  seed: 20260720
+  superseded_by: reports/protocol/split_assignment_algorithm_v1.0.yaml
+  superseded_utc: '2026-07-21T09:19:21.222059+00:00'
+population:
+  source: 201 Paper 1 training volumes
+  D_fit: 181
+  D_dev: 20
+  unit: volume
+candidate_hierarchy:
+- priority: 1
+  feature: cache_width
+  role: proportional quota allocation
+  usable: true
+  reason: Matrix width captures the dominant observed acquisition-size heterogeneity.
+- priority: 2
+  feature: coil_count
+  role: within-width balance objective
+  usable: true
+  reason: Coil count is complete and varies across the 201 Paper 1 training volumes.
+- priority: 3
+  feature: cache_slice_count
+  role: continuous balance objective
+  usable: true
+  reason: Volume depth should be balanced without creating overly sparse hard cross-strata.
+candidate_assignment_design:
+  primary: Allocate the 20 D_dev positions proportionally across observed matrix-width
+    categories using a deterministic largest-remainder rule.
+  secondary: Within width quotas, use deterministic seeded selection to minimize imbalance
+    in the best available secondary structural feature.
+  tertiary: Minimize absolute standardized difference in slice count without using
+    hard sparse cross-strata.
+  patient_grouping: candidate_identifier_available_not_yet_validated
+  not_yet_frozen: true
+prohibited_inputs:
+- u_risk
+- u_hold
+- risk targets
+- model predictions
+- uncertainty scores
+- prediction deviations
+- reconstruction metrics
+- Paper 1 performance outcomes
+acceptance_reporting:
+  primary_balance_evidence:
+  - exact category counts and proportions
+  - absolute proportion differences
+  - standardized mean differences
+  - range and rare-category coverage
+  statistical_tests: Descriptive only; p-values will not be used as split pass/fail
+    criteria.
+  algorithm_frozen: false
+  volume_ids_assigned: false
+  final_test_barrier: CLOSED

@@ -30,6 +30,13 @@ CONFIG_PATH = (
     / "exp001_split.yaml"
 )
 
+SPLIT_PATH = (
+    REPOSITORY_ROOT
+    / "data"
+    / "splits"
+    / "paper2_split.csv"
+)
+
 
 def load_policy() -> dict:
     return yaml.safe_load(
@@ -42,17 +49,15 @@ def load_policy() -> dict:
 def test_split_counts_total_281() -> None:
     policy = load_policy()
 
-    roles = policy[
-        "paper2_roles"
-    ]
-
     counts = {
-        key:
-            value[
+        role:
+            record[
                 "volume_count"
             ]
-        for key, value
-        in roles.items()
+        for role, record
+        in policy[
+            "paper2_roles"
+        ].items()
     }
 
     assert counts == {
@@ -68,9 +73,7 @@ def test_split_counts_total_281() -> None:
 
 
 def test_original_paper1_roles_are_preserved() -> None:
-    policy = load_policy()
-
-    roles = policy[
+    roles = load_policy()[
         "paper2_roles"
     ]
 
@@ -112,9 +115,7 @@ def test_original_paper1_roles_are_preserved() -> None:
 
 
 def test_test_cohort_is_not_claimed_as_fresh() -> None:
-    policy = load_policy()
-
-    test_role = policy[
+    test_role = load_policy()[
         "paper2_roles"
     ][
         "D_test"
@@ -149,7 +150,7 @@ def test_test_cohort_is_not_claimed_as_fresh() -> None:
     )
 
 
-def test_test_barrier_remains_closed() -> None:
+def test_split_is_created_but_test_barrier_remains_closed() -> None:
     policy = load_policy()
 
     assert (
@@ -167,7 +168,7 @@ def test_test_barrier_remains_closed() -> None:
         ][
             "split_created"
         ]
-        is False
+        is True
     )
 
     assert (
@@ -176,7 +177,7 @@ def test_test_barrier_remains_closed() -> None:
         ][
             "volume_ids_assigned"
         ]
-        is False
+        is True
     )
 
     assert (
@@ -189,10 +190,8 @@ def test_test_barrier_remains_closed() -> None:
     )
 
 
-def test_fit_dev_assignment_is_outcome_blind() -> None:
-    policy = load_policy()
-
-    allocation = policy[
+def test_fit_dev_assignment_is_frozen_and_outcome_blind() -> None:
+    allocation = load_policy()[
         "fit_dev_allocation"
     ]
 
@@ -201,6 +200,27 @@ def test_fit_dev_assignment_is_outcome_blind() -> None:
             "assignment_seed"
         ]
         == 20260720
+    )
+
+    assert (
+        allocation[
+            "assignment_method_status"
+        ]
+        == "frozen"
+    )
+
+    assert (
+        allocation[
+            "assignment_algorithm"
+        ]
+        == "width_coil_ilp_slice_balance_v1.0"
+    )
+
+    assert (
+        allocation[
+            "split_file"
+        ]
+        == "data/splits/paper2_split.csv"
     )
 
     prohibited = set(
@@ -252,36 +272,24 @@ def test_selected_strategy_matches_feasibility_audit() -> None:
         strategy_id
     ]
 
-    assert (
-        strategy[
-            "reuses_existing_cache"
-        ]
-        is True
-    )
+    assert strategy[
+        "reuses_existing_cache"
+    ] is True
 
-    assert (
-        strategy[
-            "requires_ssdu_retraining"
-        ]
-        is False
-    )
+    assert strategy[
+        "requires_ssdu_retraining"
+    ] is False
 
-    assert (
-        strategy[
-            "test_gradient_exposure"
-        ]
-        is False
-    )
+    assert strategy[
+        "test_gradient_exposure"
+    ] is False
 
-    assert (
-        strategy[
-            "test_model_selection_exposure"
-        ]
-        is False
-    )
+    assert strategy[
+        "test_model_selection_exposure"
+    ] is False
 
 
-def test_exp001_config_has_not_created_split() -> None:
+def test_exp001_config_records_completed_split() -> None:
     config = yaml.safe_load(
         CONFIG_PATH.read_text(
             encoding="utf-8"
@@ -294,7 +302,34 @@ def test_exp001_config_has_not_created_split() -> None:
         ][
             "status"
         ]
-        == "policy_frozen_split_not_created"
+        == "completed"
+    )
+
+    assert (
+        config[
+            "experiment"
+        ][
+            "result"
+        ]
+        == "PASS"
+    )
+
+    assert (
+        config[
+            "fit_dev_assignment"
+        ][
+            "status"
+        ]
+        == "frozen"
+    )
+
+    assert (
+        config[
+            "fit_dev_assignment"
+        ][
+            "split_file"
+        ]
+        == "data/splits/paper2_split.csv"
     )
 
     assert (
@@ -314,3 +349,5 @@ def test_exp001_config_has_not_created_split() -> None:
         ]
         is False
     )
+
+    assert SPLIT_PATH.exists()

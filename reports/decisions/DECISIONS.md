@@ -59,3 +59,22 @@ All changes made after protocol freeze must be recorded here.
 - **Safeguard:** All Paper 2 methods, calibration rules, and endpoint code must be frozen before test predictions are generated.
 - **Volume IDs assigned at this decision:** No.
 - **Final test barrier:** Closed.
+
+## D005 — Freeze the outcome-blind Paper 2 volume split
+
+- **Date:** 2026-07-21
+- **Decision ID:** D005
+- **Algorithm:** `width_coil_ilp_slice_balance_v1.0`.
+- **Optimization:** Deterministic mixed-integer linear programming using SciPy/HiGHS.
+- **Seed:** `20260720`.
+- **Allocation:** D_fit=181, D_dev=20, D_cal=40, D_test=40.
+- **Exact D_dev width quotas:** 272=0, 320=7, 392=1, 396=12.
+- **Coarse coil groups:** L<=8, M=12-14, H>=16.
+- **Exact D_dev coil-group quotas:** L=5, M=2, H=13.
+- **Secondary objective:** Slice-count category and mean-depth balance.
+- **Statistical tests:** KS and chi-square tests were descriptive only; p-values were not used for acceptance.
+- **Patient grouping:** The available patient_id was unique per volume but was not independently validated as a cross-volume clinical identifier. Only volume-level separation is claimed.
+- **Outcome inputs:** None. No risk target, prediction, uncertainty estimate, cache NPZ array, error, or performance result entered the assignment algorithm.
+- **Split SHA-256:** `ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a`.
+- **D_test designation:** Locked reused evaluation cohort.
+- **Final test barrier:** Closed.

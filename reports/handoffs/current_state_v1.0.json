@@ -15,7 +15,9 @@
   "completed_stages": {
     "P2-Exp000": "PASS",
     "P2-Exp001A": "PASS",
-    "P2-Exp001B": "PASS"
+    "P2-Exp001B": "PASS",
+    "P2-Exp001C": "PASS",
+    "P2-Exp001D": "PASS"
   },
   "cache_audit": {
     "volumes": 281,
@@ -39,7 +41,10 @@
     "D_test": 40,
     "D_test_designation": "locked_reused_evaluation_cohort",
     "fresh_test_claim_permitted": false,
-    "volume_ids_assigned": false
+    "volume_ids_assigned": true,
+    "assignment_algorithm": "width_coil_ilp_slice_balance_v1.0",
+    "split_file": "data/splits/paper2_split.csv",
+    "split_sha256": "ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a"
   },
   "governance": {
     "paper2_models_trained": false,
@@ -48,11 +53,10 @@
     "final_test_barrier": "CLOSED"
   },
   "next_stage": {
-    "id": "P2-Exp001C",
-    "name": "Acquisition-metadata stratification audit",
+    "id": "P2-Exp002A",
+    "name": "Split-aware dataset and leakage-barrier implementation",
     "runtime": "CPU",
-    "objective": "Freeze an outcome-blind deterministic rule and assign 20 Paper 1 training volumes to D_dev and 181 to D_fit.",
-    "seed": 20260720
+    "objective": "Implement role-aware datasets and loaders that enforce D_fit, D_dev, D_cal, and D_test isolation before model training begins."
   },
   "important_paths": {
     "paper2_repository": "/content/paper2-uq-heldout-kspace-mri",

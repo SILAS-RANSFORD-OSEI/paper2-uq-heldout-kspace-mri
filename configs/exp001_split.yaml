@@ -1,8 +1,9 @@
 experiment:
   id: P2-Exp001
   name: Paper 2 volume-level split construction
-  status: policy_frozen_split_not_created
+  status: completed
   runtime_device: CPU
+  result: PASS
 policy:
   file: reports/protocol/split_policy_v1.0.yaml
   version: '1.0'
@@ -20,8 +21,11 @@ source_roles:
   D_test: Paper 1 test
 fit_dev_assignment:
   seed: 20260720
-  status: pending_metadata_stratification_audit
+  status: frozen
   outcome_blind: true
+  algorithm: width_coil_ilp_slice_balance_v1.0
+  split_file: data/splits/paper2_split.csv
+  split_sha256: ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a
 test_barrier:
   status: CLOSED
   test_predictions_generated: false

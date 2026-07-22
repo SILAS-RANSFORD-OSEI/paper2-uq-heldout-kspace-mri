@@ -99,6 +99,19 @@ experiments:
     D_cal_arrays_opened: 0
     D_test_arrays_opened: 0
     final_test_opened: false
+  P2-Exp002D:
+    status: completed
+    result: PASS
+    models_frozen:
+    - C0
+    - U1
+    - U2a
+    - U2b
+    input_channels: 3
+    paper1_checkpoint_used_for_initialization: false
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181

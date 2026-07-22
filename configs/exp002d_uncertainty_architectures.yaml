@@ -1,0 +1,80 @@
+experiment:
+  id: P2-Exp002D
+  name: Uncertainty-model family architecture freeze
+  status: completed
+  result: PASS
+  runtime: CPU
+shared_input:
+  scientific_symbol: C_v
+  channels: 3
+  channel_meanings:
+  - '|x_hat_v|'
+  - '|x_0_v|'
+  - '|x_hat_v - x_0_v|'
+  native_three_channel_input: true
+  auxiliary_channels_allowed: false
+shared_backbone:
+  implementation: fourway_mri.reliability_model.ReliabilityUNetSmall
+  base_channels: 8
+  initialization: independent random initialization
+  paper1_checkpoint_initialization: false
+  reason_checkpoint_not_used_for_initialization: The Paper 1 A4 checkpoint was trained
+    on the original 201-volume training cohort, which contains the present D_dev subset.
+    Reusing it would contaminate Paper 2 model selection.
+C0:
+  name: deterministic A4 control
+  model_code: C0
+  output: point prediction
+  output_channels: 1
+  training_loss: masked MAE
+  parameter_count: 122817
+U1:
+  name: MC-dropout
+  model_code: U1
+  output: point prediction per stochastic pass
+  output_channels: 1
+  dropout_type: spatial Dropout2d
+  dropout_probability: 0.1
+  dropout_locations: after every encoder, bottleneck, and decoder block
+  evaluation_passes: 20
+  uncertainty: population variance across stochastic passes
+  training_loss: masked MAE
+  parameter_count: 122817
+U2a:
+  name: point-predictor ensemble
+  model_code: U2a
+  ensemble_size: 3
+  member_seeds: &id001
+  - 20260720
+  - 20260721
+  - 20260722
+  member_output: point prediction
+  predictive_mean: mean of member predictions
+  uncertainty: population variance of member predictions
+  training_loss: masked MAE per member
+  parameter_count: 368451
+U2b:
+  name: probabilistic deep ensemble
+  model_code: U2b
+  ensemble_size: 3
+  member_seeds: *id001
+  member_output:
+  - predictive mean
+  - bounded log variance
+  variance_floor: 1.0e-06
+  log_variance_bounds:
+  - -10.0
+  - 10.0
+  training_loss: Gaussian negative log-likelihood per member
+  within_model_variance: mean of member predictive variances
+  between_model_variance: population variance of member predictive means
+  total_predictive_variance: within-model variance plus between-model variance
+  parameter_count: 368478
+training_governance:
+  training_performed: false
+  gradient_updates: 0
+  D_fit_arrays_opened: 0
+  D_dev_arrays_opened: 0
+  D_cal_arrays_opened: 0
+  D_test_arrays_opened: 0
+  final_test_barrier: CLOSED

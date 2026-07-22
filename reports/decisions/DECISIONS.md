@@ -121,3 +121,19 @@ All changes made after protocol freeze must be recorded here.
 - **D_test arrays opened:** Zero.
 - **Gradient updates:** Zero.
 - **Final-test barrier:** Closed.
+
+## D009 — Freeze the Paper 2 uncertainty-model family
+
+- **Date:** 2026-07-22
+- **Decision ID:** D009
+- **Shared input:** Native three-channel `C_v` only.
+- **C0:** Deterministic A4 control; masked MAE.
+- **U1:** MC-dropout, `p=0.10`, 20 stochastic evaluation passes; masked MAE.
+- **U2a:** Three independently initialized point predictors; between-member population variance.
+- **U2b:** Three independently initialized Gaussian predictors; within-, between-, and total variance; Gaussian NLL.
+- **Member seeds:** 20260720, 20260721, 20260722.
+- **Paper 1 checkpoint initialization:** Prohibited. The checkpoint was trained on the original 201-volume cohort containing the present D_dev subset.
+- **D_cal arrays opened:** Zero.
+- **D_test arrays opened:** Zero.
+- **Gradient updates:** Zero.
+- **Final-test barrier:** Closed.

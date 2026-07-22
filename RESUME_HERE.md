@@ -1,31 +1,25 @@
 # Resume Paper 2 Here
 
-## Completed through P2-Exp002C
+## Completed through P2-Exp002D
 
-The exact frozen Paper 1 A4 model was verified as:
+The Paper 2 trainable model family is frozen:
 
-`fourway_mri.reliability_model.ReliabilityUNetSmall`
+- C0: deterministic A4 control.
+- U1: MC-dropout with p=0.1
+  and 20 evaluation passes.
+- U2a: three-member point-predictor ensemble.
+- U2b: three-member probabilistic deep ensemble.
 
-Constructor:
+All trainable neural models accept exactly three-channel C_v.
 
-- `in_channels=6`
-- `out_channels=1`
-- `base_channels=8`
+All trainable models start from independent random
+initialization. The frozen Paper 1 A4 checkpoint is retained
+only as a compatibility reference and is not used to initialize
+Paper 2 models because it was trained on the original
+201-volume cohort containing the current D_dev subset.
 
-Checkpoint SHA-256:
-
-`cc1bf4c79522d6a2b9a4406461273252dd3e4621a42be2da0dd13742ce5c5cc1`
-
-Strict loading passed with zero missing and zero unexpected
-keys.
-
-Paper 2 exposes only three-channel `C_v`.
-`A4ThreeChannelAdapter` internally appends three exact-zero
-channels to reproduce the Paper 1 A4 ablation.
-
-Forward equivalence and deterministic repeat checks passed
-across all D_fit and D_dev matrix sizes.
-
+D_fit arrays opened: 0
+D_dev arrays opened: 0
 D_cal arrays opened: 0
 D_test arrays opened: 0
 Gradient updates: 0
@@ -33,5 +27,8 @@ Final-test barrier: CLOSED
 
 ## Next stage
 
-P2-Exp002D — freeze the C0, U1, U2a and U2b architecture
-contracts before any training.
+P2-Exp003A — train the deterministic C0 control using D_fit
+for gradient updates and D_dev for model selection.
+
+Switch the Colab runtime to an NVIDIA T4 GPU or better before
+running P2-Exp003A.

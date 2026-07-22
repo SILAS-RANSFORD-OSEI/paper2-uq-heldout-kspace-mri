@@ -19,7 +19,8 @@
     "P2-Exp001C": "PASS",
     "P2-Exp001D": "PASS",
     "P2-Exp002A": "PASS",
-    "P2-Exp002B": "PASS"
+    "P2-Exp002B": "PASS",
+    "P2-Exp002C": "PASS"
   },
   "cache_audit": {
     "volumes": 281,
@@ -56,10 +57,10 @@
     "D_test_arrays_opened_in_paper2": false
   },
   "next_stage": {
-    "id": "P2-Exp002C",
-    "name": "Frozen A4 checkpoint compatibility audit",
+    "id": "P2-Exp002D",
+    "name": "Uncertainty-model family architecture freeze",
     "runtime": "CPU",
-    "objective": "Load the canonical Paper 1 A4 checkpoint, reconstruct the architecture, and verify forward compatibility using D_fit and D_dev only."
+    "objective": "Define and test C0, U1, U2a, and U2b interfaces before training."
   },
   "important_paths": {
     "paper2_repository": "/content/paper2-uq-heldout-kspace-mri",

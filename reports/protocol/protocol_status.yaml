@@ -87,6 +87,18 @@ experiments:
     D_test_arrays_opened: 0
     D_test_predictions_generated: false
     final_test_opened: false
+  P2-Exp002C:
+    status: completed
+    result: PASS
+    implementation: fourway_mri.reliability_model.ReliabilityUNetSmall
+    in_channels: 6
+    out_channels: 1
+    base_channels: 8
+    strict_checkpoint_load: true
+    paper2_input_channels: 3
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181

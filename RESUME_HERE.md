@@ -1,46 +1,37 @@
 # Resume Paper 2 Here
 
-## Current state
+## Completed through P2-Exp002C
 
-P2-Exp000, P2-Exp001A-D, P2-Exp002A, and P2-Exp002B
-are complete and passed.
+The exact frozen Paper 1 A4 model was verified as:
 
-## Frozen batching contract
+`fourway_mri.reliability_model.ReliabilityUNetSmall`
 
-Predictor input:
+Constructor:
 
-`C_v = cache_input_6ch[0:3]`
+- `in_channels=6`
+- `out_channels=1`
+- `base_channels=8`
 
-Semantic cache target attribute:
+Checkpoint SHA-256:
 
-`u_risk`
+`cc1bf4c79522d6a2b9a4406461273252dd3e4621a42be2da0dd13742ce5c5cc1`
 
-Scientific target symbol used downstream:
+Strict loading passed with zero missing and zero unexpected
+keys.
 
-`u_risk_v`
+Paper 2 exposes only three-channel `C_v`.
+`A4ThreeChannelAdapter` internally appends three exact-zero
+channels to reproduce the Paper 1 A4 ablation.
 
-Translation occurs at:
+Forward equivalence and deterministic repeat checks passed
+across all D_fit and D_dev matrix sizes.
 
-`paper2_uq_mri.batching.tensorize_semantic_sample`
+D_cal arrays opened: 0
+D_test arrays opened: 0
+Gradient updates: 0
+Final-test barrier: CLOSED
 
-No raw target or legacy cache key propagates into model code.
+## Next stage
 
-D_cal arrays opened in P2-Exp002B: 0
-D_test arrays opened in P2-Exp002B: 0
-D_test predictions generated: No
-
-The final-test barrier remains CLOSED.
-
-## Next action
-
-Run P2-Exp002C on CPU:
-
-1. load the canonical frozen A4 checkpoint;
-2. reconstruct its exact architecture;
-3. verify checkpoint-key and tensor-shape compatibility;
-4. run forward smoke tests on D_fit and D_dev only;
-5. do not open D_cal or D_test.
-
-## Final test barrier
-
-`CLOSED`
+P2-Exp002D — freeze the C0, U1, U2a and U2b architecture
+contracts before any training.

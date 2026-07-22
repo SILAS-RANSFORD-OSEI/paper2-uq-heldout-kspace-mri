@@ -1,0 +1,41 @@
+experiment:
+  id: P2-Exp002C
+  name: Frozen A4 checkpoint compatibility audit
+  status: completed
+  result: PASS
+  runtime: CPU
+paper1_source:
+  commit: da563ead8fb653539e1eeca29248b31f0121ca12
+  implementation: fourway_mri.reliability_model.ReliabilityUNetSmall
+  source_file: src/fourway_mri/reliability_model.py
+  source_file_sha256: 99a8bd1b3a4c5d5e87f53ffbe949ba4a00f77f96297a592c82d3a2b5945f2eab
+checkpoint:
+  sha256: cc1bf4c79522d6a2b9a4406461273252dd3e4621a42be2da0dd13742ce5c5cc1
+  state_dict_container: model_state_dict
+  tensor_count: 58
+  strict_load: true
+  missing_keys: []
+  unexpected_keys: []
+architecture:
+  in_channels: 6
+  out_channels: 1
+  base_channels: 8
+  parameter_count: 123033
+paper2_interface:
+  scientific_input_symbol: C_v
+  input_channels: 3
+  appended_zero_channels:
+  - 3
+  - 4
+  - 5
+  expanded_channels: 6
+  adapter: A4ThreeChannelAdapter
+roles_opened:
+  D_fit: true
+  D_dev: true
+  D_cal: false
+  D_test: false
+final_test_barrier:
+  status: CLOSED
+  D_test_arrays_opened: 0
+  D_test_predictions_generated: false

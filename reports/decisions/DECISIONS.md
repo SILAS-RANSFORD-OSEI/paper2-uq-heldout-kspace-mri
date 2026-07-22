@@ -107,3 +107,17 @@ All changes made after protocol freeze must be recorded here.
 - **D_cal arrays opened:** Zero.
 - **D_test arrays opened:** Zero.
 - **Final test barrier:** Closed.
+
+## D008 — Freeze the Paper 1 A4 compatibility interface
+
+- **Date:** 2026-07-22
+- **Decision ID:** D008
+- **Implementation:** `fourway_mri.reliability_model.ReliabilityUNetSmall`.
+- **Constructor:** `in_channels=6`, `out_channels=1`, `base_channels=8`.
+- **Checkpoint loading:** Strict; zero missing and zero unexpected keys.
+- **Paper 2 interface:** Three-channel `C_v`.
+- **Compatibility operation:** Append three exact-zero channels internally.
+- **D_cal arrays opened:** Zero.
+- **D_test arrays opened:** Zero.
+- **Gradient updates:** Zero.
+- **Final-test barrier:** Closed.

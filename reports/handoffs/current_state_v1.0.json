@@ -23,7 +23,8 @@
     "P2-Exp002C": "PASS",
     "P2-Exp002D": "PASS",
     "P2-Exp002E": "PASS",
-    "P2-Exp003A": "PASS"
+    "P2-Exp003A": "PASS",
+    "P2-Exp003B": "PASS"
   },
   "cache_audit": {
     "volumes": 281,
@@ -60,8 +61,8 @@
     "D_test_arrays_opened_in_paper2": false
   },
   "next_stage": {
-    "id": "P2-Exp003B",
-    "name": "Train U1 MC-dropout model",
+    "id": "P2-Exp003C",
+    "name": "Train U2a point-predictor ensemble",
     "runtime": "GPU",
     "roles_allowed": [
       "D_fit",

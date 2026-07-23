@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "experiment_id": "P2-Exp003B",
+  "model_code": "U1",
+  "completed_epoch": 17,
+  "early_stopped": true,
+  "best_epoch": 7,
+  "best_development_mc_mean_mae": 0.21612470587292035,
+  "best_development_deterministic_mae": 0.2154333071544978,
+  "best_development_supported_variance_mean": 0.0295678930784003,
+  "dropout_probability": 0.1,
+  "mc_passes": 20,
+  "gradient_updates": 12223,
+  "best_checkpoint_sha256": "a77890a1474771243b006bc5e4cf959d08aeb72c6b35b60900d3b19311f091ef",
+  "last_checkpoint_sha256": "633152e0e4592b0bc50c2ba0db2655af3af89ebb5797dd5c09da22ee9c40c55a",
+  "D_cal_arrays_opened": 0,
+  "D_test_arrays_opened": 0,
+  "final_test_barrier": "CLOSED"
+}

@@ -137,6 +137,21 @@ experiments:
     D_cal_arrays_opened: 0
     D_test_arrays_opened: 0
     final_test_opened: false
+  P2-Exp003B:
+    status: completed
+    result: PASS
+    model: U1 MC-dropout
+    dropout_probability: 0.1
+    mc_passes: 20
+    selection_metric: fixed-seed 20-pass D_dev MC-mean MAE
+    best_epoch: 7
+    best_D_dev_MC_mean_MAE: 0.21612470587292035
+    best_D_dev_deterministic_MAE: 0.2154333071544978
+    best_supported_MC_variance_mean: 0.0295678930784003
+    gradient_updates: 12223
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181

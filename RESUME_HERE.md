@@ -1,25 +1,28 @@
 # Resume Paper 2 Here
 
-## Completed through P2-Exp003A
+## Completed through P2-Exp003B
 
-The deterministic C0 control was trained successfully.
+U1 MC-dropout training was completed and audited.
 
-- Valid run precision: FP32
 - GPU: NVIDIA L4
-- Completed epoch: 42
-- Early stopping: yes
-- Selected epoch: 32
-- Best D_dev support-weighted MAE:
-  0.20043605
-- Gradient updates: 30,198
+- Precision: FP32
+- Dropout probability: 0.10
+- MC passes: 20
+- Completed epoch: 17
+- Selected epoch: 7
+- Best D_dev MC-mean MAE:
+  0.21612471
+- Best D_dev deterministic MAE:
+  0.21543331
+- Supported MC variance mean:
+  0.0295678931
+- Gradient updates: 12,223
 - D_cal arrays opened: 0
 - D_test arrays opened: 0
 - Final-test barrier: CLOSED
 
-The preliminary FP16 AMP attempt overflowed before completing
-epoch 1 and did not produce a valid training checkpoint.
-
 ## Next stage
 
-P2-Exp003B — train the U1 MC-dropout model using D_fit
-for gradient updates and D_dev for model selection.
+P2-Exp003C — train the three-member U2a
+point-predictor ensemble using D_fit for gradient
+updates and D_dev for model selection.

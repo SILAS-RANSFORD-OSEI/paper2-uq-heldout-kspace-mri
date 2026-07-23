@@ -1,0 +1,31 @@
+experiment_id: P2-Exp003B
+model: U1 MC-dropout A4 model
+input: three-channel C_v
+target: u_risk_v
+support_tensor: M_soft
+loss: single-stochastic-pass support-weighted MAE
+selection_metric: fixed-seed 20-pass D_dev MC-mean support-weighted MAE
+dropout_probability: 0.1
+mc_passes: 20
+training_seed: 20260720
+development_mc_seed: 2026072001
+precision: FP32
+automatic_mixed_precision: false
+tf32_enabled: false
+gpu: NVIDIA L4
+parameter_count: 122817
+completed_epoch: 17
+best_epoch: 7
+best_development_mc_mean_mae: 0.21612470587292035
+best_development_deterministic_mae: 0.2154333071544978
+best_development_supported_variance_mean: 0.0295678930784003
+gradient_updates: 12223
+repository_parent_commit: f7d1205b890920ec2977c373873d8ddec276e1fa
+split_sha256: ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a
+best_checkpoint_sha256: a77890a1474771243b006bc5e4cf959d08aeb72c6b35b60900d3b19311f091ef
+last_checkpoint_sha256: 633152e0e4592b0bc50c2ba0db2655af3af89ebb5797dd5c09da22ee9c40c55a
+D_fit_role: gradient updates
+D_dev_role: model selection
+D_cal_arrays_opened: 0
+D_test_arrays_opened: 0
+final_test_barrier: CLOSED

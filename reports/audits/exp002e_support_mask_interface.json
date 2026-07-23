@@ -1,0 +1,48 @@
+{
+  "experiment": {
+    "id": "P2-Exp002E",
+    "name": "Support-mask loss interface freeze",
+    "status": "completed",
+    "result": "PASS"
+  },
+  "predictor_interface": {
+    "scientific_input": "C_v",
+    "predictor_channels": 3,
+    "support_mask_in_predictor": false
+  },
+  "loss_interface": {
+    "support_tensor": "M_soft",
+    "source": "cache_input_6ch[3]",
+    "valid_range": [
+      0.0,
+      1.0
+    ],
+    "batch_shape": "(B, 1, H, W)",
+    "use": "loss weighting only"
+  },
+  "semantic_contract": {
+    "C_v": "cache_input_6ch[0:3]",
+    "M_soft": "cache_input_6ch[3]",
+    "u_risk_v": "semantic u_risk"
+  },
+  "governance": {
+    "training_started": false,
+    "gradient_updates": 0,
+    "D_fit_arrays_opened": 1,
+    "D_dev_arrays_opened": 0,
+    "D_cal_arrays_opened": 0,
+    "D_test_arrays_opened": 0,
+    "final_test_barrier": "CLOSED"
+  },
+  "parent_commit": "4d07e534f8410e5d56aaae14a49bc647cc2d107f",
+  "probe_sample_id": "file_brain_AXT2_206_2060058_slice000",
+  "probe_spatial_shape": [
+    640,
+    272
+  ],
+  "exact_channel_three_match": true,
+  "semantic_fixtures_updated": 3,
+  "synthetic_arange_fixture_corrected": true,
+  "tests": "........................................................................ [ 80%]\n.................                                                        [100%]\n89 passed in 2.81s",
+  "created_utc": "2026-07-23T11:53:06.053220+00:00"
+}

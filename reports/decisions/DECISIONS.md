@@ -137,3 +137,16 @@ All changes made after protocol freeze must be recorded here.
 - **D_test arrays opened:** Zero.
 - **Gradient updates:** Zero.
 - **Final-test barrier:** Closed.
+
+## D010 — Separate support-mask loss weighting from the predictor input
+
+- **Date:** 2026-07-23
+- **Decision ID:** D010
+- **Predictor input:** Three-channel `C_v` only.
+- **Loss support:** `M_soft`, mapped exactly from `cache_input_6ch[3]`.
+- **Valid support range:** `[0, 1]`.
+- **Role of `M_soft`:** Loss weighting only.
+- **D_cal arrays opened:** Zero.
+- **D_test arrays opened:** Zero.
+- **Gradient updates:** Zero.
+- **Final-test barrier:** Closed.

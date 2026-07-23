@@ -1,0 +1,29 @@
+experiment:
+  id: P2-Exp002E
+  name: Support-mask loss interface freeze
+  status: completed
+  result: PASS
+predictor_interface:
+  scientific_input: C_v
+  predictor_channels: 3
+  support_mask_in_predictor: false
+loss_interface:
+  support_tensor: M_soft
+  source: cache_input_6ch[3]
+  valid_range:
+  - 0.0
+  - 1.0
+  batch_shape: (B, 1, H, W)
+  use: loss weighting only
+semantic_contract:
+  C_v: cache_input_6ch[0:3]
+  M_soft: cache_input_6ch[3]
+  u_risk_v: semantic u_risk
+governance:
+  training_started: false
+  gradient_updates: 0
+  D_fit_arrays_opened: 1
+  D_dev_arrays_opened: 0
+  D_cal_arrays_opened: 0
+  D_test_arrays_opened: 0
+  final_test_barrier: CLOSED

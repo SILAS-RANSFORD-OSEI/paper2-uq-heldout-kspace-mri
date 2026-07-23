@@ -112,6 +112,18 @@ experiments:
     D_cal_arrays_opened: 0
     D_test_arrays_opened: 0
     final_test_opened: false
+  P2-Exp002E:
+    status: completed
+    result: PASS
+    predictor_channels: 3
+    support_mask_batch_key: M_soft
+    support_mask_source: cache_input_6ch[3]
+    support_mask_valid_range:
+    - 0.0
+    - 1.0
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181

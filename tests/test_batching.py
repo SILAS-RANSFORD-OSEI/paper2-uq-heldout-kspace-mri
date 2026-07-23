@@ -42,6 +42,15 @@ def make_sample(
         dtype=torch.float32,
     )
 
+    M_soft = torch.ones(
+        (
+            1,
+            height,
+            width,
+        ),
+        dtype=torch.float32,
+    )
+
     return PredictorTensorSample(
         sample_id=sample_id,
         volume_id=volume_id,
@@ -49,6 +58,7 @@ def make_sample(
         purpose="gradient_fit",
         C_v=C_v,
         u_risk_v=target,
+        M_soft=M_soft,
         cache_shape_6ch=(
             6,
             height,
@@ -71,11 +81,23 @@ def test_tensorizer_uses_only_first_three_channels() -> None:
         7,
     )
 
+    # Channel 3 is semantically M_soft and must remain in [0, 1].
+    cache[3] = np.linspace(
+        0.0,
+        1.0,
+        num=8 * 7,
+        dtype=np.float16,
+    ).reshape(
+        8,
+        7,
+    )
+
     semantic = SimpleNamespace(
         cache_input_6ch=cache,
         predictor_input=cache[
             :3
         ].copy(),
+        support_mask=cache[3].copy(),
         u_risk=np.ones(
             (
                 8,
@@ -143,6 +165,7 @@ def test_tensorizer_rejects_modified_predictor_input() -> None:
     semantic = SimpleNamespace(
         cache_input_6ch=cache,
         predictor_input=predictor,
+        support_mask=cache[3].copy(),
         u_risk=np.zeros(
             (
                 5,
@@ -192,6 +215,15 @@ def test_collate_stacks_homogeneous_shapes() -> None:
 
     assert batch[
         "u_risk_v"
+    ].shape == (
+        2,
+        1,
+        8,
+        7,
+    )
+
+    assert batch[
+        "M_soft"
     ].shape == (
         2,
         1,
@@ -403,6 +435,7 @@ def test_confirmed_semantic_u_risk_mapping() -> None:
         predictor_input=cache[
             :3
         ].copy(),
+        support_mask=cache[3].copy(),
         u_risk=np.ones(
             (
                 5,
@@ -435,3 +468,108 @@ def test_confirmed_semantic_u_risk_mapping() -> None:
     assert torch.all(
         sample.u_risk_v == 1
     )
+
+
+def test_tensorizer_exposes_channel_three_as_M_soft() -> None:
+    cache = np.zeros(
+        (
+            6,
+            5,
+            4,
+        ),
+        dtype=np.float16,
+    )
+
+    cache[3] = np.linspace(
+        0.0,
+        1.0,
+        num=20,
+        dtype=np.float16,
+    ).reshape(
+        5,
+        4,
+    )
+
+    semantic = SimpleNamespace(
+        cache_input_6ch=cache,
+        predictor_input=cache[:3].copy(),
+        support_mask=cache[3].copy(),
+        u_risk=np.ones(
+            (
+                5,
+                4,
+            ),
+            dtype=np.float16,
+        ),
+    )
+
+    sample = tensorize_semantic_sample(
+        semantic,
+        sample_id="support-sample",
+        volume_id="support-volume",
+        paper2_role="D_fit",
+        purpose="gradient_fit",
+    )
+
+    assert sample.C_v.shape == (
+        3,
+        5,
+        4,
+    )
+
+    assert sample.M_soft.shape == (
+        1,
+        5,
+        4,
+    )
+
+    assert torch.equal(
+        sample.M_soft[0],
+        torch.from_numpy(
+            cache[3].astype(
+                np.float32
+            )
+        ),
+    )
+
+
+def test_tensorizer_rejects_incorrect_support_mapping() -> None:
+    cache = np.zeros(
+        (
+            6,
+            5,
+            4,
+        ),
+        dtype=np.float16,
+    )
+
+    semantic = SimpleNamespace(
+        cache_input_6ch=cache,
+        predictor_input=cache[:3].copy(),
+        support_mask=np.ones(
+            (
+                5,
+                4,
+            ),
+            dtype=np.float16,
+        ),
+        u_risk=np.ones(
+            (
+                5,
+                4,
+            ),
+            dtype=np.float16,
+        ),
+    )
+
+    with pytest.raises(
+        BatchingContractError,
+        match=r"cache_input_6ch\[3\]",
+    ):
+        tensorize_semantic_sample(
+            semantic,
+            sample_id="bad-support",
+            volume_id="bad-volume",
+            paper2_role="D_fit",
+            purpose="gradient_fit",
+        )

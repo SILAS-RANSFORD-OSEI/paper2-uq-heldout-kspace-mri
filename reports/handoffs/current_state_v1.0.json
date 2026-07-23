@@ -21,7 +21,8 @@
     "P2-Exp002A": "PASS",
     "P2-Exp002B": "PASS",
     "P2-Exp002C": "PASS",
-    "P2-Exp002D": "PASS"
+    "P2-Exp002D": "PASS",
+    "P2-Exp002E": "PASS"
   },
   "cache_audit": {
     "volumes": 281,
@@ -61,7 +62,6 @@
     "id": "P2-Exp003A",
     "name": "Train deterministic C0 control",
     "runtime": "GPU",
-    "minimum_recommended_runtime": "NVIDIA T4 or better",
     "roles_allowed": [
       "D_fit",
       "D_dev"

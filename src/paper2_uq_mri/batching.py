@@ -51,6 +51,7 @@ class PredictorTensorSample:
     purpose: str
     C_v: torch.Tensor
     u_risk_v: torch.Tensor
+    M_soft: torch.Tensor
     cache_shape_6ch: tuple[int, int, int]
     spatial_shape: tuple[int, int]
 
@@ -75,6 +76,16 @@ class PredictorTensorSample:
                 "u_risk_v must contain one target channel."
             )
 
+        if self.M_soft.ndim != 3:
+            raise BatchingContractError(
+                "M_soft must have shape (1, H, W)."
+            )
+
+        if self.M_soft.shape[0] != 1:
+            raise BatchingContractError(
+                "M_soft must contain one support channel."
+            )
+
         predictor_spatial_shape = tuple(
             int(value)
             for value in self.C_v.shape[-2:]
@@ -85,9 +96,19 @@ class PredictorTensorSample:
             for value in self.u_risk_v.shape[-2:]
         )
 
+        support_spatial_shape = tuple(
+            int(value)
+            for value in self.M_soft.shape[-2:]
+        )
+
         if predictor_spatial_shape != target_spatial_shape:
             raise BatchingContractError(
                 "C_v and u_risk_v spatial shapes do not match."
+            )
+
+        if predictor_spatial_shape != support_spatial_shape:
+            raise BatchingContractError(
+                "C_v and M_soft spatial shapes do not match."
             )
 
         if predictor_spatial_shape != self.spatial_shape:
@@ -112,6 +133,21 @@ class PredictorTensorSample:
         ).all():
             raise BatchingContractError(
                 "u_risk_v contains non-finite values."
+            )
+
+        if not torch.isfinite(
+            self.M_soft
+        ).all():
+            raise BatchingContractError(
+                "M_soft contains non-finite values."
+            )
+
+        if (
+            torch.any(self.M_soft < 0)
+            or torch.any(self.M_soft > 1)
+        ):
+            raise BatchingContractError(
+                "M_soft values must lie in [0, 1]."
             )
 
 
@@ -159,6 +195,14 @@ def tensorize_semantic_sample(
         )
 
     if not hasattr(
+        semantic_sample,
+        "support_mask",
+    ):
+        raise BatchingContractError(
+            "Semantic sample does not expose support_mask."
+        )
+
+    if not hasattr(
                 semantic_sample,
                 "u_risk",
             ):
@@ -174,6 +218,11 @@ def tensorize_semantic_sample(
     predictor_input = _as_numpy_array(
         semantic_sample.predictor_input,
         name="predictor_input",
+    )
+
+    support_mask = _as_numpy_array(
+        semantic_sample.support_mask,
+        name="M_soft",
     )
 
     target = _as_numpy_array(
@@ -216,6 +265,48 @@ def tensorize_semantic_sample(
     ):
         raise BatchingContractError(
             "predictor_input is not exactly cache_input_6ch[0:3]."
+        )
+
+    if support_mask.ndim == 2:
+        support_mask = support_mask[
+            None,
+            ...,
+        ]
+
+    elif (
+        support_mask.ndim == 3
+        and support_mask.shape[0] == 1
+    ):
+        pass
+
+    else:
+        raise BatchingContractError(
+            "M_soft must have shape (H, W) or (1, H, W)."
+        )
+
+    if tuple(
+        support_mask.shape[-2:]
+    ) != tuple(
+        cache_input_6ch.shape[-2:]
+    ):
+        raise BatchingContractError(
+            "M_soft and source-cache spatial shapes do not match."
+        )
+
+    if not np.array_equal(
+        support_mask[0],
+        cache_input_6ch[3],
+    ):
+        raise BatchingContractError(
+            "M_soft is not exactly cache_input_6ch[3]."
+        )
+
+    if (
+        np.any(support_mask < 0)
+        or np.any(support_mask > 1)
+    ):
+        raise BatchingContractError(
+            "M_soft values must lie in [0, 1]."
         )
 
     if target.ndim == 2:
@@ -262,6 +353,13 @@ def tensorize_semantic_sample(
         )
     )
 
+    M_soft = torch.from_numpy(
+        np.ascontiguousarray(
+            support_mask,
+            dtype=np.float32,
+        )
+    )
+
     spatial_shape = tuple(
         int(value)
         for value in C_v.shape[
@@ -284,6 +382,7 @@ def tensorize_semantic_sample(
         ),
         C_v=C_v,
         u_risk_v=u_risk_v,
+        M_soft=M_soft,
         cache_shape_6ch=tuple(
             int(value)
             for value in cache_input_6ch.shape
@@ -686,6 +785,14 @@ def collate_predictor_batch(
         dim=0,
     )
 
+    M_soft = torch.stack(
+        [
+            sample.M_soft
+            for sample in samples
+        ],
+        dim=0,
+    )
+
     if C_v.ndim != 4:
         raise BatchingContractError(
             "Batched C_v must have shape (B, 3, H, W)."
@@ -706,6 +813,16 @@ def collate_predictor_batch(
             "Batched target must contain one channel."
         )
 
+    if M_soft.ndim != 4:
+        raise BatchingContractError(
+            "Batched M_soft must have shape (B, 1, H, W)."
+        )
+
+    if M_soft.shape[1] != 1:
+        raise BatchingContractError(
+            "Batched M_soft must contain one channel."
+        )
+
     if tuple(
         C_v.shape[
             -2:
@@ -717,6 +834,15 @@ def collate_predictor_batch(
     ):
         raise BatchingContractError(
             "Batched predictor and target shapes do not match."
+        )
+
+    if tuple(
+        C_v.shape[-2:]
+    ) != tuple(
+        M_soft.shape[-2:]
+    ):
+        raise BatchingContractError(
+            "Batched predictor and M_soft shapes do not match."
         )
 
     return {
@@ -758,6 +884,9 @@ def collate_predictor_batch(
 
         "u_risk_v":
             u_risk_v,
+
+        "M_soft":
+            M_soft,
 
         "source_cache_channels":
             6,

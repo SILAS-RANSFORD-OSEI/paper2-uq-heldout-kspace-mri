@@ -1,0 +1,29 @@
+experiment_id: P2-Exp003A
+model: C0 deterministic A4 control
+input: three-channel C_v
+target: u_risk_v
+loss: support-weighted MAE
+support_tensor: M_soft
+support_source: cache_input_6ch[3]
+initialization: independent random initialization
+seed: 20260720
+precision: FP32
+automatic_mixed_precision: false
+gpu: NVIDIA L4
+batch_size: 4
+maximum_epochs: 60
+early_stopping_patience: 10
+selection_metric: D_dev support-weighted MAE
+best_epoch: 32
+best_development_mae: 0.20043605269973996
+completed_epoch: 42
+gradient_updates: 30198
+repository_parent_commit: 9091c53af159620560c170b4e25b6dcb23fc15c0
+split_sha256: ca855cfa07e878b8b582b8decd0c96b9b80ffe98003c6734405db7d2c1dcc81a
+best_checkpoint_sha256: 1900b6501cc8613ce4a04b5f355e13afb44b80d3cfa1e8a35c2cb3b69a13583d
+last_checkpoint_sha256: 6c6f6f5dbaf1bfe2c0ae780bba2751f87d799d9cc9318bb81f5513dd21a35890
+D_fit_role: gradient updates
+D_dev_role: model selection
+D_cal_arrays_opened: 0
+D_test_arrays_opened: 0
+final_test_barrier: CLOSED

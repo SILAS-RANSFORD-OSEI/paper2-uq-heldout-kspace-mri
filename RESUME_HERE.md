@@ -1,23 +1,25 @@
 # Resume Paper 2 Here
 
-## Completed through P2-Exp002E
+## Completed through P2-Exp003A
 
-The batching interface exposes:
+The deterministic C0 control was trained successfully.
 
-- `C_v`: exactly three predictor channels.
-- `u_risk_v`: one-channel risk-learning target.
-- `M_soft`: one-channel support tensor used only for loss
-  weighting.
+- Valid run precision: FP32
+- GPU: NVIDIA L4
+- Completed epoch: 42
+- Early stopping: yes
+- Selected epoch: 32
+- Best D_dev support-weighted MAE:
+  0.20043605
+- Gradient updates: 30,198
+- D_cal arrays opened: 0
+- D_test arrays opened: 0
+- Final-test barrier: CLOSED
 
-`M_soft` is mapped exactly from source cache channel 3 and
-is constrained to [0, 1]. It does not enter the predictor.
-
-Training started: NO
-Gradient updates: 0
-D_cal arrays opened: 0
-D_test arrays opened: 0
-Final-test barrier: CLOSED
+The preliminary FP16 AMP attempt overflowed before completing
+epoch 1 and did not produce a valid training checkpoint.
 
 ## Next stage
 
-P2-Exp003A — train the deterministic C0 control.
+P2-Exp003B — train the U1 MC-dropout model using D_fit
+for gradient updates and D_dev for model selection.

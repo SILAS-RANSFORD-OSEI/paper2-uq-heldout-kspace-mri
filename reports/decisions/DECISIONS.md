@@ -150,3 +150,15 @@ All changes made after protocol freeze must be recorded here.
 - **D_test arrays opened:** Zero.
 - **Gradient updates:** Zero.
 - **Final-test barrier:** Closed.
+
+## D011 — Use FP32 for Paper 2 neural-model training
+
+- **Date:** 2026-07-23
+- **Decision ID:** D011
+- **Reason:** The preliminary FP16 automatic mixed-precision C0 run produced a non-finite gradient norm before completing epoch 1.
+- **Resolution:** C0 was restarted from the frozen seed and trained using full FP32 arithmetic.
+- **Valid C0 run:** 42 completed epochs; selected epoch 32; D_dev support-weighted MAE 0.20043605.
+- **Hardware:** NVIDIA L4; TF32 disabled; deterministic PyTorch settings enabled.
+- **D_cal arrays opened:** Zero.
+- **D_test arrays opened:** Zero.
+- **Final-test barrier:** Closed.

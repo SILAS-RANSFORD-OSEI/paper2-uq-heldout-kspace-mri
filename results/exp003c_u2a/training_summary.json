@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "experiment_id": "P2-Exp003C",
+  "model_code": "U2a",
+  "ensemble_size": 3,
+  "member_seeds": [
+    20260720,
+    20260721,
+    20260722
+  ],
+  "member_completed_epochs": [
+    42,
+    41,
+    40
+  ],
+  "member_best_epochs": [
+    32,
+    31,
+    30
+  ],
+  "member_best_development_maes": [
+    0.20043605269973996,
+    0.20002254904651198,
+    0.20034162364379027
+  ],
+  "ensemble_development_mae": 0.19779335390716268,
+  "supported_between_model_variance_mean": 0.0018016410689810484,
+  "positive_variance_batches": 80,
+  "member_gradient_updates": [
+    30198,
+    29479,
+    28760
+  ],
+  "total_gradient_updates": 88437,
+  "ensemble_checkpoint_sha256": "7677970df0469702d09a82299af1dd4ca063b8e21783a951b170d9d22793bc34",
+  "member_checkpoint_sha256": [
+    "5c00f436785bebeb4d5dfaa44bb3f1a8e995b249e0079311e6b39f21f21ee6b8",
+    "059742cee4439019688ecef394ac96385328b42b8b8bc062e1e97bf625d49e4f",
+    "1b39bc1d05b8ca4f3eee76b5bd3a99b7c8b2b630f9f8dbcc0561cc063ae4d3e4"
+  ],
+  "D_cal_arrays_opened": 0,
+  "D_test_arrays_opened": 0,
+  "final_test_barrier": "CLOSED"
+}

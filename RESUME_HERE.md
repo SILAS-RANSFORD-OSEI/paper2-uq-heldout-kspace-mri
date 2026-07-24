@@ -1,28 +1,30 @@
 # Resume Paper 2 Here
 
-## Completed through P2-Exp003B
+## Completed through P2-Exp003C
 
-U1 MC-dropout training was completed and audited.
+The three-member U2a point-predictor ensemble was
+trained and independently audited.
 
 - GPU: NVIDIA L4
 - Precision: FP32
-- Dropout probability: 0.10
-- MC passes: 20
-- Completed epoch: 17
-- Selected epoch: 7
-- Best D_dev MC-mean MAE:
-  0.21612471
-- Best D_dev deterministic MAE:
-  0.21543331
-- Supported MC variance mean:
-  0.0295678931
-- Gradient updates: 12,223
+- Member seeds: (20260720, 20260721, 20260722)
+- Best epochs: (32, 31, 30)
+- Member D_dev MAEs:
+  (0.20043605, 0.20002255, 0.20034162)
+- Ensemble D_dev MAE:
+  0.19779335
+- Supported between-model variance:
+  0.0018016411
+- Positive-variance batches:
+  80/80
+- Total gradient updates:
+  88,437
 - D_cal arrays opened: 0
 - D_test arrays opened: 0
 - Final-test barrier: CLOSED
 
 ## Next stage
 
-P2-Exp003C — train the three-member U2a
-point-predictor ensemble using D_fit for gradient
-updates and D_dev for model selection.
+P2-Exp003D — train the three-member U2b
+probabilistic deep ensemble using D_fit for gradient
+updates and D_dev for independent member selection.

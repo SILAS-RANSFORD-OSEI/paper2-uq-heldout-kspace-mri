@@ -152,6 +152,29 @@ experiments:
     D_cal_arrays_opened: 0
     D_test_arrays_opened: 0
     final_test_opened: false
+  P2-Exp003C:
+    status: completed
+    result: PASS
+    model: U2a point-predictor ensemble
+    ensemble_size: 3
+    member_seeds:
+    - 20260720
+    - 20260721
+    - 20260722
+    member_best_epochs:
+    - 32
+    - 31
+    - 30
+    member_best_D_dev_MAEs:
+    - 0.20043605269973996
+    - 0.20002254904651198
+    - 0.20034162364379027
+    ensemble_D_dev_MAE: 0.19779335390716268
+    supported_between_model_variance_mean: 0.0018016410689810484
+    total_gradient_updates: 88437
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181

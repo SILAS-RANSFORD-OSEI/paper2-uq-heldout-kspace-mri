@@ -1,0 +1,103 @@
+{
+  "D_test_arrays_opened": 0,
+  "D_test_predictions_generated": false,
+  "affine_calibration": {
+    "MAE_improved_by_method": {
+      "C0": false,
+      "DE": false,
+      "MC": true,
+      "PE": false
+    },
+    "interpretation": "Worsened MAE is not a calibration failure because ordinary least squares does not optimize absolute error.",
+    "objective": "ordinary least-squares squared error",
+    "role": "secondary Task P diagnostic only"
+  },
+  "audit_checks": {
+    "D_test_governance": "PASS",
+    "Task_E_recomputed_counts": "PASS",
+    "Task_R_recomputed_counts": "PASS",
+    "affine_governance": "PASS",
+    "canonical_artifact_signature": "PASS",
+    "precision_repair_provenance": "PASS",
+    "tie_aware_quantile_bracketing": "PASS",
+    "uncertainty_deciles": "PASS",
+    "volume_level_inference_contract": "PASS"
+  },
+  "audited_utc": "2026-07-25T16:07:38.709818+00:00",
+  "calibration_artifact_sha256": "f39b8274006328bd7a3b3dd74f91cb496957c25d705316ac89a9bcaebb4058ed",
+  "calibration_population": {
+    "interpretation": "Pixel pooling defines operational thresholds only; it does not define the inferential sample size.",
+    "slices": 636,
+    "supported_pixels": 168146944,
+    "threshold_weighting": "unweighted supported pixels",
+    "volumes": 40
+  },
+  "descriptor_selection_performed": false,
+  "experiment_id": "P2-Exp004B",
+  "final_test_barrier": "CLOSED",
+  "freeze_tag": "exp004b-calibration-v1.1",
+  "github_push_performed": false,
+  "inference_contract": {
+    "bootstrap_unit": "volume",
+    "confidence_interval": 0.95,
+    "inferential_unit": "volume",
+    "paired_method_comparisons": true,
+    "pixel_independence_assumed": false,
+    "planned_bootstrap_replicates": 1000
+  },
+  "measurement_target_interpretation": {
+    "ground_truth_reconstruction_error": false,
+    "ground_truth_uncertainty": false,
+    "u_hold_description": "measurement-derived held-out k-space residual-risk target"
+  },
+  "method_ranking_performed": false,
+  "model_inference_performed": false,
+  "model_training_performed": false,
+  "parent_repository_commit": "21f48ea244e2a4493474a5e77dfc75c7367938cd",
+  "quantile_precision": {
+    "comparison_operator": ">=",
+    "exact_order_statistics": true,
+    "finite_sample_tolerance": 1.189435830603023e-08,
+    "interpolation_dtype": "float64",
+    "observation_dtype": "float32",
+    "stored_threshold_dtype": "float64"
+  },
+  "schema_version": "exp004b-calibration-v1.1",
+  "status": "PASS",
+  "superseded_artifact_sha256": "a350c43234a17cbeb745b522baf9d2e40c83b4980482ee23ad3e6c7ea7d45728",
+  "target_version": "paper2-uhold-current-exp009-v1.0",
+  "task_E": {
+    "affine_means_used": false,
+    "binary_threshold_role": "secondary diagnostic only",
+    "binary_thresholds": {
+      "C0": 0.2593782544136047,
+      "DE": 0.2567231655120849,
+      "MC": 0.2879275888204579,
+      "PE": 0.2558795124292379
+    },
+    "continuous_deviation_definition": "abs(u_hold - raw method mean)",
+    "cross_method_binary_auprc_ranking_allowed": false,
+    "primary_endpoint": "normalized AUSE",
+    "raw_method_means_used": true,
+    "reason": "Each method-specific threshold defines a different binary deviation label."
+  },
+  "task_R": {
+    "common_label_across_methods": true,
+    "counts": {
+      "count_eq": 9,
+      "count_ge": 16814699,
+      "count_gt": 16814690,
+      "prevalence_eq": 5.352461237713604e-08,
+      "prevalence_ge": 0.10000002735702411,
+      "prevalence_gt": 0.09999997383241173
+    },
+    "finite_sample_quantile_audit": "PASS",
+    "primary_threshold_quantile": 0.9,
+    "sensitivity_quantiles": [
+      0.85,
+      0.95
+    ],
+    "threshold": 1.7366089820861816
+  },
+  "thresholds_selected_by_performance": false
+}

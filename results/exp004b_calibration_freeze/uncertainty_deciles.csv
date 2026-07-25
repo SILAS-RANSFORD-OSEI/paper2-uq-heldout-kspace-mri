@@ -1,0 +1,46 @@
+method,uncertainty_column,definition,quantile,boundary,quantile_method,observation_dtype,interpolation_dtype
+MC,U_MC,sqrt(population MC-dropout variance),0.10000000000000001,0.082666896283626556,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.20000000000000001,0.093511447310447693,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.29999999999999999,0.10158039629459381,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.40000000000000002,0.10908401757478714,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.5,0.11688388139009476,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.59999999999999998,0.12767721712589264,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.69999999999999996,0.13709582388401031,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.80000000000000004,0.14966942369937897,linear,float32,float64
+MC,U_MC,sqrt(population MC-dropout variance),0.90000000000000002,0.18138664960861206,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.10000000000000001,0.00097632966935634613,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.20000000000000001,0.0014068657765164971,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.29999999999999999,0.0018388677854090929,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.40000000000000002,0.0025246639270335436,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.5,0.0047660674899816513,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.59999999999999998,0.010272013023495674,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.69999999999999996,0.01863220166414975,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.80000000000000004,0.030211191624403,linear,float32,float64
+PE,U_PE,sqrt(population between-member variance),0.90000000000000002,0.048040370270609922,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.10000000000000001,0.0068117496557533741,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.20000000000000001,0.0068117496557533741,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.29999999999999999,0.0070037920959293842,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.40000000000000002,0.009275093674659729,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.5,0.018303720280528069,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.59999999999999998,0.054937642067670822,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.69999999999999996,0.12088062614202499,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.80000000000000004,0.21215863227844256,linear,float32,float64
+DE_within,U_DE_within,sqrt(mean predicted within-member variance),0.90000000000000002,0.34612753987312317,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.10000000000000001,0.000735078239813447,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.20000000000000001,0.0010726834414526822,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.29999999999999999,0.0014514907961711287,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.40000000000000002,0.0020237299613654613,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.5,0.0036067469045519829,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.59999999999999998,0.0086678218096494647,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.69999999999999996,0.017532851547002792,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.80000000000000004,0.027691163867712032,linear,float32,float64
+DE_between,U_DE_between,sqrt(population variance of member means),0.90000000000000002,0.04347667470574379,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.10000000000000001,0.0068720756098628044,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.20000000000000001,0.0069621228612959385,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.29999999999999999,0.0072435131296515465,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.40000000000000002,0.00956678856164217,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.5,0.019013728015124798,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.59999999999999998,0.057485836744308461,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.69999999999999996,0.12369396537542343,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.80000000000000004,0.21818895637989044,linear,float32,float64
+DE_total,U_DE_total,sqrt(within variance + between variance),0.90000000000000002,0.34868228435516357,linear,float32,float64

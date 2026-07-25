@@ -1,0 +1,8 @@
+{
+  "D_test_may_be_opened": false,
+  "calibration_artifacts_frozen": false,
+  "final_test_barrier": "CLOSED",
+  "gate": "G5 core calibration recomputed with float64 interpolation",
+  "reason": "Precision-repaired artifacts require independent audit, commit, tag, and push.",
+  "status": "PASS"
+}

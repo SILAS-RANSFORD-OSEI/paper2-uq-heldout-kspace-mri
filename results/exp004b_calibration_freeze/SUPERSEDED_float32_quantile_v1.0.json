@@ -1,0 +1,10 @@
+{
+  "D_test_arrays_opened": 0,
+  "archived_utc": "2026-07-25T16:00:33.500179+00:00",
+  "artifact_sha256": "a350c43234a17cbeb745b522baf9d2e40c83b4980482ee23ad3e6c7ea7d45728",
+  "final_test_barrier": "CLOSED",
+  "reason": "NumPy quantile interpolation inherited the float32 input dtype. A small number of values were therefore shifted across some empirical thresholds by float32 interpolation rounding.",
+  "replacement_schema": "exp004b-calibration-v1.1",
+  "scientific_impact": "No model, prediction, target, ranking, or D_test result was affected. The artifact had not yet been committed or frozen.",
+  "status": "SUPERSEDED"
+}

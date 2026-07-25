@@ -1,0 +1,12 @@
+quantity,quantile,value,role,quantile_method,observation_dtype,interpolation_dtype
+u_hold,0.10000000000000001,0.0032708977814763784,target_decile,linear,float32,float64
+u_hold,0.20000000000000001,0.0066325576044619083,target_decile,linear,float32,float64
+u_hold,0.29999999999999999,0.012448773626238106,target_decile,linear,float32,float64
+u_hold,0.40000000000000002,0.024385077878832817,target_decile,linear,float32,float64
+u_hold,0.5,0.052278304472565651,target_decile,linear,float32,float64
+u_hold,0.59999999999999998,0.14063141942024227,target_decile,linear,float32,float64
+u_hold,0.69999999999999996,0.36398112773895264,target_decile,linear,float32,float64
+u_hold,0.80000000000000004,0.99222373962402344,target_decile,linear,float32,float64
+u_hold,0.84999999999999998,1.4107755422592163,sensitivity_threshold,linear,float32,float64
+u_hold,0.90000000000000002,1.7366089820861816,primary_tau_hold,linear,float32,float64
+u_hold,0.94999999999999996,2.0520856380462646,sensitivity_threshold,linear,float32,float64

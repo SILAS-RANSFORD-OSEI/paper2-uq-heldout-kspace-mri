@@ -1,0 +1,68 @@
+{
+  "D_cal_high_risk_count": 16814699,
+  "D_cal_high_risk_prevalence": 0.10000002735702411,
+  "D_test_arrays_opened": 0,
+  "D_test_predictions_generated": false,
+  "affine_parameters": {
+    "C0": {
+      "affine_mae": 0.08395734589971508,
+      "intercept": 0.013207967506795815,
+      "raw_mae": 0.08151444886638168,
+      "slope": 1.009397618948902
+    },
+    "DE": {
+      "affine_mae": 0.0809511107937056,
+      "intercept": 0.009290056303431382,
+      "raw_mae": 0.07945370100419648,
+      "slope": 1.011330048681589
+    },
+    "MC": {
+      "affine_mae": 0.10308098075949129,
+      "intercept": -0.023416378493007317,
+      "raw_mae": 0.11086647227107733,
+      "slope": 1.0539343078044143
+    },
+    "PE": {
+      "affine_mae": 0.08199537280349056,
+      "intercept": 0.010098019068957242,
+      "raw_mae": 0.0800948001135077,
+      "slope": 1.0117206470951026
+    }
+  },
+  "affine_parameters_csv": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp004b_calibration_freeze/commit21f48ea244e2/affine_parameters.csv",
+  "calibration_artifact_sha256": "f39b8274006328bd7a3b3dd74f91cb496957c25d705316ac89a9bcaebb4058ed",
+  "calibration_rules": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp004b_calibration_freeze/commit21f48ea244e2/calibration_rules.json",
+  "completed_utc": "2026-07-25T15:36:16.904940+00:00",
+  "conditional_conformal_performed": false,
+  "experiment_id": "P2-Exp004B",
+  "final_test_barrier": "CLOSED",
+  "prediction_deviation_thresholds": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp004b_calibration_freeze/commit21f48ea244e2/prediction_deviation_thresholds.csv",
+  "quantile_interpolation_dtype": "float64",
+  "quantile_observation_dtype": "float32",
+  "quantile_precision_repair": "PASS",
+  "repository_commit": "21f48ea244e2a4493474a5e77dfc75c7367938cd",
+  "schema_version": "exp004b-calibration-v1.1",
+  "status": "PASS",
+  "superseded_artifact_sha256": "a350c43234a17cbeb745b522baf9d2e40c83b4980482ee23ad3e6c7ea7d45728",
+  "target_construction_sha256": "a35af0eadcb4ff3a9db42d55508d8971d3aed6f56e5c9a3f915b7a222a41ee00",
+  "target_quantiles": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp004b_calibration_freeze/commit21f48ea244e2/target_quantiles.csv",
+  "target_version": "paper2-uhold-current-exp009-v1.0",
+  "tau_d": {
+    "C0": 0.25937825441360474,
+    "DE": 0.25672316551208496,
+    "MC": 0.287927588820458,
+    "PE": 0.2558795124292379
+  },
+  "tau_hold_q85": 1.4107755422592163,
+  "tau_hold_q90": 1.7366089820861816,
+  "tau_hold_q95": 2.0520856380462646,
+  "uncertainty_deciles": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp004b_calibration_freeze/commit21f48ea244e2/uncertainty_deciles.csv",
+  "uncertainty_methods": [
+    "MC",
+    "PE",
+    "DE_within",
+    "DE_between",
+    "DE_total"
+  ],
+  "updated_utc": "2026-07-25T16:01:08.054208+00:00"
+}

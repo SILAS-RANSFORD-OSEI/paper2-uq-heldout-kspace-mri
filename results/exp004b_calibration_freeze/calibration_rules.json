@@ -1,0 +1,391 @@
+{
+  "D_cal_slices": 636,
+  "D_cal_supported_pixels": 168146944,
+  "D_cal_volumes": 40,
+  "D_test_arrays_opened": 0,
+  "D_test_predictions_generated": false,
+  "artifact_sha256": "f39b8274006328bd7a3b3dd74f91cb496957c25d705316ac89a9bcaebb4058ed",
+  "conditional_conformal_extension": {
+    "performed": false,
+    "status": "Deferred until the core Task R and Task E analyses are stable."
+  },
+  "created_utc": "2026-07-25T15:36:16.873549+00:00",
+  "descriptor_selection_performed": false,
+  "experiment_id": "P2-Exp004B",
+  "final_test_barrier": "CLOSED",
+  "input_hashes": {
+    "neural_manifest_sha256": "c0c6a14279458216da56fabf6ca87fb8bd27c0eb2f4aaf3adae64926b74b9c56",
+    "neural_summary_sha256": "178dfa978ccb5af11ccb0a857253e8de6a11307d97184919719717addaa3302e",
+    "target_manifest_sha256": "39257a00f22b950fc543b2c0885dc75e5f3722cdd609239e2090bb3cad758f8a",
+    "target_provenance_sha256": "ab0ffcd33096c292cf58082eae841d0fadafe47c1a12225b64bdf4822ef465a1",
+    "target_summary_sha256": "bf2e2ee5659d685f4948f788c1f9ee61b2128dd505cd4623d06182a9e40fd16c"
+  },
+  "method_ranking_performed": false,
+  "model_inference_performed": false,
+  "model_training_performed": false,
+  "quantile_definition": {
+    "comparison_operator": ">=",
+    "finite_sample_tail_audit": "P(X > tau) <= tail + 2/N and P(X >= tau) >= tail - 2/N",
+    "finite_sample_tolerance": 1.189435830603023e-08,
+    "interpolation_dtype": "float64",
+    "method": "linear",
+    "observation_dtype": "float32",
+    "order_statistic_selection": "exact",
+    "stored_threshold_dtype": "float64",
+    "support_rule": "M_soft > 0",
+    "test_comparison_dtype": "float32 observations compared against frozen float64 thresholds",
+    "weighting": "unweighted supported pixels"
+  },
+  "quantile_precision_repair": {
+    "D_test_accessed": false,
+    "comparison_operator_changed": false,
+    "models_changed": false,
+    "performed": true,
+    "predictions_changed": false,
+    "quantile_level_changed": false,
+    "reason": "Float32 output rounding during linear quantile interpolation.",
+    "repaired_utc": "2026-07-25T16:01:07.984331+00:00",
+    "scientific_decisions_changed": false,
+    "superseded_artifact_sha256": "a350c43234a17cbeb745b522baf9d2e40c83b4980482ee23ad3e6c7ea7d45728",
+    "targets_changed": false
+  },
+  "repository_commit": "21f48ea244e2a4493474a5e77dfc75c7367938cd",
+  "role": "D_cal",
+  "schema_version": "exp004b-calibration-v1.1",
+  "target_construction_sha256": "a35af0eadcb4ff3a9db42d55508d8971d3aed6f56e5c9a3f915b7a222a41ee00",
+  "target_distribution": {
+    "count": 168146944,
+    "deciles": {
+      "q10": 0.0032708977814763784,
+      "q20": 0.006632557604461908,
+      "q30": 0.012448773626238106,
+      "q40": 0.024385077878832817,
+      "q50": 0.05227830447256565,
+      "q60": 0.14063141942024227,
+      "q70": 0.36398112773895264,
+      "q80": 0.9922237396240234,
+      "q90": 1.7366089820861816
+    },
+    "maximum": 3.492549419403076,
+    "mean": 0.4486756536677316,
+    "minimum": 0.00011568340414669365,
+    "standard_deviation": 0.6957399850480905
+  },
+  "target_version": "paper2-uhold-current-exp009-v1.0",
+  "task_E": {
+    "affine_mean_used": false,
+    "definition": "abs(u_hold_v - mu_j_v)",
+    "deviation_symbol": "d_j_v",
+    "mean_source": "raw frozen method mean",
+    "method_specific_thresholds": {
+      "C0": 0.25937825441360474,
+      "DE": 0.25672316551208496,
+      "MC": 0.287927588820458,
+      "PE": 0.2558795124292379
+    },
+    "test_rule": "Apply each method-specific threshold unchanged to D_test.",
+    "threshold_precision": {
+      "interpolation_dtype": "float64",
+      "observation_dtype": "float32",
+      "stored_threshold_dtype": "float64"
+    },
+    "threshold_quantile": 0.9,
+    "threshold_symbol": "tau_d_j",
+    "threshold_tie_audits": {
+      "C0": {
+        "finite_sample_bracket_valid": true,
+        "new_count_eq": 5,
+        "new_count_ge": 16814696,
+        "new_count_gt": 16814691,
+        "new_prevalence_ge": 0.10000000951548664,
+        "new_prevalence_gt": 0.09999997977959088,
+        "new_threshold": 0.25937825441360474,
+        "old_count_ge": 16814707,
+        "old_threshold": 0.2593780755996704,
+        "order_statistics": {
+          "interpolated_value": 0.25937825441360474,
+          "lower_index": 151332248,
+          "lower_value": 0.25937825441360474,
+          "position": 151332248.70000002,
+          "quantile": 0.9,
+          "upper_index": 151332249,
+          "upper_value": 0.25937825441360474
+        },
+        "threshold_difference": 1.7881393432617188e-07
+      },
+      "DE": {
+        "finite_sample_bracket_valid": true,
+        "new_count_eq": 9,
+        "new_count_ge": 16814696,
+        "new_count_gt": 16814687,
+        "new_prevalence_ge": 0.10000000951548664,
+        "new_prevalence_gt": 0.09999995599087427,
+        "new_threshold": 0.25672316551208496,
+        "old_count_ge": 16814711,
+        "old_threshold": 0.2567229270935058,
+        "order_statistics": {
+          "interpolated_value": 0.25672316551208496,
+          "lower_index": 151332248,
+          "lower_value": 0.25672316551208496,
+          "position": 151332248.70000002,
+          "quantile": 0.9,
+          "upper_index": 151332249,
+          "upper_value": 0.25672316551208496
+        },
+        "threshold_difference": 2.3841857915707365e-07
+      },
+      "MC": {
+        "finite_sample_bracket_valid": true,
+        "new_count_eq": 1,
+        "new_count_ge": 16814695,
+        "new_count_gt": 16814694,
+        "new_prevalence_ge": 0.10000000356830749,
+        "new_prevalence_gt": 0.09999999762112834,
+        "new_threshold": 0.287927588820458,
+        "old_count_ge": 16814705,
+        "old_threshold": 0.2879274487495422,
+        "order_statistics": {
+          "interpolated_value": 0.287927588820458,
+          "lower_index": 151332248,
+          "lower_value": 0.2879275679588318,
+          "position": 151332248.70000002,
+          "quantile": 0.9,
+          "upper_index": 151332249,
+          "upper_value": 0.2879275977611542
+        },
+        "threshold_difference": 1.4007091581058617e-07
+      },
+      "PE": {
+        "finite_sample_bracket_valid": true,
+        "new_count_eq": 6,
+        "new_count_ge": 16814695,
+        "new_count_gt": 16814689,
+        "new_prevalence_ge": 0.10000000356830749,
+        "new_prevalence_gt": 0.09999996788523258,
+        "new_threshold": 0.2558795124292379,
+        "old_count_ge": 16814714,
+        "old_threshold": 0.2558794021606445,
+        "order_statistics": {
+          "interpolated_value": 0.2558795124292379,
+          "lower_index": 151332248,
+          "lower_value": 0.2558794915676117,
+          "position": 151332248.70000002,
+          "quantile": 0.9,
+          "upper_index": 151332249,
+          "upper_value": 0.2558795213699341
+        },
+        "threshold_difference": 1.1026859342289086e-07
+      }
+    }
+  },
+  "task_P_affine_diagnostics": {
+    "fit": "ordinary least-squares affine mapping target = slope*mean + intercept",
+    "fitting_set": "D_cal",
+    "parameters": {
+      "C0": {
+        "affine_mae": 0.08395734589971508,
+        "affine_rmse": 0.16262307688929745,
+        "calibration_use": "secondary Task P diagnostic only",
+        "intercept": 0.013207967506795815,
+        "prediction_mean": 0.4314134271630179,
+        "raw_mae": 0.08151444886638168,
+        "raw_rmse": 0.1636579186555289,
+        "slope": 1.009397618948902,
+        "target_mean": 0.44867565366773166,
+        "task_E_uses_affine_mean": false
+      },
+      "DE": {
+        "affine_mae": 0.0809511107937056,
+        "affine_rmse": 0.16037644925862488,
+        "calibration_use": "secondary Task P diagnostic only",
+        "intercept": 0.009290056303431382,
+        "prediction_mean": 0.43446310918685865,
+        "raw_mae": 0.07945370100419648,
+        "raw_rmse": 0.16118352042992343,
+        "slope": 1.011330048681589,
+        "target_mean": 0.44867565366773166,
+        "task_E_uses_affine_mean": false
+      },
+      "MC": {
+        "affine_mae": 0.10308098075949129,
+        "affine_rmse": 0.17621545253341886,
+        "calibration_use": "secondary Task P diagnostic only",
+        "intercept": -0.023416378493007317,
+        "prediction_mean": 0.4479330719807522,
+        "raw_mae": 0.11086647227107733,
+        "raw_rmse": 0.17955155694201402,
+        "slope": 1.0539343078044143,
+        "target_mean": 0.44867565366773166,
+        "task_E_uses_affine_mean": false
+      },
+      "PE": {
+        "affine_mae": 0.08199537280349056,
+        "affine_rmse": 0.1608288564557524,
+        "calibration_use": "secondary Task P diagnostic only",
+        "intercept": 0.010098019068957242,
+        "prediction_mean": 0.43349677191825436,
+        "raw_mae": 0.0800948001135077,
+        "raw_rmse": 0.1617337705774705,
+        "slope": 1.0117206470951026,
+        "target_mean": 0.44867565366773166,
+        "task_E_uses_affine_mean": false
+      }
+    },
+    "purpose": "secondary calibration slope/intercept and calibrated Task P diagnostics only",
+    "used_for_task_E": false
+  },
+  "task_R": {
+    "D_cal_high_risk_count": 16814699,
+    "D_cal_high_risk_prevalence": 0.10000002735702411,
+    "primary_quantile": 0.9,
+    "sensitivity_thresholds": {
+      "q85": 1.4107755422592163,
+      "q90": 1.7366089820861816,
+      "q95": 2.0520856380462646
+    },
+    "target_symbol": "u_hold_v",
+    "tau_hold": 1.7366089820861816,
+    "test_rule": "Apply unchanged to every method, D_test volume, and bootstrap replicate.",
+    "threshold_symbol": "tau_hold",
+    "threshold_tie_audit": {
+      "count_eq": 9,
+      "count_ge": 16814699,
+      "count_gt": 16814690,
+      "prevalence_eq": 5.352461237713604e-08,
+      "prevalence_ge": 0.10000002735702411,
+      "prevalence_gt": 0.09999997383241173
+    }
+  },
+  "uncertainty_scaling": {
+    "applied": false,
+    "rule": "Raw frozen standard-deviation scores are used for ranking."
+  },
+  "uncertainty_scores": {
+    "DE_between": {
+      "column": "U_DE_between",
+      "deciles": {
+        "q10": 0.000735078239813447,
+        "q20": 0.0010726834414526822,
+        "q30": 0.0014514907961711287,
+        "q40": 0.0020237299613654613,
+        "q50": 0.003606746904551983,
+        "q60": 0.008667821809649465,
+        "q70": 0.017532851547002792,
+        "q80": 0.027691163867712032,
+        "q90": 0.04347667470574379
+      },
+      "definition": "sqrt(population variance of member means)",
+      "diagnostics": {
+        "count": 168146944,
+        "maximum": 0.386470764875412,
+        "mean": 0.01482387715481664,
+        "minimum": 2.81284940228943e-07,
+        "q01": 0.00023831580314435995,
+        "q50": 0.003606746904551983,
+        "q99": 0.09343665838241577,
+        "standard_deviation": 0.021260293311949837
+      }
+    },
+    "DE_total": {
+      "column": "U_DE_total",
+      "deciles": {
+        "q10": 0.006872075609862804,
+        "q20": 0.0069621228612959385,
+        "q30": 0.0072435131296515465,
+        "q40": 0.00956678856164217,
+        "q50": 0.019013728015124798,
+        "q60": 0.05748583674430846,
+        "q70": 0.12369396537542343,
+        "q80": 0.21818895637989044,
+        "q90": 0.3486822843551636
+      },
+      "definition": "sqrt(within variance + between variance)",
+      "diagnostics": {
+        "count": 168146944,
+        "maximum": 0.6307984590530396,
+        "mean": 0.09951569217775653,
+        "minimum": 0.006811749655753374,
+        "q01": 0.006818271242082119,
+        "q50": 0.019013728015124798,
+        "q99": 0.373020099699497,
+        "standard_deviation": 0.12778418741176914
+      }
+    },
+    "DE_within": {
+      "column": "U_DE_within",
+      "deciles": {
+        "q10": 0.006811749655753374,
+        "q20": 0.006811749655753374,
+        "q30": 0.007003792095929384,
+        "q40": 0.009275093674659729,
+        "q50": 0.01830372028052807,
+        "q60": 0.05493764206767082,
+        "q70": 0.120880626142025,
+        "q80": 0.21215863227844256,
+        "q90": 0.34612753987312317
+      },
+      "definition": "sqrt(mean predicted within-member variance)",
+      "diagnostics": {
+        "count": 168146944,
+        "maximum": 0.5271921157836914,
+        "mean": 0.0978498099094457,
+        "minimum": 0.006811749655753374,
+        "q01": 0.006811749655753374,
+        "q50": 0.01830372028052807,
+        "q99": 0.36921635270118713,
+        "standard_deviation": 0.12643511710356403
+      }
+    },
+    "MC": {
+      "column": "U_MC",
+      "deciles": {
+        "q10": 0.08266689628362656,
+        "q20": 0.09351144731044769,
+        "q30": 0.10158039629459381,
+        "q40": 0.10908401757478714,
+        "q50": 0.11688388139009476,
+        "q60": 0.12767721712589264,
+        "q70": 0.13709582388401031,
+        "q80": 0.14966942369937897,
+        "q90": 0.18138664960861206
+      },
+      "definition": "sqrt(population MC-dropout variance)",
+      "diagnostics": {
+        "count": 168146944,
+        "maximum": 0.8069892525672913,
+        "mean": 0.12666298049755062,
+        "minimum": 0.014637341722846031,
+        "q01": 0.05576648090034723,
+        "q50": 0.11688388139009476,
+        "q99": 0.28977036476135254,
+        "standard_deviation": 0.04574551097273549
+      }
+    },
+    "PE": {
+      "column": "U_PE",
+      "deciles": {
+        "q10": 0.0009763296693563461,
+        "q20": 0.0014068657765164971,
+        "q30": 0.001838867785409093,
+        "q40": 0.0025246639270335436,
+        "q50": 0.004766067489981651,
+        "q60": 0.010272013023495674,
+        "q70": 0.01863220166414975,
+        "q80": 0.030211191624403,
+        "q90": 0.04804037027060992
+      },
+      "definition": "sqrt(population between-member variance)",
+      "diagnostics": {
+        "count": 168146944,
+        "maximum": 0.4102810025215149,
+        "mean": 0.016293014609793675,
+        "minimum": 3.1506550612903084e-07,
+        "q01": 0.0003269196272594854,
+        "q50": 0.004766067489981651,
+        "q99": 0.09716683626174927,
+        "standard_deviation": 0.022504836818347827
+      }
+    }
+  },
+  "workspace_fingerprint": "4812fd37427631508c57f2952c274f2f283bd7ee03e7a6d6468c1cc80fa7e881"
+}

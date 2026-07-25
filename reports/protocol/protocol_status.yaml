@@ -175,6 +175,34 @@ experiments:
     D_cal_arrays_opened: 0
     D_test_arrays_opened: 0
     final_test_opened: false
+  P2-Exp003D:
+    status: completed
+    result: PASS
+    model: U2b probabilistic deep ensemble
+    ensemble_size: 3
+    member_seeds:
+    - 20260720
+    - 20260721
+    - 20260722
+    member_best_epochs:
+    - 32
+    - 36
+    - 42
+    member_best_D_dev_NLLs:
+    - -0.44048847931690216
+    - -0.45470173464897723
+    - -0.4468877588155668
+    member_best_D_dev_MAEs:
+    - 0.20514940251338465
+    - 0.20154278271481768
+    - 0.2030423908657815
+    ensemble_D_dev_MAE: 0.20115885862015767
+    moment_matched_D_dev_NLL: -0.4660175651712742
+    supported_total_predictive_variance_mean: 0.0803549654727371
+    total_gradient_updates: 100660
+    D_cal_arrays_opened: 0
+    D_test_arrays_opened: 0
+    final_test_opened: false
 split_governance:
   policy_version: '1.0'
   D_fit: 181

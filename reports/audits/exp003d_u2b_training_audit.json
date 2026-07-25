@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "experiment_id": "P2-Exp003D",
+  "model_code": "U2b",
+  "ensemble_size": 3,
+  "member_seeds": [
+    20260720,
+    20260721,
+    20260722
+  ],
+  "member_completed_epochs": [
+    42,
+    46,
+    52
+  ],
+  "member_best_epochs": [
+    32,
+    36,
+    42
+  ],
+  "member_best_development_nlls": [
+    -0.44048847931690216,
+    -0.45470173464897723,
+    -0.4468877588155668
+  ],
+  "member_best_development_mean_maes": [
+    0.20514940251338465,
+    0.20154278271481768,
+    0.2030423908657815
+  ],
+  "ensemble_development_mean_mae": 0.20115885862015767,
+  "moment_matched_ensemble_development_nll": -0.4660175651712742,
+  "supported_within_model_variance_mean": 0.07884959961901479,
+  "supported_between_model_variance_mean": 0.001505365711935428,
+  "supported_total_predictive_variance_mean": 0.0803549654727371,
+  "within_variance_fraction": 0.9812660506433414,
+  "between_variance_fraction": 0.018733947592151846,
+  "positive_between_variance_batches": 80,
+  "positive_total_variance_batches": 80,
+  "member_gradient_updates": [
+    30198,
+    33074,
+    37388
+  ],
+  "total_gradient_updates": 100660,
+  "ensemble_checkpoint_sha256": "bf1115c31985212dc9f0f4bfbca8b302c9de0c0f483cf4b3620368f5f2116cb8",
+  "member_checkpoint_sha256": [
+    "fc635561bf6dce0769473809329c36dd40f91dc6586c54af2f52fb130f0ffc73",
+    "8d12d189ec1065e22124bc08a0fb30352f61441d795340bcff2a990e02ecdddd",
+    "bfb1006e33c214c15abe06f5002f89aa92606e0c07824ad9df0718fb64c7c064"
+  ],
+  "D_cal_arrays_opened": 0,
+  "D_test_arrays_opened": 0,
+  "final_test_barrier": "CLOSED",
+  "audit_result": "PASS",
+  "parameter_count": 368478,
+  "combined_history_rows": 140,
+  "member_history_rows": [
+    42,
+    46,
+    52
+  ],
+  "D_dev_slices_recomputed": 318,
+  "D_dev_batches_recomputed": 80,
+  "recorded_ensemble_mean_mae": 0.20115885862015767,
+  "recomputed_ensemble_mean_mae": 0.20115885862015767,
+  "recorded_moment_matched_nll": -0.4660175651712742,
+  "recomputed_moment_matched_nll": -0.4660175651712742,
+  "strict_ensemble_load": true,
+  "all_member_checkpoints_finite": true,
+  "ensemble_checkpoint_finite": true,
+  "independent_member_selection_verified": true,
+  "variance_decomposition_verified": true,
+  "stopping_rules_verified": true,
+  "repository_parent_commit": "985ef999e2adc0e39285a85ca58967ad89536596",
+  "audited_utc": "2026-07-25T10:22:14.985133+00:00"
+}

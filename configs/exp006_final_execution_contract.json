@@ -1,0 +1,54 @@
+{
+  "D_test_access_during_build": false,
+  "ause_contract": {
+    "path": "/content/paper2-uq-heldout-kspace-mri/configs/exp006_ause_contract.json",
+    "schema_version": "exp006-task-e-ause-v1.0",
+    "sha256": "2eb04e3bd0a859881a368362c46c20bb6b8ce129700f36a40c0f9fe11dcf476b"
+  },
+  "authorization": {
+    "authorization_id": "P2-EXP006-cdb725064ae3",
+    "barrier": "OPEN",
+    "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp005_final_test_release/parentfb8e5edfb605/dtest_authorization.json",
+    "scope": "single frozen P2-Exp006 D_test execution",
+    "sha256": "74e914e6321b2fcb4e649a551037964edfa78f3f1a298509f77386cf17a7cd63"
+  },
+  "authorized_output_root": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp006_dtest_final/release_pending",
+  "execution_policy": {
+    "affine_refitting": false,
+    "checkpoint_selection": false,
+    "continue_after_partial_failure": false,
+    "endpoint_switching": false,
+    "overwrite_existing_outputs": false,
+    "single_frozen_execution": true,
+    "test_time_training": false,
+    "threshold_recalibration": false,
+    "uncertainty_rescaling": false
+  },
+  "neural_generator": {
+    "barrier": "OPEN",
+    "batch_size": 4,
+    "expected_batches": 160,
+    "expected_slices": 636,
+    "expected_volumes": 40,
+    "path": "scripts/exp006_generate_dtest_neural.py",
+    "purpose": "final_evaluation",
+    "recovered_source_sha256": "46a19870b31ad1e944fec6d850e34e5318aedc6565aac2939ffbda9961d3ec60",
+    "role": "D_test"
+  },
+  "parent_repository_commit": "7f6739a06b8959c547cf71f1e512951481e84319",
+  "release_contract": {
+    "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp005_final_test_release/parentfb8e5edfb605/final_test_release_contract.json",
+    "sha256": "f907054b141075f10db11f24ee83e5dba4054ea48f161f0ad997e72b41bc2ee6"
+  },
+  "schema_version": "exp006-final-execution-scripts-v1.0",
+  "status": "FROZEN_PRE_DTEST_PRECOMMIT",
+  "uhold_generator": {
+    "expected_aligned_chunks": 160,
+    "expected_slices": 636,
+    "expected_volumes": 40,
+    "measurement_subset": "lambda_hold",
+    "path": "scripts/exp006_generate_dtest_uhold.py",
+    "recovered_source_sha256": "64a2474b9df2731d36ee4a4a3b26aec5cb8e758641c976d0503706b40157dac3",
+    "role": "D_test"
+  }
+}

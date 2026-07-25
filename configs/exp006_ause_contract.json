@@ -1,0 +1,50 @@
+{
+  "C0_task_e_status": "not assigned a neural uncertainty ranking; C0 is retained for Task P",
+  "D_cal_role": "implementation validation only; no endpoint selection or performance tuning",
+  "D_test_access_during_freeze": false,
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "scheme": "paired volume bootstrap",
+    "seed": 20260725
+  },
+  "cross_method_binary_auprc_ranking": "prohibited",
+  "endpoint_direction": "lower is better",
+  "endpoint_name": "per-volume normalized AUSE",
+  "error_definition": "absolute(target_u_hold - raw_method_mean)",
+  "evaluation_unit": "volume",
+  "evaluation_weight": "support_weight",
+  "inference_unit": "volume",
+  "integration": "trapezoidal integration over removal fraction",
+  "interpretation": {
+    "0": "oracle-equivalent uncertainty ranking",
+    "1": "random-equivalent uncertainty ranking",
+    "greater_than_1": "worse than random ranking"
+  },
+  "mean_calibration": "none; raw method means are mandatory",
+  "method_curve": "retain the lowest-uncertainty evaluation mass at each removal fraction",
+  "normalization": "area(method - oracle) divided by area(random - oracle)",
+  "oracle_curve": "retain the lowest-absolute-error evaluation mass at each removal fraction",
+  "primary_uncertainty_fields": {
+    "U1": "u1_variance",
+    "U2a": "u2a_between_model_variance",
+    "U2b": "u2b_total_predictive_variance"
+  },
+  "random_reference": "constant weighted mean absolute error",
+  "removal_fraction_grid": {
+    "points": 100,
+    "start": 0.0,
+    "step": 0.01,
+    "stop_inclusive": 0.99
+  },
+  "schema_version": "exp006-task-e-ause-v1.0",
+  "secondary_uncertainty_fields": {
+    "U2b_between": "u2b_between_model_variance",
+    "U2b_within": "u2b_within_model_variance"
+  },
+  "status": "FROZEN_PRE_DTEST",
+  "task": "E",
+  "test_summary": "unweighted mean of the 40 per-volume AUSE values",
+  "tie_handling": "fractional tied-group inclusion using the tied group's weighted mean error",
+  "within_volume_pooling": "all supported pixels across every slice belonging to the volume"
+}

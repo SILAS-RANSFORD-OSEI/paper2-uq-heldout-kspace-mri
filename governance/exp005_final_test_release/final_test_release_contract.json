@@ -1,0 +1,178 @@
+{
+  "calibration_artifact_sha256": "f39b8274006328bd7a3b3dd74f91cb496957c25d705316ac89a9bcaebb4058ed",
+  "contract_sha256": "1549f48f306a4cfad04dc462ec453e8a8f95c112d4f0a954beec1994f8ae90e1",
+  "created_utc": "2026-07-25T16:18:57.052716+00:00",
+  "deep_ensemble_uncertainty": {
+    "between_component_role": "secondary decomposition",
+    "definition": "sqrt(within-member variance + between-member variance)",
+    "primary_score": "DE_total",
+    "within_component_role": "secondary decomposition"
+  },
+  "frozen_checkpoints": {
+    "C0": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp003a_c0/seed20260720_commit9091c53af159_fp32/best_model.pt",
+      "sha256": "1900b6501cc8613ce4a04b5f355e13afb44b80d3cfa1e8a35c2cb3b69a13583d",
+      "size_bytes": 514613
+    },
+    "DE": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp003d_u2b/ensemble3_commit985ef999e2ad_fp32/ensemble_best.pt",
+      "sha256": "bf1115c31985212dc9f0f4bfbca8b302c9de0c0f483cf4b3620368f5f2116cb8",
+      "size_bytes": 1545003
+    },
+    "MC": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp003b_u1/seed20260720_p010_mc20_commitf7d1205b8909_fp32/best_model.pt",
+      "sha256": "a77890a1474771243b006bc5e4cf959d08aeb72c6b35b60900d3b19311f091ef",
+      "size_bytes": 514101
+    },
+    "PE": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp003c_u2a/ensemble3_commit0dff1d39fc25_fp32/ensemble_best.pt",
+      "sha256": "7677970df0469702d09a82299af1dd4ca063b8e21783a951b170d9d22793bc34",
+      "size_bytes": 1544107
+    }
+  },
+  "governance": {
+    "D_test_arrays_opened_before_release": 0,
+    "D_test_may_be_opened": false,
+    "D_test_predictions_generated_before_release": false,
+    "calibration_remote_verified": true,
+    "final_test_barrier": "CLOSED",
+    "reason": "The release contract must be committed, tagged, pushed, and remotely verified first.",
+    "release_contract_remote_push_completed": false
+  },
+  "measurement_target_interpretation": {
+    "ground_truth_image_error": false,
+    "ground_truth_uncertainty": false,
+    "u_hold": "measurement-derived held-out k-space residual-risk target"
+  },
+  "parent_calibration_tag": "exp004b-calibration-v1.1",
+  "parent_repository_commit": "fb8e5edfb605d3254d8883c4485a6619623fe80a",
+  "schema_version": "exp005-final-test-release-v1.0",
+  "stage": "P2-Exp005 final-test release contract",
+  "statistical_inference": {
+    "bootstrap_replicates": 1000,
+    "bootstrap_unit": "volume",
+    "confidence_interval": 0.95,
+    "inferential_unit": "volume",
+    "paired_method_comparisons": true,
+    "pixel_independence_assumed": false,
+    "pixel_pooling_role": "Operational threshold construction and within-volume metric calculation only",
+    "two_sided_intervals": true
+  },
+  "status": "PASS",
+  "target_version": "paper2-uhold-current-exp009-v1.0",
+  "task_E": {
+    "affine_method_means_used": false,
+    "binary_threshold_role": "secondary within-method diagnostic only",
+    "continuous_deviation_definition": "abs(u_hold - raw frozen method mean)",
+    "cross_method_binary_AUPRC_ranking": "PROHIBITED",
+    "deterministic_C0_eligible_for_AUSE": false,
+    "method_specific_binary_thresholds": {
+      "C0": 0.25937825441360474,
+      "DE": 0.25672316551208496,
+      "MC": 0.287927588820458,
+      "PE": 0.2558795124292379
+    },
+    "primary_endpoint": "normalized AUSE",
+    "primary_uncertainty_methods": [
+      "MC",
+      "PE",
+      "DE_total"
+    ],
+    "question": "Does model-derived uncertainty rank the spatial prediction deviation?",
+    "secondary_decompositions": [
+      "DE_within",
+      "DE_between"
+    ],
+    "secondary_endpoints": [
+      "sparsification error curve",
+      "uncertainty-error Spearman correlation"
+    ]
+  },
+  "task_P": {
+    "affine_calibration_role": "secondary diagnostic only",
+    "eligible_mean_predictors": [
+      "C0",
+      "MC",
+      "PE",
+      "DE"
+    ],
+    "primary_endpoint": "volume-level pixel MAE",
+    "question": "How accurately does each frozen method predict u_hold?",
+    "raw_method_means_primary": true,
+    "secondary_endpoints": [
+      "volume-level RMSE",
+      "volume-level Spearman correlation",
+      "volume-level Pearson correlation"
+    ]
+  },
+  "task_R": {
+    "common_binary_target": "u_hold >= frozen tau_hold",
+    "deterministic_C0_eligible": false,
+    "primary_endpoint": "volume-level AUPRC",
+    "primary_uncertainty_methods": [
+      "MC",
+      "PE",
+      "DE_total"
+    ],
+    "question": "Does model-derived uncertainty rank high held-out residual-risk regions?",
+    "same_label_for_all_methods": true,
+    "secondary_decompositions": [
+      "DE_within",
+      "DE_between"
+    ],
+    "secondary_endpoints": [
+      "volume-level AUROC",
+      "volume-level Spearman correlation"
+    ],
+    "sensitivity_thresholds": {
+      "q85": 1.4107755422592163,
+      "q90": 1.7366089820861816,
+      "q95": 2.0520856380462646
+    },
+    "tau_hold": 1.7366089820861816
+  },
+  "test_cohort": {
+    "description": "Locked reused evaluation cohort with no use in Paper 2 training, checkpoint selection, calibration, threshold selection, or method ranking.",
+    "fresh_unseen_cohort_claim_allowed": false,
+    "locked_split_artifacts": [
+      {
+        "relative_path": "paper2_fit_dev_volume_ids_private.json",
+        "sha256": "efc1b7572cb03c3d6433b7ed74644d68049980d319854dd863e6392389cdaee3",
+        "size_bytes": 7275
+      },
+      {
+        "relative_path": "paper2_split_balance_diagnostics.json",
+        "sha256": "764e3e832d7a34e0f22fa86155af44a59fa908c749e36789fb904e6c488b088b",
+        "size_bytes": 14519
+      }
+    ],
+    "locked_split_governance_root": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/results/exp001_split/locked_split",
+    "locked_split_governance_sha256": "647275f4858c4a27b17d19328747bc7858b2aa01c6c0f49edcf9abf62f9d3e00",
+    "name": "D_test",
+    "pristine_external_test_set": false,
+    "slices": 636,
+    "volumes": 40
+  },
+  "test_execution_policy": {
+    "continue_after_partial_failure": false,
+    "overwrite_existing_outputs": false,
+    "reserved_output_root": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp006_dtest_final/release_pending",
+    "save_all_aggregate_results": true,
+    "save_all_volume_level_results": true,
+    "save_failure_log": true,
+    "single_frozen_execution": true
+  },
+  "test_time_prohibitions": [
+    "no model training",
+    "no checkpoint selection",
+    "no model or method selection",
+    "no hyperparameter tuning",
+    "no threshold recalibration",
+    "no affine refitting",
+    "no uncertainty rescaling",
+    "no descriptor selection",
+    "no endpoint switching",
+    "no test-driven exclusion",
+    "no test-driven figure or table selection"
+  ]
+}

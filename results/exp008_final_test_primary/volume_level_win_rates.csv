@@ -1,0 +1,13 @@
+task,endpoint,first_method,second_method,direction,first_method_volume_win_rate,volume_tie_rate,n_volumes
+P,raw_mae,C0,U1,lower_is_better,0.975,0.0,40
+P,raw_mae,C0,U2a,lower_is_better,0.1,0.0,40
+P,raw_mae,C0,U2b,lower_is_better,0.525,0.0,40
+P,raw_mae,U1,U2a,lower_is_better,0.025,0.0,40
+P,raw_mae,U1,U2b,lower_is_better,0.0,0.0,40
+P,raw_mae,U2a,U2b,lower_is_better,0.8,0.0,40
+R,auprc,U1,U2a,higher_is_better,1.0,0.0,40
+R,auprc,U1,U2b,higher_is_better,1.0,0.0,40
+R,auprc,U2a,U2b,higher_is_better,0.275,0.0,40
+E,normalized_ause,U1,U2a,lower_is_better,0.0,0.0,40
+E,normalized_ause,U1,U2b,lower_is_better,0.0,0.0,40
+E,normalized_ause,U2a,U2b,lower_is_better,0.0,0.0,40

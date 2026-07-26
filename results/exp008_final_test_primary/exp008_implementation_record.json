@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-07-26T08:22:31.196612+00:00",
+  "frozen_results": {
+    "complete_marker": {
+      "repository_path": "results/exp008_final_test_primary/COMPLETE",
+      "sha256": "1f3e96ee3006ced0513a0d2fd7ad2a8c46b6068d26347cb92b4a1a5cfa13ccef"
+    },
+    "final_test_provenance": {
+      "repository_path": "results/exp008_final_test_primary/final_test_provenance.json",
+      "sha256": "cce44eca786108869b390862c37eeb72ec7864314a93e26d589d058de117adf0"
+    },
+    "paired_method_differences": {
+      "repository_path": "results/exp008_final_test_primary/paired_method_differences.csv",
+      "sha256": "0615a63c899d5f7aa7f8e78005e6660e6a43acb588334d745a5e30b2911917ca"
+    },
+    "primary_endpoint_summary": {
+      "repository_path": "results/exp008_final_test_primary/primary_endpoint_summary.csv",
+      "sha256": "46bc144ea46ebfe773e5dcefc6e48c124b31a0ca2efc5aef9a64e879cd512a09"
+    },
+    "task_e_per_volume": {
+      "repository_path": "results/exp008_final_test_primary/task_e_per_volume.csv",
+      "sha256": "8bdebf54ecb68b1ec1d92f6e6374f4e4ceb87731e9ed847474dc72f1ac87daff"
+    },
+    "task_p_per_volume": {
+      "repository_path": "results/exp008_final_test_primary/task_p_per_volume.csv",
+      "sha256": "7bcaf9f97b1151def0d75454368f6c59063f94ae1e1e9181f5453d7cd7be72b0"
+    },
+    "task_r_per_volume": {
+      "repository_path": "results/exp008_final_test_primary/task_r_per_volume.csv",
+      "sha256": "3f94dc1f6060ce9d2c9cb1cde08a5f9bb8a7e55b2cb37e32b848935e5d5e7adb"
+    },
+    "volume_level_win_rates": {
+      "repository_path": "results/exp008_final_test_primary/volume_level_win_rates.csv",
+      "sha256": "e62c39fe5d78b10f1701326ef8bdc0774bcea3d9f98cb80c0e58284ae85e2539"
+    }
+  },
+  "implementation_sha256": "43d97018dc19f71a47e5966dd9af7417b2b47a24ab084110a3bd12db6225a9b1",
+  "metrics_recalculated": false,
+  "parameters_refitted": false,
+  "parent_commit": "58020824270afd67a125f0c04e993c591fdde791",
+  "placeholder_sha256": "075c7927342bc1a418804e89261b6553a27c2cb9bcfa83110dd8693f9da877a5",
+  "schema_version": "paper2-exp008-implementation-record-v1.0",
+  "scientific_arrays_opened": 0,
+  "script_path": "scripts/exp008_run_final_test.py",
+  "source": "exact successfully executed Colab Cell 46",
+  "status": "PASS",
+  "thresholds_changed": false
+}

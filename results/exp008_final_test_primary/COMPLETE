@@ -1,0 +1,7 @@
+{
+  "D_test_volumes": 40,
+  "bootstrap_replicates": 1000,
+  "completed_utc": "2026-07-26T07:42:53.634132+00:00",
+  "experiment_id": "P2-Exp008",
+  "status": "PASS"
+}

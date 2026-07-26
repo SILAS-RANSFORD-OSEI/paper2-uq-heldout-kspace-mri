@@ -1,0 +1,50 @@
+{
+  "D_test_description": "locked reused evaluation cohort",
+  "D_test_slices": 636,
+  "D_test_supported_pixels": 168048640,
+  "D_test_volumes": 40,
+  "ause_contract_file_sha256": "2eb04e3bd0a859881a368362c46c20bb6b8ce129700f36a40c0f9fe11dcf476b",
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "scheme": "paired volume bootstrap",
+    "seed": 20260725
+  },
+  "calibration_artifact_sha256": "f39b8274006328bd7a3b3dd74f91cb496957c25d705316ac89a9bcaebb4058ed",
+  "calibration_rules_file_sha256": "408b520957ea8f0c0cf404db510be6ff81029e38da5f325d42032e6b8060353e",
+  "evaluation_end_utc": "2026-07-26T07:42:53.634132+00:00",
+  "evaluation_start_utc": "2026-07-26T07:31:01.859105+00:00",
+  "experiment_id": "P2-Exp008",
+  "locked_evaluation_cohort": "D_test",
+  "model_selection_performed": false,
+  "model_training_performed": false,
+  "new_model_inference_performed": false,
+  "output_files": {
+    "pairwise_differences": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/paired_method_differences.csv",
+    "primary_summary": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/primary_endpoint_summary.csv",
+    "task_e_per_volume": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_e_per_volume.csv",
+    "task_p_per_volume": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_p_per_volume.csv",
+    "task_r_per_volume": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_r_per_volume.csv",
+    "volume_win_rates": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/volume_level_win_rates.csv"
+  },
+  "parameter_fitting_performed": false,
+  "repository_commit": "58020824270afd67a125f0c04e993c591fdde791",
+  "schema_version": "paper2-exp008-primary-final-test-v1.0",
+  "status": "PASS",
+  "task_E_mean_fields": {
+    "U1": "u1_mean",
+    "U2a": "u2a_mean",
+    "U2b": "u2b_mean"
+  },
+  "task_E_primary_endpoint": "unweighted mean of 40 per-volume normalized AUSE values",
+  "task_E_uncertainty_fields": {
+    "U1": "u1_variance",
+    "U2a": "u2a_between_model_variance",
+    "U2b": "u2b_total_predictive_variance"
+  },
+  "task_P_primary_endpoint": "unweighted mean of 40 per-volume weighted MAE values",
+  "task_R_primary_endpoint": "unweighted mean of 40 per-volume weighted AUPRC values",
+  "task_R_tau_hold": 1.7366089820861816,
+  "threshold_selection_performed": false,
+  "volume_records": 40
+}

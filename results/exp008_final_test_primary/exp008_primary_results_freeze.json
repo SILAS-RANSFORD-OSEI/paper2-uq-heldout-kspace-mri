@@ -1,0 +1,69 @@
+{
+  "D_test_slices": 636,
+  "D_test_supported_pixels": 168048640,
+  "D_test_volumes": 40,
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "scheme": "paired volume bootstrap",
+    "seed": 20260725
+  },
+  "evaluation_cohort": "locked reused D_test cohort",
+  "experiment_id": "P2-Exp008",
+  "files": {
+    "complete_marker": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/COMPLETE",
+      "sha256": "1f3e96ee3006ced0513a0d2fd7ad2a8c46b6068d26347cb92b4a1a5cfa13ccef",
+      "size_bytes": 165
+    },
+    "final_test_provenance": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/final_test_provenance.json",
+      "sha256": "cce44eca786108869b390862c37eeb72ec7864314a93e26d589d058de117adf0",
+      "size_bytes": 2674
+    },
+    "paired_method_differences": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/paired_method_differences.csv",
+      "sha256": "0615a63c899d5f7aa7f8e78005e6660e6a43acb588334d745a5e30b2911917ca",
+      "size_bytes": 1793
+    },
+    "primary_endpoint_summary": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/primary_endpoint_summary.csv",
+      "sha256": "46bc144ea46ebfe773e5dcefc6e48c124b31a0ca2efc5aef9a64e879cd512a09",
+      "size_bytes": 1240
+    },
+    "task_e_per_volume": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_e_per_volume.csv",
+      "sha256": "8bdebf54ecb68b1ec1d92f6e6374f4e4ceb87731e9ed847474dc72f1ac87daff",
+      "size_bytes": 20133
+    },
+    "task_p_per_volume": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_p_per_volume.csv",
+      "sha256": "7bcaf9f97b1151def0d75454368f6c59063f94ae1e1e9181f5453d7cd7be72b0",
+      "size_bytes": 32123
+    },
+    "task_r_per_volume": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_r_per_volume.csv",
+      "sha256": "3f94dc1f6060ce9d2c9cb1cde08a5f9bb8a7e55b2cb37e32b848935e5d5e7adb",
+      "size_bytes": 16584
+    },
+    "volume_level_win_rates": {
+      "path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/volume_level_win_rates.csv",
+      "sha256": "e62c39fe5d78b10f1701326ef8bdc0774bcea3d9f98cb80c0e58284ae85e2539",
+      "size_bytes": 665
+    }
+  },
+  "frozen_utc": "2026-07-26T07:51:24.689889+00:00",
+  "metrics_recalculated_by_freeze": false,
+  "parameters_refitted": false,
+  "primary_results": {
+    "task_E_best": "U2b",
+    "task_P_best": "U2a",
+    "task_R_best": "U1"
+  },
+  "repository_commit": "58020824270afd67a125f0c04e993c591fdde791",
+  "schema_version": "paper2-exp008-primary-freeze-v1.0",
+  "scientific_arrays_opened_by_freeze": 0,
+  "scientific_decisions_changed": false,
+  "status": "FROZEN",
+  "thresholds_changed": false
+}

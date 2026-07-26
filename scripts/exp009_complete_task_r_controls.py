@@ -535,6 +535,8 @@ paper2_functions = extract_functions(
     ],
     global_namespace={
         "np": np,
+        "CONFIDENCE_LEVEL":
+            CONFIDENCE_LEVEL,
         "average_precision_score":
             average_precision_score,
         "roc_auc_score":

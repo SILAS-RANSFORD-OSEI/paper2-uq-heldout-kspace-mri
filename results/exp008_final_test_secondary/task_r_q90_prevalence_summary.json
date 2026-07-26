@@ -1,0 +1,13 @@
+{
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20260725,
+  "ci_high": 0.37262156716795874,
+  "ci_low": 0.32955764344412897,
+  "estimate": 0.3503652721655657,
+  "maximum_volume_prevalence": 0.5250846949509587,
+  "minimum_volume_prevalence": 0.22218248780331,
+  "n_volumes": 40,
+  "task": "R",
+  "tau_hold": 1.7366089820861816,
+  "threshold": "q90"
+}

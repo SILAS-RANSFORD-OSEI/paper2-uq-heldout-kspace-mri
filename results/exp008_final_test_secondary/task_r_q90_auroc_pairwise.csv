@@ -1,0 +1,4 @@
+task,threshold,endpoint,first_method,second_method,difference_definition,observed_mean_difference,ci_low,ci_high,first_method_volume_win_rate,volume_tie_rate,bootstrap_probability_first_better,n_volumes,bootstrap_replicates,bootstrap_seed
+R,q90,auroc,U1,U2a,first_minus_second,0.2281126056090021,0.20541112518703633,0.2527014228111967,1.0,0.0,1.0,40,1000,20260725
+R,q90,auroc,U1,U2b,first_minus_second,0.1779847212769749,0.14968009257588677,0.20904241186292727,1.0,0.0,1.0,40,1000,20260725
+R,q90,auroc,U2a,U2b,first_minus_second,-0.050127884332027174,-0.06410704302250625,-0.03562053393222403,0.15,0.0,0.0,40,1000,20260725

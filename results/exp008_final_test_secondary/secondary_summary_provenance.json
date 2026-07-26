@@ -1,0 +1,25 @@
+{
+  "D_test_volumes": 40,
+  "analyses": [
+    "Task P affine diagnostic summaries",
+    "Task P affine-minus-raw paired effects",
+    "Task R q90 AUROC summaries",
+    "Task R q90 AUROC paired comparisons",
+    "Task R q90 prevalence summary"
+  ],
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "scheme": "paired volume bootstrap",
+    "seed": 20260725
+  },
+  "completed_utc": "2026-07-26T08:57:45.409698+00:00",
+  "parameters_refitted": false,
+  "pixel_level_metrics_recalculated": false,
+  "repository_commit": "24d718e54db24e7284dc4fe1d3e767776e9cd452",
+  "schema_version": "paper2-exp008-secondary-summary-v1.0",
+  "scientific_arrays_opened": 0,
+  "source": "frozen Exp008 per-volume primary records",
+  "status": "PASS",
+  "thresholds_changed": false
+}

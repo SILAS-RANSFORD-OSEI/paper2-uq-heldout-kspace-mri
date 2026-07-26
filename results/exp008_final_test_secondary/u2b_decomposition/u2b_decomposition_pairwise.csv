@@ -1,0 +1,10 @@
+task,endpoint,first_component,second_component,difference_definition,observed_mean_difference,ci_low,ci_high,first_component_volume_win_rate,volume_tie_rate,bootstrap_probability_first_better,direction,n_volumes,bootstrap_replicates,bootstrap_seed
+R,auprc,within,between,first_minus_second,0.04555217819806897,0.029823293642562313,0.062403588626805784,0.775,0.0,1.0,higher_is_better,40,1000,20260725
+R,auprc,within,total,first_minus_second,0.004107423035424201,0.0027801854599655037,0.005510246014280398,0.875,0.0,1.0,higher_is_better,40,1000,20260725
+R,auprc,between,total,first_minus_second,-0.04144475516264477,-0.05737694734392317,-0.026562912269969846,0.225,0.0,0.0,higher_is_better,40,1000,20260725
+R,auroc,within,between,first_minus_second,0.06930913269290569,0.049817059749553784,0.08912289407697686,0.85,0.0,1.0,higher_is_better,40,1000,20260725
+R,auroc,within,total,first_minus_second,0.004041263070357337,0.0032400137312054685,0.0048158193155261875,0.95,0.0,1.0,higher_is_better,40,1000,20260725
+R,auroc,between,total,first_minus_second,-0.06526786962254835,-0.08448352469576582,-0.04597753248570314,0.175,0.0,0.0,higher_is_better,40,1000,20260725
+E,normalized_ause,within,between,first_minus_second,-0.17499860657986696,-0.19556318647984186,-0.15492944792759253,1.0,0.0,1.0,lower_is_better,40,1000,20260725
+E,normalized_ause,within,total,first_minus_second,-0.00042680651446308575,-0.0008272624215989759,-3.2164846440563384e-05,0.625,0.0,0.982,lower_is_better,40,1000,20260725
+E,normalized_ause,between,total,first_minus_second,0.1745718000654039,0.15461314453261923,0.19506166468511313,0.0,0.0,0.0,lower_is_better,40,1000,20260725

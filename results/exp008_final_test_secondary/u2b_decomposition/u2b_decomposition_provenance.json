@@ -1,0 +1,29 @@
+{
+  "D_test_slices": 636,
+  "D_test_supported_pixels": 168048640,
+  "D_test_volumes": 40,
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "scheme": "paired volume bootstrap",
+    "seed": 20260725
+  },
+  "completed_utc": "2026-07-26T09:50:41.581875+00:00",
+  "components": [
+    "within",
+    "between",
+    "total"
+  ],
+  "evaluation_cohort": "locked reused D_test cohort",
+  "model_inference_performed": false,
+  "model_selection_performed": false,
+  "parameter_fitting_performed": false,
+  "repository_commit": "24d718e54db24e7284dc4fe1d3e767776e9cd452",
+  "schema_version": "paper2-exp008-u2b-decomposition-v1.0",
+  "status": "PASS",
+  "task_e_error": "absolute target_u_hold minus u2b_mean",
+  "task_e_metric": "frozen per-volume normalized AUSE",
+  "task_r_threshold": 1.7366089820861816,
+  "threshold_selection_performed": false,
+  "total_component_source": "frozen Exp008 primary U2b records"
+}

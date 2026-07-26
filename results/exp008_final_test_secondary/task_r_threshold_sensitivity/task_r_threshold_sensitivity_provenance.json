@@ -1,0 +1,42 @@
+{
+  "D_test_slices": 636,
+  "D_test_supported_pixels": 168048640,
+  "D_test_volumes": 40,
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "scheme": "paired volume bootstrap",
+    "seed": 20260725
+  },
+  "completed_utc": "2026-07-26T09:27:12.843502+00:00",
+  "evaluation_cohort": "locked reused D_test cohort",
+  "methods": [
+    "U1",
+    "U2a",
+    "U2b"
+  ],
+  "model_selection_performed": false,
+  "model_training_performed": false,
+  "new_model_inference_performed": false,
+  "parameter_fitting_performed": false,
+  "q90_primary_reproduction": {
+    "maximum_auprc_absolute_difference": 1.3322676295501878e-15,
+    "maximum_auroc_absolute_difference": 1.6653345369377348e-15,
+    "status": "PASS"
+  },
+  "repository_commit": "24d718e54db24e7284dc4fe1d3e767776e9cd452",
+  "schema_version": "paper2-exp008-task-r-threshold-sensitivity-v1.0",
+  "status": "PASS",
+  "threshold_selection_performed": false,
+  "threshold_source": "frozen D_cal quantiles",
+  "thresholds": {
+    "q85": 1.4107755422592163,
+    "q90": 1.7366089820861816,
+    "q95": 2.0520856380462646
+  },
+  "uncertainty_fields": {
+    "U1": "u1_variance",
+    "U2a": "u2a_between_model_variance",
+    "U2b": "u2b_total_predictive_variance"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "completed_analyses": [
+    "Task P affine calibration diagnostic",
+    "Task R q90 AUROC diagnostic",
+    "Task R frozen q85-q90-q95 sensitivity",
+    "U2b within-between-total decomposition"
+  ],
+  "created_utc": "2026-07-26T10:04:19.242788+00:00",
+  "descriptor_baseline_decision": {
+    "reason": "No independent descriptor baseline was defined by the frozen experimental contracts. Creating one after viewing final results would be post-hoc.",
+    "status": "NOT_PERFORMED"
+  },
+  "evaluation_cohort": "locked reused D_test cohort",
+  "files": {
+    "results/exp008_final_test_secondary/COMPLETE_50A": {
+      "sha256": "cef118b84913d9d2a54e429c1d12a8c8f7c94a7ed276209039bcb43e12d0d948",
+      "size_bytes": 94,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/COMPLETE_50A"
+    },
+    "results/exp008_final_test_secondary/secondary_summary_provenance.json": {
+      "sha256": "979e47ed2ee405f25c53794c329d5be8886b173804d09ecf6c4d1647e51cff00",
+      "size_bytes": 785,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/secondary_summary_provenance.json"
+    },
+    "results/exp008_final_test_secondary/task_p_affine_diagnostic_summary.csv": {
+      "sha256": "e3e042bf6bf6bc9278e62b6fc32a031309d794d6b1490f424f41cf8ae07b61ee",
+      "size_bytes": 1892,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_p_affine_diagnostic_summary.csv"
+    },
+    "results/exp008_final_test_secondary/task_p_affine_minus_raw_effect.csv": {
+      "sha256": "d062999e22bcf95b704ec4bc244c3dbfaeea62eb4ef6e4bf0d54eab1e02c9cae",
+      "size_bytes": 1126,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_p_affine_minus_raw_effect.csv"
+    },
+    "results/exp008_final_test_secondary/task_r_q90_auroc_pairwise.csv": {
+      "sha256": "2a8c6843d61599be71c6aa8f4d43ab923af2c6d65b612c96c9e60bd077ba16c8",
+      "size_bytes": 623,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_q90_auroc_pairwise.csv"
+    },
+    "results/exp008_final_test_secondary/task_r_q90_auroc_summary.csv": {
+      "sha256": "a3339229caec3d25471e8298f079736615f9f2794aa2f66dcaae84e49e28423c",
+      "size_bytes": 494,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_q90_auroc_summary.csv"
+    },
+    "results/exp008_final_test_secondary/task_r_q90_prevalence_summary.json": {
+      "sha256": "b7ba2441f2e187e99306dab90844b90df2a5d510708bed6eb61265886d5dc6f1",
+      "size_bytes": 355,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_q90_prevalence_summary.json"
+    },
+    "results/exp008_final_test_secondary/task_r_threshold_sensitivity/COMPLETE_50B": {
+      "sha256": "24e8d77fe1053e77e43627e3efb71de6b87f9ea4e3f2b4e1d78a1767e495d0ec",
+      "size_bytes": 94,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_threshold_sensitivity/COMPLETE_50B"
+    },
+    "results/exp008_final_test_secondary/task_r_threshold_sensitivity/task_r_threshold_prevalence.csv": {
+      "sha256": "7a2d06c3f7be7f1e4524819ec7e4b1dda7f0473d7b89c0cd67dd80a16b323c9e",
+      "size_bytes": 570,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_threshold_sensitivity/task_r_threshold_prevalence.csv"
+    },
+    "results/exp008_final_test_secondary/task_r_threshold_sensitivity/task_r_threshold_sensitivity_pairwise.csv": {
+      "sha256": "50b6a5d420936e31233136d17ab186f79ceaa50c211df6c1496979e75933adc6",
+      "size_bytes": 2909,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_threshold_sensitivity/task_r_threshold_sensitivity_pairwise.csv"
+    },
+    "results/exp008_final_test_secondary/task_r_threshold_sensitivity/task_r_threshold_sensitivity_per_volume.csv": {
+      "sha256": "7f582e1b82236ac3f85e42af3e35d114708e54f63ade6c3060d2e9041a59fc0e",
+      "size_bytes": 63047,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_threshold_sensitivity/task_r_threshold_sensitivity_per_volume.csv"
+    },
+    "results/exp008_final_test_secondary/task_r_threshold_sensitivity/task_r_threshold_sensitivity_provenance.json": {
+      "sha256": "1b3853468bf6bdd67412e4a5ef1a307d3c77ad193e756bbef3977a43320d61b8",
+      "size_bytes": 1236,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_threshold_sensitivity/task_r_threshold_sensitivity_provenance.json"
+    },
+    "results/exp008_final_test_secondary/task_r_threshold_sensitivity/task_r_threshold_sensitivity_summary.csv": {
+      "sha256": "437b0a348abc6cc6b8f6d0d366b70c9f3ad917a08f6e7d49ea0a866ed540b9d7",
+      "size_bytes": 2386,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/task_r_threshold_sensitivity/task_r_threshold_sensitivity_summary.csv"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/COMPLETE_50C": {
+      "sha256": "38a6100e406ff8b10e73d97deba81db6b5625071034364de3940930533a3cb61",
+      "size_bytes": 94,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/COMPLETE_50C"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/u2b_decomposition_pairwise.csv": {
+      "sha256": "e2fdd9b48faf629642ff5fc713f2ed3d2e3ba9412a25b797b49178feea08d7ec",
+      "size_bytes": 1644,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/u2b_decomposition_pairwise.csv"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/u2b_decomposition_per_volume.csv": {
+      "sha256": "650116cdb66d755a615dbfbb6bafc40d8892670ce1f8430d581a3f7053c69469",
+      "size_bytes": 16652,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/u2b_decomposition_per_volume.csv"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/u2b_decomposition_provenance.json": {
+      "sha256": "a031746cca42744c090661ec0d8b3f3cc708b5f0e22896355baffcf2ed74b3a6",
+      "size_bytes": 928,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/u2b_decomposition_provenance.json"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/u2b_decomposition_summary.csv": {
+      "sha256": "01c462de39d84271302383e3e7a1fa82e2a9bfdd172486bc3d94483df13a6e4b",
+      "size_bytes": 1087,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/u2b_decomposition_summary.csv"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/u2b_variance_composition_per_volume.csv": {
+      "sha256": "81b9365c49b473d4dea828ffc5c5af9543c9e10476844946d426177457963c1c",
+      "size_bytes": 9949,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/u2b_variance_composition_per_volume.csv"
+    },
+    "results/exp008_final_test_secondary/u2b_decomposition/u2b_variance_composition_summary.json": {
+      "sha256": "1a4b25c3f5901d6eb96f15a0720cf229e62be74c64aab4456b99832927a84330",
+      "size_bytes": 705,
+      "source_path": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_secondary/commit24d718e54db2/u2b_decomposition/u2b_variance_composition_summary.json"
+    }
+  },
+  "key_results": {
+    "q85_U1_auprc": 0.856402,
+    "q90_U1_auprc": 0.714307,
+    "q90_U1_auroc": 0.840965,
+    "q95_U1_auprc": 0.481641,
+    "u2b_between_task_E_ause": 0.471323,
+    "u2b_global_between_fraction": 0.017659,
+    "u2b_global_within_fraction": 0.982341,
+    "u2b_total_task_E_ause": 0.296751,
+    "u2b_within_task_E_ause": 0.296325
+  },
+  "metrics_recalculated_during_archive": false,
+  "parent_repository_commit": "24d718e54db24e7284dc4fe1d3e767776e9cd452",
+  "primary_interpretations": {
+    "task_E": "U2b total predictive uncertainty remained the strongest primary method for self-error ranking.",
+    "task_P": "Raw prediction accuracy remains primary; affine calibration materially improved only U1 MAE.",
+    "task_R": "U1 remained the strongest high residual-risk detector across q85, q90 and q95.",
+    "u2b_decomposition": "Within-model predictive variance accounted for approximately 98.2% of U2b total variance and drove its ranking performance."
+  },
+  "schema_version": "paper2-exp008-secondary-results-freeze-v1.0",
+  "scientific_arrays_opened_during_archive": 0,
+  "status": "FROZEN"
+}

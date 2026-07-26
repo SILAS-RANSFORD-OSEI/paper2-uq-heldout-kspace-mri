@@ -1,0 +1,15 @@
+{
+  "global_between_fraction": 0.017659352317883317,
+  "global_weighted_between_mean": 0.0014123463368506714,
+  "global_weighted_total_mean": 0.0799772444327085,
+  "global_weighted_within_mean": 0.07856489809638112,
+  "global_within_fraction": 0.9823406476886598,
+  "mean_volume_between_fraction": 0.01787704575372987,
+  "mean_volume_between_fraction_ci_high": 0.019273330590294523,
+  "mean_volume_between_fraction_ci_low": 0.016733861964831356,
+  "mean_volume_within_fraction": 0.9821229542513589,
+  "mean_volume_within_fraction_ci_high": 0.9832661380352362,
+  "mean_volume_within_fraction_ci_low": 0.9807266694194239,
+  "n_volumes": 40,
+  "schema_version": "paper2-exp008-u2b-composition-summary-v1.0"
+}

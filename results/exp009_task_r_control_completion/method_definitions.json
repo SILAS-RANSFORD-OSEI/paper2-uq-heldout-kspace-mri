@@ -1,0 +1,42 @@
+{
+  "added_methods": [
+    "C0",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "definitions": {
+    "B1": "Paper 1 cache channel 0: normalized reconstruction magnitude |x_hat|.",
+    "B2": "Paper 1 cache channel 1: normalized zero-filled magnitude |x0|.",
+    "B3": "Paper 1 cache channel 2: normalized intervention magnitude |x_hat - x0|.",
+    "B4": "Finite-difference gradient magnitude of B1, using the committed Paper 1 gradient_magnitude_2d implementation.",
+    "B5": "Paper 1 cache channel 4: analytical Cartesian PSF.",
+    "B6": "Paper 1 cache channel 5: normalized sensitivity-aware q_PSF / gain envelope.",
+    "C0": "Frozen deterministic Paper 2 C0 mean prediction stored as c0_mean.",
+    "U1": "Frozen MC-dropout variance; existing Exp008 Task R record reused without recalculation.",
+    "U2a": "Frozen point-ensemble between-model variance; existing Exp008 Task R record reused without recalculation.",
+    "U2b": "Frozen probabilistic-ensemble total predictive variance; existing Exp008 Task R record reused without recalculation."
+  },
+  "direction_freeze": "Larger raw values submitted as higher Task R scores; no sign flipping or test-dependent transformation.",
+  "frozen_reused_methods": [
+    "U1",
+    "U2a",
+    "U2b"
+  ],
+  "method_order": [
+    "C0",
+    "U1",
+    "U2a",
+    "U2b",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "schema_version": "exp009-task-r-controls-methods-v1.0"
+}

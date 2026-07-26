@@ -1,0 +1,121 @@
+{
+  "D_test_pixels": 168048640,
+  "D_test_slices": 636,
+  "D_test_volumes": 40,
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "replicates": 1000,
+    "seed": 20260725,
+    "summary_rule": "unweighted mean of 40 per-volume support-weighted endpoints",
+    "summary_unit": "volume"
+  },
+  "completed_utc": "2026-07-26T20:11:32.053004+00:00",
+  "confirmatory_claim": false,
+  "elapsed_seconds": 1217.5903985500336,
+  "experiment_id": "exp009_task_r_control_completion",
+  "frozen_input_sources": {
+    "aligned_u_hold_chunks": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp006_dtest_final/release_pending/uhold_outputs/aligned_chunks",
+    "frozen_pairwise_differences": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/paired_method_differences.csv",
+    "frozen_primary_summary": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/primary_endpoint_summary.csv",
+    "frozen_task_r_per_volume": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/task_r_per_volume.csv",
+    "frozen_volume_win_rates": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp008_final_test_primary/commit58020824270a/volume_level_win_rates.csv",
+    "neural_chunks": "/content/drive/MyDrive/Paper2_UQ_Heldout_KSpace_MRI/outputs/exp006_dtest_final/release_pending/neural_outputs/chunks",
+    "paper1_test_cache": "/content/drive/MyDrive/FOUR WAY MRI RESEARCH/outputs/exp007_train_reliability_cnn_v2_full/exp006_reliability_cache_full/cache/test"
+  },
+  "governance": {
+    "descriptor_sign_selection_performed": false,
+    "descriptor_transformation_selection_performed": false,
+    "existing_exp008_outputs_modified": false,
+    "model_inference_performed": false,
+    "model_training_performed": false,
+    "target_regeneration_performed": false,
+    "threshold_selection_performed": false
+  },
+  "gradient_implementation": {
+    "signature": "(image)",
+    "source": "/content/fourway-ssdu-reliability-mri-v2/scripts/exp009_holdout_verification.py",
+    "source_sha256": "556d00e6fa67c8fdc4446fe3d7e3ba4937c9012529e3f9eff1aff46a05c88bb7"
+  },
+  "methods": {
+    "added": [
+      "C0",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ],
+    "all": [
+      "C0",
+      "U1",
+      "U2a",
+      "U2b",
+      "B1",
+      "B2",
+      "B3",
+      "B4",
+      "B5",
+      "B6"
+    ],
+    "reused_without_recalculation": [
+      "U1",
+      "U2a",
+      "U2b"
+    ]
+  },
+  "metric_implementations": {
+    "signatures": {
+      "gradient_magnitude_2d": "(image)",
+      "percentile_interval": "(values)",
+      "weighted_average_precision": "(labels, scores, weights)",
+      "weighted_mean": "(values, weights)",
+      "weighted_roc_auc": "(labels, scores, weights)"
+    },
+    "source": "/content/paper2-uq-heldout-kspace-mri/scripts/exp008_run_final_test.py",
+    "source_sha256": "43d97018dc19f71a47e5966dd9af7417b2b47a24ab084110a3bd12db6225a9b1"
+  },
+  "output_files": {
+    "method_definitions.json": {
+      "sha256": "078ecb0225d50a9648a5aea590e8bb7ac08db40896abb7dcd9cfdd3790084238",
+      "size_bytes": 1455
+    },
+    "task_r_paired_method_differences_extended.csv": {
+      "sha256": "9292009edc7a9c419a087e39970f2a2cf9b1ad39ba8dc01341ba08dc5dd852ff",
+      "size_bytes": 5989
+    },
+    "task_r_per_volume_extended.csv": {
+      "sha256": "d6604213173031e3d225392bdd70c77d91a1024b1259be8d257278cfea5bc4fc",
+      "size_bytes": 54720
+    },
+    "task_r_primary_summary_extended.csv": {
+      "sha256": "6011b0375e30ec2d54b4cd50b583717b9ef581ab79a37307a77b8b37b7de28c3",
+      "size_bytes": 1191
+    },
+    "task_r_secondary_summary_extended.csv": {
+      "sha256": "2b182508b1fb018b7428e6b2e09f8b787dbbe21128de3f1f20375f9fe2fed385",
+      "size_bytes": 1184
+    },
+    "task_r_volume_level_win_rates_extended.csv": {
+      "sha256": "ffa9c5f3e8e5dfec8c2ecbcde1184cdaea2ef0c72c14066d50a6c74b14a90a0c",
+      "size_bytes": 2031
+    }
+  },
+  "paper1_repository_commit": "da563ead8fb653539e1eeca29248b31f0121ca12",
+  "parent_governance_commit": "ccd3be856a7150a8c513efa3713954c90fb783d1",
+  "repository_branch": "retrospective-task-r-controls-v1.0",
+  "repository_commit": "8f636f2a64e4036fcbe6e0f2abaee787d99584e1",
+  "schema_version": "exp009-task-r-control-completion-v1.0",
+  "scientific_status": "retrospective completion of omitted prespecified Task R controls",
+  "started_utc": "2026-07-26T19:51:14.462596+00:00",
+  "tau_hold": 1.7366089820861816,
+  "validation": {
+    "common_volume_fields_reproduced": true,
+    "frozen_U_pairwise_results_reproduced": true,
+    "frozen_U_primary_summaries_reproduced": true,
+    "frozen_U_win_rates_reproduced": true,
+    "full_cross_paper_alignment_passed": true,
+    "support_maximum_difference": 0.0,
+    "target_maximum_difference": 0.0
+  }
+}

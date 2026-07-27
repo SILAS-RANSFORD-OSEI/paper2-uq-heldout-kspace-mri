@@ -1,6 +1,6 @@
 # Paper 2: Uncertainty versus Held-Out K-Space Residual Risk
 
-## Working title
+##  title
 
 **Benchmarking model-derived uncertainty against held-out k-space
 residual risk in self-supervised accelerated MRI reconstruction**
@@ -15,27 +15,12 @@ in self-supervised accelerated brain MRI?
 
 Paper 1 introduced a four-way acquired k-space partition:
 
-\[
-\Omega^{\mathrm{acq}}_v
-=
-\Theta_v
-\cup
-\Lambda_{\mathrm{rec},v}
-\cup
-\Lambda_{\mathrm{risk},v}
-\cup
-\Lambda_{\mathrm{hold},v}.
-\]
+$$[\Omega^{\mathrm{acq}}_v=\Theta_v\cup\Lambda_{\mathrm{rec},v}\cup\Lambda_{\mathrm{risk},v}\cup\Lambda_{\mathrm{hold},v}.\] $$
 
 Paper 2 uses the independent target derived from
-\(\Lambda_{\mathrm{hold},v}\) to benchmark uncertainty scores.
+$$(\Lambda_{\mathrm{hold},v}\)$$ to benchmark uncertainty scores.
 
-Paper 2 does **not** claim that the held-out residual-risk target is:
 
-- true image-domain reconstruction error;
-- clinical uncertainty;
-- diagnostic ground truth;
-- a guarantee of reconstruction safety.
 
 ## Core methods
 
@@ -52,28 +37,20 @@ Paper 2 does **not** claim that the held-out residual-risk target is:
 ### Task P — prediction quality
 
 Evaluates the mean residual-risk prediction against the independent
-target \(u_{\mathrm{hold},v}\).
+target $$(u_{\mathrm{hold},v}\)$$.
 
 ### Task R — residual-risk localization
 
-Evaluates whether uncertainty score \(U_{j,v}\) identifies pixels or
-pooled regions with elevated \(u_{\mathrm{hold},v}\).
+Evaluates whether uncertainty score $$(U_{j,v}\)$$ identifies pixels or
+pooled regions with elevated $$(u_{\mathrm{hold},v}\)$$.
 
 Primary endpoint: calibration-fixed high-risk AUPRC.
 
 ### Task E — prediction-error awareness
 
-Evaluates whether \(U_{j,v}\) ranks the absolute prediction deviation
+Evaluates whether $$(U_{j,v}\)$$ ranks the absolute prediction deviation
 
-\[
-d_{j,v}
-=
-\left|
-u_{\mathrm{hold},v}
--
-\mu_{j,v}
-\right|.
-\]
+$$ [d_{j,v} =\left|u_{\mathrm{hold},v}-\mu_{j,v}\right|]$$
 
 Primary endpoint: normalized area under the sparsification error curve
 (AUSE).
@@ -84,10 +61,10 @@ The preferred Paper 2 split is:
 
 | Cohort | Volumes | Use |
 |---|---:|---|
-| \(D_{\mathrm{fit}}\) | 181 | Model fitting |
-| \(D_{\mathrm{dev}}\) | 20 | Early stopping and method development |
-| \(D_{\mathrm{cal}}\) | 40 | Threshold and interval calibration |
-| \(D_{\mathrm{test}}\) | 40 | Final independent internal testing |
+| $$(D_{\mathrm{fit}}\)$$ | 181 | Model fitting |
+| $$(D_{\mathrm{dev}}\)$$ | 20 | Early stopping and method development |
+| $$(D_{\mathrm{cal}}\)$$ | 40 | Threshold and interval calibration |
+| $$(D_{\mathrm{test}})$$ | 40 | Final independent internal testing |
 
 The final test cohort remains closed until all models, thresholds,
 metrics, seeds, and calibration artifacts are frozen.
@@ -109,12 +86,3 @@ metrics, seeds, and calibration artifacts are frozen.
 
 Repository foundation stage.
 
-No Paper 2 model has been trained and no final Paper 2 test result has
-been inspected.
-
-## Hardware progression
-
-- Repository creation, audits, split generation, and unit tests: CPU.
-- C0 and initial U1 development: T4 or L4 GPU.
-- Final five-member ensembles: L4, A100, or sequential T4 training,
-  depending on measured memory and runtime.

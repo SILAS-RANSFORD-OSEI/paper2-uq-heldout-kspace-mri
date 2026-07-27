@@ -1,5 +1,4 @@
 cff-version: 1.2.0
-message: "Please cite the associated manuscript and software release."
 title: "Paper 2: Uncertainty versus Held-Out K-Space Residual Risk"
 type: software
 authors:

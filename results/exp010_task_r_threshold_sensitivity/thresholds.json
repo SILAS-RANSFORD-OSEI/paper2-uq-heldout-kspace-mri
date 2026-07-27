@@ -1,0 +1,10 @@
+{
+  "q90_reference": 1.7366089820861816,
+  "schema_version": "exp010-task-r-thresholds-v1.0",
+  "selection_on_D_test": false,
+  "source": "frozen D_cal quantiles",
+  "thresholds": {
+    "q85": 1.4107755422592163,
+    "q95": 2.0520856380462646
+  }
+}

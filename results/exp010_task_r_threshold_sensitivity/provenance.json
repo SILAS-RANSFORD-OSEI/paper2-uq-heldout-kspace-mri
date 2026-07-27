@@ -1,0 +1,90 @@
+{
+  "D_test_pixels": 168048640,
+  "D_test_slices": 636,
+  "D_test_volumes": 40,
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "paired_indices_shared_across_methods": true,
+    "paired_indices_shared_across_thresholds": true,
+    "replicates": 1000,
+    "seed": 20260725,
+    "summary_unit": "volume"
+  },
+  "completed_utc": "2026-07-26T23:53:56.304162+00:00",
+  "confirmatory_claim": false,
+  "elapsed_seconds": 2274.488076210022,
+  "experiment_id": "exp010_task_r_threshold_sensitivity",
+  "governance": {
+    "exp009_q90_results_modified": false,
+    "model_inference_performed": false,
+    "model_training_performed": false,
+    "reconstruction_performed": false,
+    "score_sign_selection_performed": false,
+    "score_transformation_selection_performed": false,
+    "target_regeneration_performed": false,
+    "threshold_selection_performed": false
+  },
+  "methods": [
+    "C0",
+    "U1",
+    "U2a",
+    "U2b",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "metric_implementations": {
+    "paper1_gradient_source": "/content/fourway-ssdu-reliability-mri-v2/scripts/exp009_holdout_verification.py",
+    "paper1_gradient_source_sha256": "556d00e6fa67c8fdc4446fe3d7e3ba4937c9012529e3f9eff1aff46a05c88bb7",
+    "paper2_source": "/content/paper2-uq-heldout-kspace-mri/scripts/exp008_run_final_test.py",
+    "paper2_source_sha256": "43d97018dc19f71a47e5966dd9af7417b2b47a24ab084110a3bd12db6225a9b1",
+    "signatures": {
+      "gradient_magnitude_2d": "(image)",
+      "percentile_interval": "(values)",
+      "weighted_average_precision": "(labels, scores, weights)",
+      "weighted_mean": "(values, weights)",
+      "weighted_roc_auc": "(labels, scores, weights)"
+    }
+  },
+  "output_files": {
+    "task_r_sensitivity_paired_differences.csv": {
+      "sha256": "fc049a50568b1108a17045d1d936df4cd47c6729b3c0fd20a31ded757aeb25e1",
+      "size_bytes": 13906
+    },
+    "task_r_sensitivity_per_volume.csv": {
+      "sha256": "6cf9877f75f6709280f4919fb691f7e6d342c808030038a594b48b7c1e1f494a",
+      "size_bytes": 113035
+    },
+    "task_r_sensitivity_primary_summary.csv": {
+      "sha256": "0bbfc641fb5311d5a133f4642739e6bf61b6fce180288c1736ab0f69edae8f1e",
+      "size_bytes": 2758
+    },
+    "task_r_sensitivity_secondary_summary.csv": {
+      "sha256": "06f3f06b1af0270b1e32af3686b7ed50cdb26b8d2db200c3337a81dd74993f0c",
+      "size_bytes": 2748
+    },
+    "task_r_sensitivity_win_rates.csv": {
+      "sha256": "44e7d026544afba13344e77b0d517d8be5dd8ce5e73191e6ae5868a8756c09e2",
+      "size_bytes": 6071
+    },
+    "thresholds.json": {
+      "sha256": "65fa797b45b092a660d67fc6882ed386dcb71cb166cf9a5e5e9d33b2155e8e41",
+      "size_bytes": 249
+    }
+  },
+  "paper1_repository_commit": "da563ead8fb653539e1eeca29248b31f0121ca12",
+  "parent_result_commit": "7cc55768141c9a538d5a9647d17cde7b3dc84182",
+  "q90_reference": 1.7366089820861816,
+  "repository_branch": "retrospective-task-r-controls-v1.0",
+  "repository_commit": "a03686e028fd8b5397fb54043e1e2c41244060bd",
+  "schema_version": "exp010-task-r-threshold-sensitivity-v1.0",
+  "scientific_status": "retrospective frozen-threshold sensitivity analysis",
+  "started_utc": "2026-07-26T23:16:01.816056+00:00",
+  "thresholds": {
+    "q85": 1.4107755422592163,
+    "q95": 2.0520856380462646
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-07-27T00:07:53.652899+00:00",
+  "experiment_id": "exp011_task_r_consolidated_table",
+  "governance": {
+    "metrics_recalculated": false,
+    "model_inference_performed": false,
+    "model_training_performed": false,
+    "scientific_arrays_opened": false,
+    "thresholds_changed": false
+  },
+  "methods": [
+    "C0",
+    "U1",
+    "U2a",
+    "U2b",
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "output_files": {
+    "task_r_auprc_consolidated_long.csv": {
+      "sha256": "1ba7e41269ba9670b1a2b164b2f5419eadda2a27eb1bea90ab44a50c8db1c53e",
+      "size_bytes": 3782
+    },
+    "task_r_auprc_consolidated_manuscript.csv": {
+      "sha256": "142f0112737bcb4a34aa12843b33371a3e1581a2a71fb560d03cfbaf4d6edd71",
+      "size_bytes": 3157
+    },
+    "task_r_auprc_consolidated_table.md": {
+      "sha256": "d2460b90fd199d65c7ebd47cc6828783f74f5ca17a3dcb047f0c97ec3f7dd0b9",
+      "size_bytes": 1923
+    },
+    "task_r_auprc_consolidated_table.tex": {
+      "sha256": "8a861bb9c5d13c1e75e7c7b1710bfefad020c36fa2bedfe9dd961019c31bb235",
+      "size_bytes": 2188
+    }
+  },
+  "parent_result_commit": "bd8a02b3352ebb11bc3f424175e34042e61dfc57",
+  "records": 30,
+  "repository_commit": "ca2eebb1ae012c8b28df8062fa7ca4f4d096c792",
+  "schema_version": "exp011-task-r-consolidated-table-v1.0",
+  "source_files": {
+    "results/exp009_task_r_control_completion/task_r_primary_summary_extended.csv": {
+      "sha256": "6011b0375e30ec2d54b4cd50b583717b9ef581ab79a37307a77b8b37b7de28c3"
+    },
+    "results/exp010_task_r_threshold_sensitivity/task_r_sensitivity_primary_summary.csv": {
+      "sha256": "0bbfc641fb5311d5a133f4642739e6bf61b6fce180288c1736ab0f69edae8f1e"
+    }
+  },
+  "thresholds": {
+    "q85": 1.4107755422592163,
+    "q90": 1.7366089820861816,
+    "q95": 2.0520856380462646
+  }
+}
